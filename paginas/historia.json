@@ -1,0 +1,154 @@
+{
+"175486": [
+"Cantor, Peano y la notación de conjuntos",
+"La teoría de conjuntos nació con Georg Cantor, que entre 1874 y 1897 se atrevió a tratar los conjuntos infinitos como objetos matemáticos y descubrió algo que escandalizó a muchos de sus contemporáneos: hay infinitos «más grandes» que otros (hay más números reales que naturales). La notación que usamos se fue fijando poco a poco. El símbolo \\(\\in\\) lo introdujo Giuseppe Peano en 1889, a partir de la letra griega épsilon, inicial de <em>estí</em> («es»), y también se deben a él los signos de unión e intersección (1888). Los diagramas de Venn son de John Venn (1880), y el símbolo \\(\\emptyset\\) del conjunto vacío lo propuso André Weil en 1939, inspirándose en la letra noruega Ø. Poco después de Cantor, Bertrand Russell encontró una paradoja (1901), la del «conjunto de todos los conjuntos que no se contienen a sí mismos», que obligó a reconstruir la teoría sobre axiomas precisos, tarea que inició Ernst Zermelo en 1908."
+],
+"175487": [
+"de Euclides a la inducción",
+"La idea de demostrar, es decir, de deducir resultados a partir de unos pocos principios aceptados, es griega. Aristóteles (siglo IV a. C.) estudió las reglas del razonamiento correcto, y los <em>Elementos</em> de Euclides (hacia el 300 a. C.) organizaron toda la geometría conocida así; allí está, por ejemplo, la demostración por reducción al absurdo de que hay infinitos números primos, que seguimos enseñando igual 2300 años después. La inducción se usó de forma implícita desde la Edad Media (al-Karají, hacia el año 1000; Maurolico, en 1575), pero la primera formulación clara es de Blaise Pascal en su <em>Tratado del triángulo aritmético</em> (escrito en 1654), y el nombre de «inducción matemática» lo acuñó Augustus De Morgan en 1838. La lógica se volvió simbólica con George Boole (1847–1854), y los cuantificadores son muy recientes: \\(\\exists\\) lo introdujo Peano en 1897 y \\(\\forall\\), Gerhard Gentzen en 1935."
+],
+"175491": [
+"la joya de Euler y los circuitos de corriente alterna",
+"La fórmula \\(e^{i\\theta}=\\cos\\theta+i\\operatorname{sen}\\theta\\) aparece en la <em>Introductio in analysin infinitorum</em> de Leonhard Euler (1748), aunque Roger Cotes había llegado en 1714 a un resultado equivalente escrito con logaritmos. Curiosamente, Euler no llegó a escribir explícitamente \\(e^{i\\pi}+1=0\\). La interpretación de los complejos como puntos del plano, que hace evidente que multiplicar es girar, llegó después, con Caspar Wessel (1799), Jean-Robert Argand (1806) y Gauss. Y el uso de los fasores en ingeniería tiene padre: Charles Steinmetz, ingeniero de General Electric, presentó en 1893 el cálculo de circuitos de corriente alterna con números complejos, que convirtió ecuaciones diferenciales engorrosas en simples operaciones algebraicas."
+],
+"175492": [
+"De Moivre, Gauss y la ecuación de quinto grado",
+"Abraham de Moivre, un hugonote francés refugiado en Londres que se ganaba la vida resolviendo problemas de apuestas en los cafés, publicó la fórmula que lleva su nombre a principios del siglo XVIII. El teorema fundamental del álgebra tuvo varios intentos de demostración (d'Alembert, 1746; Euler; Lagrange), pero la primera demostración considerada esencialmente correcta fue la de la tesis doctoral de Carl Friedrich Gauss, en 1799, con 22 años; Gauss volvió sobre el teorema durante toda su vida y llegó a publicar cuatro demostraciones. El teorema dice que las raíces existen, pero no cómo calcularlas: en 1824, Niels Henrik Abel demostró que no hay ninguna fórmula con radicales para resolver la ecuación general de grado 5 o superior. Por eso, en la práctica, las raíces de polinomios de grado alto se calculan con métodos numéricos."
+],
+"175494": [
+"por qué el producto de matrices es tan raro",
+"La regla «fila por columna» parece arbitraria, pero tiene un origen muy concreto. Arthur Cayley la definió en 1858 pensando en las <strong>sustituciones lineales</strong>: si las variables \\((x,y)\\) se cambian por combinaciones lineales de \\((u,v)\\), y estas a su vez por combinaciones de \\((s,t)\\), los coeficientes del cambio total salen exactamente del producto de las dos tablas de coeficientes. El producto de matrices es, por tanto, la composición de dos transformaciones, y por eso no es conmutativo: no da igual el orden en que se hacen. Una anécdota: en 1925, el joven Werner Heisenberg construyó la mecánica cuántica con unas «tablas de números» que no conmutaban sin saber que eran matrices; fue Max Born quien reconoció en ellas el álgebra de Cayley."
+],
+"175496": [
+"el método de Gauss tiene 2000 años",
+"El método que llamamos «de Gauss» aparece ya en el capítulo octavo del libro chino <em>Los nueve capítulos sobre el arte matemático</em>, compilado entre los siglos II a. C. y I d. C. Sus autores colocaban los coeficientes de cada ecuación en columnas con varillas de contar sobre un tablero (es decir, escribían la matriz ampliada) y hacían ceros restando columnas, incluso manejando números negativos, que en Europa no se aceptaron hasta muchos siglos después. Gauss sistematizó el método hacia 1810 para ajustar por mínimos cuadrados la órbita del asteroide Palas, y el nombre de «eliminación gaussiana» se le asignó ya en el siglo XX. La variante de Gauss-Jordan no se debe al matemático Camille Jordan, sino al geodesta alemán Wilhelm Jordan (1888), que la usaba en sus cálculos topográficos."
+],
+"175497": [
+"Cramer, Cayley y las inversas",
+"La regla de Cramer la publicó Gabriel Cramer en 1750, en un libro sobre curvas algebraicas: quería encontrar la curva (por ejemplo, la cónica) que pasa por unos puntos dados, lo que lleva a un sistema lineal; Colin Maclaurin había llegado a la misma regla unos años antes. La matriz inversa, en cambio, llegó un siglo más tarde con el álgebra de matrices de Arthur Cayley (1858), que dio la fórmula de la inversa mediante la matriz adjunta y el determinante. Hoy, curiosamente, ni la regla de Cramer ni la fórmula de la adjunta se usan para resolver sistemas grandes en un ordenador: el número de operaciones crece demasiado, y los programas de cálculo (como los de simulación de procesos químicos) usan variantes del método de Gauss."
+],
+"175333": [
+"el ajedrez y los granos de trigo",
+"Las progresiones son de los primeros objetos matemáticos de los que hay registro. El papiro de Rhind (Egipto, hacia el 1650 a. C.) contiene un problema con una progresión geométrica de razón 7: siete casas, cada una con siete gatos, cada gato caza siete ratones… Y una leyenda india cuenta que el inventor del ajedrez pidió como recompensa un grano de trigo por la primera casilla del tablero, dos por la segunda, cuatro por la tercera, y así sucesivamente. El rey aceptó creyendo que era poco, pero el total, \\(2^{64}-1\\approx1.8\\cdot10^{19}\\) granos, supera con mucho todo el trigo que se ha cosechado en la historia. Es la mejor ilustración de la diferencia entre crecer sumando (aritmética) y crecer multiplicando (geométrica)."
+],
+"175334": [
+"de los conejos a la razón áurea",
+"Leonardo de Pisa, Fibonacci, popularizó en Europa los números indoarábigos con su <em>Liber Abaci</em> (1202), y en ese libro planteó el problema de los conejos que da lugar a su famosa sucesión, aunque esa sucesión ya era conocida por matemáticos indios siglos antes. Johannes Kepler observó en 1611 que el cociente entre términos consecutivos se acerca a la razón áurea. La fórmula explícita que obtendremos resolviendo la ecuación en diferencias se conoce como fórmula de Binet (1843), aunque Abraham de Moivre ya la había encontrado en 1730 con una técnica muy parecida a la que usamos aquí."
+],
+"175335": [
+"fantasmas de cantidades difuntas",
+"Newton y Leibniz construyeron el cálculo en el siglo XVII sin una definición precisa de límite: razonaban con cantidades «infinitamente pequeñas» que unas veces eran cero y otras no. El obispo George Berkeley se burló de ellas en 1734 llamándolas «fantasmas de cantidades difuntas», y tenía parte de razón. La respuesta llegó en el siglo XIX: Bernard Bolzano (1817) y Augustin-Louis Cauchy (1821) basaron el cálculo en la idea de límite, y Karl Weierstrass, en sus clases de los años 1850–1860, le dio la forma rigurosa con \\(\\varepsilon\\) que estudiamos en esta sección. Fue el momento en que el cálculo pasó de funcionar a estar demostrado."
+],
+"175336": [
+"la regla que L'Hôpital compró",
+"El símbolo «lim» lo introdujo Simon L'Huilier en 1786. En cuanto a las indeterminaciones, la famosa regla de L'Hôpital tiene una historia curiosa: el marqués de L'Hôpital publicó en 1696 el primer libro de texto de cálculo diferencial, pero buena parte de su contenido, incluida la regla, se la había enseñado Johann Bernoulli a cambio de un sueldo, con el compromiso de que L'Hôpital podría usar sus resultados como quisiera. Tras la muerte del marqués, Bernoulli reclamó la autoría, y las cartas entre ambos, descubiertas en el siglo XX, le dieron la razón."
+],
+"175338": [
+"Zenón, Arquímedes y la suma infinita",
+"Hacia el 450 a. C., Zenón de Elea planteó sus paradojas: Aquiles nunca alcanzaría a la tortuga, porque cada vez que llega adonde ella estaba, la tortuga ya ha avanzado un poco más. El problema de fondo es si una suma de infinitos términos puede dar un resultado finito. Dos siglos después, Arquímedes lo resolvió en un caso concreto: para calcular el área de un segmento de parábola, sumó \\(1+\\frac14+\\frac1{16}+\\dots\\) y demostró, con un argumento por reducción al absurdo, que el resultado es exactamente \\(\\frac43\\). Es la primera serie geométrica sumada de la historia, aunque el concepto general de serie convergente no se precisó hasta Cauchy, en 1821."
+],
+"175339": [
+"Oresme y el problema de Basilea",
+"La divergencia de la serie armónica la demostró Nicolás de Oresme hacia 1350, agrupando términos exactamente como hacemos hoy: es uno de los resultados más antiguos de este tema, y sorprendió durante siglos, porque los términos tienden a cero. La serie \\(\\sum 1/n^2\\), en cambio, converge, pero averiguar a qué valor fue un desafío famoso, el «problema de Basilea», planteado por Pietro Mengoli en 1650. Ni Leibniz ni los Bernoulli lo resolvieron. Lo consiguió Leonhard Euler en 1735, con 28 años: la suma es \\(\\frac{\\pi^2}6\\), un resultado inesperado que relaciona los números naturales con el número \\(\\pi\\)."
+],
+"175340": [
+"Riemann y las sumas que cambian de valor",
+"El criterio para las series alternadas aparece en la correspondencia de Leibniz a finales del siglo XVII. Pero el resultado más sorprendente sobre la convergencia condicional es de Bernhard Riemann (escrito en 1854 y publicado en 1868): si una serie converge pero no converge absolutamente, se pueden reordenar sus términos para que sume <strong>cualquier</strong> número que queramos, o incluso para que diverja. Por ejemplo, la serie armónica alternada suma \\(\\ln2\\) en su orden habitual, pero reordenada puede sumar 0, 100 o \\(-\\pi\\). Con las series absolutamente convergentes esto no pasa: el orden no importa. Por eso la convergencia absoluta es la «buena» en las aplicaciones."
+],
+"175391": [
+"qué es una función",
+"La palabra «función» la usó Leibniz en 1673, pero con un sentido geométrico. Leonhard Euler la convirtió en el concepto central del análisis en 1748, definiéndola como una «expresión analítica» (una fórmula), y a él se debe también la notación \\(f(x)\\), que introdujo en 1734. Durante el siglo XVIII se pensaba que una función tenía que venir dada por una única fórmula, pero los trabajos sobre la propagación del calor de Joseph Fourier (1807–1822) obligaron a ampliar la idea. En 1837, Peter Gustav Lejeune Dirichlet dio la definición moderna: una función es cualquier regla que asigna a cada \\(x\\) un único valor, aunque no haya fórmula; ya en 1829 había puesto como ejemplo una función que vale 1 en los racionales y 0 en los irracionales, imposible de dibujar."
+],
+"175392": [
+"los logaritmos alargaron la vida de los astrónomos",
+"John Napier publicó en 1614, tras veinte años de cálculos, las primeras tablas de logaritmos, y Henry Briggs las adaptó poco después a la base 10. Su objetivo era práctico: convertir multiplicaciones y divisiones de números grandes, muy frecuentes en astronomía y navegación, en sumas y restas. Se atribuye a Laplace la frase de que los logaritmos, al acortar los cálculos, «duplicaron la vida de los astrónomos». Las reglas de cálculo, basadas en escalas logarítmicas, fueron la herramienta de cálculo de los ingenieros químicos hasta la llegada de las calculadoras electrónicas, en los años 70 del siglo XX. La función exponencial \\(e^x\\) como tal, y su relación con el logaritmo neperiano, se deben a Euler (1748)."
+],
+"175393": [
+"la ε del error y la δ de la diferencia",
+"Augustin-Louis Cauchy definió el límite en su <em>Cours d'analyse</em> (1821) con palabras, y en 1823 empezó a usar las letras \\(\\varepsilon\\) y \\(\\delta\\) en sus demostraciones; se suele decir que vienen de las palabras francesas <em>erreur</em> (error) y <em>différence</em> (diferencia). La definición tal como la escribimos hoy, «para todo \\(\\varepsilon&gt;0\\) existe \\(\\delta&gt;0\\) tal que…», se debe a Karl Weierstrass, que la enseñaba en sus clases de Berlín en los años 1850 y 1860. La definición es difícil la primera vez, y es normal: a los matemáticos les costó casi dos siglos llegar a ella desde la invención del cálculo."
+],
+"175394": [
+"los «monstruos» de Weierstrass",
+"Bolzano (1817) y Cauchy (1821) dieron las primeras definiciones de continuidad parecidas a la actual. Durante mucho tiempo se creyó que toda función continua debía ser derivable salvo, como mucho, en algunos puntos aislados. En 1872, Karl Weierstrass presentó una función continua en todos los puntos y no derivable en ninguno: una curva sin «huecos» pero formada solo por «picos». La reacción fue de rechazo. Charles Hermite escribió en 1893 que se apartaba «con espanto y horror de esta plaga lamentable de funciones continuas que no tienen derivada». Hoy esas curvas no son una rareza: describen el movimiento browniano de las partículas en un fluido o el perfil de una costa."
+],
+"175395": [
+"Bolzano, un pionero adelantado",
+"El teorema que lleva su nombre lo demostró Bernard Bolzano, sacerdote y matemático de Praga, en 1817. Hasta entonces se consideraba evidente que una curva continua que pasa de estar por debajo del eje a estar por encima lo tiene que cortar, y nadie sentía la necesidad de demostrarlo. Bolzano sí, y para hacerlo tuvo que precisar qué significa «continua». Su trabajo pasó casi desapercibido durante décadas, en parte porque publicaba en una ciudad alejada de los grandes centros matemáticos, y fue redescubierto más tarde, cuando Weierstrass llegó a resultados parecidos (como el teorema de los valores extremos). El método de bisección, que se basa en este teorema, es en esencia el que usan muchos programas para resolver ecuaciones."
+],
+"175396": [
+"las primeras curvas de nivel",
+"Las funciones de varias variables entraron en las matemáticas en el siglo XVIII, con los trabajos de Euler y d'Alembert sobre la cuerda vibrante (1747), donde la posición depende a la vez del punto y del tiempo. Pero su representación por curvas de nivel es más antigua y más práctica. En 1701, Edmond Halley publicó un mapa del Atlántico con líneas que unían los puntos con la misma declinación magnética, muy útil para la navegación. En 1817, Alexander von Humboldt dibujó las primeras isotermas, líneas de igual temperatura media, y los mapas topográficos con curvas de nivel se generalizaron en el siglo XIX. Los diagramas de fases y los mapas de isoconversión que usan los ingenieros químicos son herederos directos de esa idea."
+],
+"175397": [
+"las líneas de fuerza de Faraday",
+"La idea de campo vectorial nació en la física. Michael Faraday, que no sabía apenas matemáticas, imaginaba en los años 1830 «líneas de fuerza» que llenaban el espacio alrededor de un imán, y las hacía visibles con limaduras de hierro. James Clerk Maxwell tradujo esa intuición al lenguaje matemático en los años 1860 y obtuvo las ecuaciones del electromagnetismo. La palabra «vector» la introdujo William Rowan Hamilton en 1846, y el cálculo vectorial que usamos hoy (con gradiente, divergencia y rotacional) lo simplificaron a finales del siglo XIX, de forma independiente, Josiah Willard Gibbs, uno de los fundadores de la termodinámica química, y Oliver Heaviside."
+],
+"175398": [
+"la Helena de los geómetras",
+"La cicloide, la curva que describe un punto de una rueda que rueda, fue tan estudiada y tan disputada en el siglo XVII que la llamaron «la Helena de los geómetras». En 1696, Johann Bernoulli retó a los matemáticos de Europa a encontrar la curva por la que una bola desciende de un punto a otro en el menor tiempo posible, el problema de la braquistócrona. La respuesta es un arco de cicloide. Isaac Newton lo recibió una tarde y lo resolvió esa misma noche, y lo publicó de forma anónima, pero Bernoulli reconoció enseguida al autor: «se reconoce al león por su garra», escribió."
+],
+"175399": [
+"de la espiral de Arquímedes a Bernoulli",
+"Las curvas que se describen mejor con un ángulo y una distancia son muy antiguas: Arquímedes estudió en el siglo III a. C. la espiral que lleva su nombre, \\(r=a\\theta\\). Sin embargo, las coordenadas polares como sistema general aparecen en el siglo XVII: Newton las usó en manuscritos de 1671, y Jakob Bernoulli las publicó en 1691. El propio Bernoulli estudió en 1694 la lemniscata, la curva en forma de ocho tumbado, y quedó tan fascinado por la espiral logarítmica, que se reproduce a sí misma al cambiar de escala, que pidió que la grabaran en su tumba con la inscripción <em>Eadem mutata resurgo</em> («aunque cambiada, resurjo igual»). El cantero grabó por error una espiral de Arquímedes."
+],
+"175400": [
+"el error de Cauchy",
+"Que el límite en dos variables es más delicado que en una lo aprendieron los propios matemáticos a base de errores. Augustin-Louis Cauchy afirmó en su <em>Cours d'analyse</em> (1821) que una función de dos variables que es continua en cada variable por separado es continua. Es falso: la función \\(\\frac{xy}{x^2+y^2}\\) (con valor 0 en el origen) es continua en cada variable, pero su límite en el origen depende de la recta por la que nos acerquemos. Angelo Genocchi y Giuseppe Peano, en su libro de cálculo de 1884, fueron más allá y dieron ejemplos en los que el límite es el mismo por todas las rectas y, aun así, no existe. Ejemplos como estos obligaron a definir el límite usando todos los caminos a la vez, con la noción de distancia en el plano."
+],
+"175412": [
+"de los puntos de Newton a la prima de Lagrange",
+"Cada notación para la derivada cuenta una historia. Newton usaba un punto sobre la letra, \\(\\dot x\\), pensando en velocidades (las llamaba «fluxiones»), y esa notación sigue viva en física para las derivadas respecto del tiempo. Leibniz introdujo \\(\\frac{dy}{dx}\\) en 1684, como cociente de diferencias «infinitamente pequeñas», y sus reglas de cálculo (la del producto, la del cociente) aparecen en ese mismo artículo. La prima, \\(f'(x)\\), la introdujo Joseph-Louis Lagrange en 1797. La notación de Leibniz se impuso en el continente porque «hacía los cálculos solos», mientras que en Inglaterra la fidelidad a los puntos de Newton contribuyó a un atraso matemático de casi un siglo."
+],
+"175413": [
+"Rolle, el crítico del cálculo",
+"El teorema de Rolle lo publicó Michel Rolle en 1691, y solo para polinomios. Lo curioso es que Rolle era uno de los críticos más duros del cálculo infinitesimal, al que acusaba de basarse en razonamientos inconsistentes y de dar resultados erróneos, y su teorema estaba formulado con métodos algebraicos. Con el tiempo, su resultado acabó siendo una pieza básica del propio cálculo. El teorema del valor medio general lo enunció Joseph-Louis Lagrange en 1797, y Cauchy dio la versión generalizada que lleva su nombre."
+],
+"175414": [
+"Kepler y los toneles de vino",
+"Uno de los primeros problemas de optimización de la historia lo planteó Johannes Kepler en 1615, a raíz de su boda: los comerciantes de vino medían el contenido de un tonel metiendo una vara por el agujero hasta el borde opuesto, y Kepler se preguntó qué forma debía tener el tonel para que, con la misma medida, cupiera el máximo de vino. En su <em>Nueva estereometría de los toneles de vino</em> observó que, cerca del máximo, el volumen apenas cambia al variar las dimensiones: la idea de que la derivada se anula en un extremo. Pierre de Fermat convirtió esa observación en un método general hacia 1636, antes de que Newton y Leibniz desarrollaran el cálculo."
+],
+"175416": [
+"la escuela de Kerala",
+"Las series de potencias se asocian a Newton, que en 1665 obtuvo la serie binomial, y a Taylor y Maclaurin. Pero unos tres siglos antes, en el sur de la India, Madhava de Sangamagrama (hacia 1340–1425) y sus discípulos de la escuela de Kerala ya habían encontrado las series del seno, del coseno y del arcotangente, y las usaron para calcular \\(\\pi\\) con once cifras decimales. Sus resultados, escritos en verso en sánscrito y malayalam, no se conocieron en Europa hasta el siglo XIX. Las series de potencias permiten algo esencial: calcular funciones trascendentes, como \\(e^x\\) o \\(\\operatorname{sen}x\\), solo con sumas y productos, que es como lo hacen las calculadoras."
+],
+"175418": [
+"Leibniz y la regla de la cadena",
+"La regla de la cadena es casi tan antigua como el propio cálculo: aparece ya en unas notas de Leibniz de 1676, donde deriva una raíz cuadrada de un polinomio haciendo un cambio de variable, exactamente la idea de «derivar la función de fuera y multiplicar por la derivada de la de dentro». Su notación, \\(\\frac{dy}{dx}=\\frac{dy}{du}\\frac{du}{dx}\\), hace que la regla parezca una simple simplificación de fracciones, y por eso se dice que la notación de Leibniz «piensa por nosotros». La versión para varias variables, con diagramas de árbol, se desarrolló en el siglo XVIII con la termodinámica y la mecánica, donde una magnitud depende de otras que, a su vez, dependen de más."
+],
+"175419": [
+"un arpa llamada nabla",
+"El símbolo \\(\\nabla\\) del gradiente lo introdujo William Rowan Hamilton en 1837, aunque al principio lo escribía tumbado. Su nombre es una broma de la época victoriana: el físico Peter Guthrie Tait buscaba cómo llamarlo, y el teólogo William Robertson Smith le sugirió «nabla», el nombre de un arpa fenicia con esa forma triangular. James Clerk Maxwell lo usó en sus cartas medio en broma y el nombre se quedó. El gradiente es hoy una herramienta central en ingeniería: los algoritmos que ajustan modelos a datos experimentales, o que entrenan redes neuronales, avanzan una y otra vez en la dirección contraria al gradiente para buscar un mínimo."
+],
+"175420": [
+"Hesse, Sylvester y el nombre de la hessiana",
+"La matriz de las segundas derivadas la estudió el matemático alemán Otto Hesse en la década de 1840, en problemas de geometría de curvas, pero el nombre de «hessiana» se lo puso el inglés James J. Sylvester en 1851. Sylvester tenía una afición especial por bautizar conceptos: también son suyas palabras como «matriz», «invariante» o «discriminante». El método de los multiplicadores, en cambio, lo publicó Joseph-Louis Lagrange en su <em>Mecánica analítica</em> (1788), un libro que presumía de no tener ni una sola figura: toda la mecánica reducida a cálculo."
+],
+"175476": [
+"el método de exhaución y el nacimiento del símbolo ∫",
+"Calcular áreas aproximándolas con figuras sencillas es una idea griega: Eudoxo y, sobre todo, Arquímedes (siglo III a. C.) usaron el «método de exhaución», que encierra la figura entre polígonos cada vez más ajustados, para obtener el área del círculo o del segmento de parábola. El símbolo \\(\\int\\) nació en un manuscrito de Leibniz fechado el 29 de octubre de 1675: es una S alargada, de <em>summa</em>, porque pensaba la integral como una suma de infinitos rectángulos infinitamente estrechos. La palabra «integral» la propuso poco después Jakob Bernoulli (1690). La definición rigurosa con sumas que usamos hoy es de Bernhard Riemann (1854)."
+],
+"175477": [
+"Barrow, el maestro de Newton",
+"La relación inversa entre derivar e integrar aparece ya, en forma geométrica, en las <em>Lecciones de geometría</em> (1670) de Isaac Barrow, profesor en Cambridge, y también en trabajos de James Gregory (1668). Barrow fue profesor de Isaac Newton y, según se cuenta, en 1669 renunció a su cátedra para cedérsela a su alumno, cuyo talento consideraba superior. Pero fueron Newton y Leibniz quienes entendieron que este teorema convertía el cálculo de áreas, un problema que durante dos mil años había exigido ingenio en cada caso, en un procedimiento casi mecánico: buscar una primitiva. Por eso se les considera los inventores del cálculo."
+],
+"175478": [
+"integrales imposibles",
+"Durante el siglo XVIII se buscaron primitivas de funciones cada vez más complicadas, y algunas se resistían: \\(e^{-x^2}\\), \\(\\frac{\\operatorname{sen}x}x\\) o \\(\\frac1{\\ln x}\\). Entre 1833 y 1841, Joseph Liouville demostró que no es falta de ingenio: esas primitivas existen, pero no se pueden escribir con un número finito de funciones elementales. Por eso aparecen funciones «nuevas» definidas por integrales, como la función de error, \\(\\operatorname{erf}(x)\\), fundamental en estadística y en problemas de difusión. En 1969, Robert Risch convirtió las ideas de Liouville en un algoritmo que decide si una primitiva es elemental, y que está en la base de los programas de cálculo simbólico."
+],
+"175479": [
+"el error de Leibniz con \\(x^4+a^4\\)",
+"La descomposición en fracciones simples la desarrollaron Leibniz y Johann Bernoulli hacia 1702, con la idea de reducir cualquier función racional a logaritmos y arcotangentes. Leibniz cometió entonces un error célebre: afirmó que \\(x^4+a^4\\) no se podía descomponer en factores reales de grado 2, y que por tanto su integral escapaba al método. En realidad, \\(x^4+a^4=\\big(x^2+\\sqrt2\\,ax+a^2\\big)\\big(x^2-\\sqrt2\\,ax+a^2\\big)\\). La cuestión de fondo era el teorema fundamental del álgebra: si todo polinomio real se factoriza en factores reales de grado 1 y 2 (lo que vimos en el tema 2), el método de las fracciones simples funciona siempre."
+],
+"175480": [
+"la trompeta de Torricelli",
+"En 1641, Evangelista Torricelli, el discípulo de Galileo que inventó el barómetro, hizo un descubrimiento que desconcertó a sus contemporáneos: el sólido que se obtiene al girar la curva \\(y=\\frac1x\\), para \\(x\\ge1\\), alrededor del eje \\(x\\) tiene volumen finito (\\(\\pi\\)) pero superficie infinita. Es decir, se podría llenar de pintura, pero no se podría pintar. Thomas Hobbes, filósofo, escribió que para aceptar algo así «no hace falta ser geómetra ni lógico, sino estar loco». La paradoja se resuelve con las integrales impropias de esta sección: la integral del volumen, \\(\\pi\\int_1^\\infty\\frac{dx}{x^2}\\), converge, mientras que la de la superficie se comporta como \\(\\int_1^\\infty\\frac{dx}x\\), que diverge."
+],
+"175481": [
+"la tumba de Arquímedes",
+"Arquímedes consideraba su mayor descubrimiento que el volumen de una esfera es dos tercios del volumen del cilindro que la contiene, y pidió que en su tumba se grabara una esfera inscrita en un cilindro. En el año 75 a. C., Cicerón, entonces cuestor en Sicilia, encontró la tumba abandonada y cubierta de maleza precisamente gracias a ese dibujo. El cálculo de volúmenes por secciones que vemos aquí lo formuló Bonaventura Cavalieri en 1635: si dos sólidos tienen secciones de igual área a cada altura, tienen el mismo volumen. Es la idea que hay detrás de \\(V=\\int A(x)\\,dx\\)."
+],
+"175482": [
+"Fubini y el orden de integración",
+"Calcular una integral doble integrando primero en una variable y después en la otra es una idea que ya usaban Euler y Lagrange en el siglo XVIII. Pero Cauchy observó en 1814 que el orden de integración no siempre da lo mismo: hay funciones para las que las dos integrales iteradas existen y son distintas. El italiano Guido Fubini demostró en 1907 en qué condiciones se puede cambiar el orden con tranquilidad, dentro de la nueva teoría de la integral de Henri Lebesgue (1902). En la práctica de la ingeniería, con funciones continuas en regiones acotadas, el teorema garantiza que se puede elegir siempre el orden que haga el cálculo más fácil."
+]
+}
