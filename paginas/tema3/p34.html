@@ -92,8 +92,9 @@
 <h3>Ecuaciones matriciales: despejar sin dividir</h3>
 
 <div class="box-warning"><h5 class="box-legend"><span>No se pueden dividir matrices</span></h5>
-<p>Con matrices <strong>no existe la división</strong>: expresiones como \(\dfrac{B}{A}\) o \(B/A\) no tienen sentido, y nunca hay que escribirlas. Hay dos razones:</p>
+<p>Con matrices <strong>no existe la división</strong>: expresiones como \(\dfrac{B}{A}\) o \(B/A\) no tienen sentido, y nunca hay que escribirlas. Hay tres razones:</p>
 <ul>
+<li>El producto de matrices <strong>no es «elemento a elemento»</strong>: cada entrada de \(AB\) mezcla una fila entera de \(A\) con una columna entera de \(B\). Por eso no se puede deshacer dividiendo entrada a entrada. Si dividimos cada entrada de \(B\) entre la correspondiente de \(A\), la matriz que sale, multiplicada por \(A\), en general no da \(B\).</li>
 <li>Como el producto no es conmutativo, «\(B\) entre \(A\)» podría significar \(A^{-1}B\) o \(BA^{-1}\), que en general son <strong>distintas</strong> (lo verás en el ejemplo siguiente).</li>
 <li>Muchas matrices no nulas no tienen inversa, así que tampoco se puede «simplificar»: de \(AB=AC\) no se deduce \(B=C\) si \(A\) es singular.</li>
 </ul>

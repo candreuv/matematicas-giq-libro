@@ -1,0 +1,18 @@
+<dl><dt>Demostración</dt><dd>
+<p>Todas se prueban comparando las entradas \((i,j)\) de los dos miembros. Escribimos \((M)_{ij}\) para la entrada \((i,j)\) de una matriz \(M\).</p>
+<p><strong>1. Asociativa.</strong> Sean \(A\in\mathbb R_{m\times p}\), \(B\in\mathbb R_{p\times q}\) y \(C\in\mathbb R_{q\times n}\). Aplicando dos veces la definición del producto,</p>
+<p>\[ \begin{aligned} \big((AB)C\big)_{ij}&amp;=\sum_{l=1}^q(AB)_{il}\,c_{lj}=\sum_{l=1}^q\sum_{k=1}^pa_{ik}b_{kl}c_{lj},\\ \big(A(BC)\big)_{ij}&amp;=\sum_{k=1}^pa_{ik}(BC)_{kj}=\sum_{k=1}^p\sum_{l=1}^qa_{ik}b_{kl}c_{lj}. \end{aligned} \nonumber \]</p>
+<p>Las dos son la misma suma finita de los términos \(a_{ik}b_{kl}c_{lj}\), solo que sumada en distinto orden, así que coinciden.</p>
+<p><strong>2. Distributiva.</strong> La entrada \((i,j)\) de \(A(B+C)\) es</p>
+<p>\[ \sum_ka_{ik}(b_{kj}+c_{kj})=\sum_ka_{ik}b_{kj}+\sum_ka_{ik}c_{kj}, \nonumber \]</p>
+<p>que es la entrada \((i,j)\) de \(AB+AC\). La otra distributiva es igual.</p>
+<p><strong>4. Elemento neutro.</strong> La identidad tiene \((I)_{ik}=1\) si \(k=i\) y 0 si \(k\ne i\). Por tanto, en la suma \((I_mA)_{ij}=\sum_k(I)_{ik}a_{kj}\) solo sobrevive el término \(k=i\), que vale \(a_{ij}\). Del mismo modo, \(AI_n=A\).</p>
+<p><strong>5. \((AB)^T=B^TA^T\).</strong> Si \(A\in\mathbb R_{m\times p}\) y \(B\in\mathbb R_{p\times n}\), las dos matrices son \(n\times m\). La entrada \((i,j)\) de \((AB)^T\) es la entrada \((j,i)\) de \(AB\):</p>
+<p>\[ \begin{aligned} \big((AB)^T\big)_{ij}&amp;=(AB)_{ji}=\sum_{k=1}^pa_{jk}b_{ki}\\ &amp;=\sum_{k=1}^p(B^T)_{ik}(A^T)_{kj}=(B^TA^T)_{ij}. \end{aligned} \nonumber \]</p>
+<p>Fíjate en que el orden se invierte: \(A^TB^T\) en general ni siquiera se puede calcular.</p>
+<p><strong>El resto</strong> se deja como ejercicio para el lector. Son inmediatas con el mismo método:</p>
+<ul>
+<li>la propiedad 3 (sacar \(\lambda\) de la suma \(\sum_k a_{ik}b_{kj}\));</li>
+<li>las otras igualdades de la 5, \((A^T)^T=A\), \((A+B)^T=A^T+B^T\) y \((\lambda A)^T=\lambda A^T\), que solo intercambian los papeles de filas y columnas. \(\blacksquare\)</li>
+</ul>
+</dd></dl>
