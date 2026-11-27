@@ -39,7 +39,8 @@
 <li><strong>Matriz diagonal</strong>: cuadrada, con ceros fuera de la diagonal principal. Un caso particular es la <strong>matriz identidad</strong> \(I_n\), con unos en la diagonal.</li>
 <li><strong>Matriz triangular superior</strong> (\(a_{ij}=0\) si \(i&gt;j\)) e <strong>inferior</strong> (\(a_{ij}=0\) si \(i&lt;j\)).</li>
 </ul>
-<p>\[ I_3=\begin{pmatrix}1&amp;0&amp;0\\0&amp;1&amp;0\\0&amp;0&amp;1\end{pmatrix},\qquad U=\begin{pmatrix}2&amp;-1&amp;4\\0&amp;3&amp;5\\0&amp;0&amp;-1\end{pmatrix}\ \text{(triangular superior)}. \]</p>
+<p>\[ I_3=\begin{pmatrix}1&amp;0&amp;0\\0&amp;1&amp;0\\0&amp;0&amp;1\end{pmatrix},\qquad U=\begin{pmatrix}2&amp;-1&amp;4\\0&amp;3&amp;5\\0&amp;0&amp;-1\end{pmatrix}. \]</p>
+<p>\(I_3\) es la identidad de orden 3 y \(U\) es triangular superior.</p>
 
 <div class="box-definition"><h5 class="box-legend"><span>Definición \(\PageIndex{2}\): matriz traspuesta</span></h5>
 <p>La <strong>traspuesta</strong> de \(A\in\mathbb R_{m\times n}\) es la matriz \(A^T\in\mathbb R_{n\times m}\) que se obtiene intercambiando filas por columnas: \((A^T)_{ij}=a_{ji}\). Una matriz cuadrada es <strong>simétrica</strong> si \(A^T=A\), es decir, si \(a_{ij}=a_{ji}\) para todo \(i,j\).</p>
@@ -71,7 +72,8 @@
 <div class="box-example"><h5 class="box-legend"><span>Ejemplo \(\PageIndex{1}\): combinaciones de matrices</span></h5>
 <p>Con \(A=\begin{pmatrix}1&amp;2&amp;0\\-1&amp;3&amp;4\end{pmatrix}\) y \(B=\begin{pmatrix}2&amp;0&amp;1\\1&amp;-1&amp;2\end{pmatrix}\), calcula \(A+B\) y \(3A-2B\).</p>
 <dl><dt>Solución</dt><dd>
-<p>\[ A+B=\begin{pmatrix}3&amp;2&amp;1\\0&amp;2&amp;6\end{pmatrix},\qquad 3A-2B=\begin{pmatrix}3-4&amp;6-0&amp;0-2\\-3-2&amp;9+2&amp;12-4\end{pmatrix}=\begin{pmatrix}-1&amp;6&amp;-2\\-5&amp;11&amp;8\end{pmatrix}. \]</p>
+<p>\[ A+B=\begin{pmatrix}3&amp;2&amp;1\\0&amp;2&amp;6\end{pmatrix}, \]</p>
+<p>\[ \begin{aligned} 3A-2B&amp;=\begin{pmatrix}3-4&amp;6-0&amp;0-2\\-3-2&amp;9+2&amp;12-4\end{pmatrix}\\ &amp;=\begin{pmatrix}-1&amp;6&amp;-2\\-5&amp;11&amp;8\end{pmatrix}. \end{aligned} \]</p>
 </dd></dl>
 </div>
 
@@ -99,7 +101,7 @@
 
 <div class="box-warning"><h5 class="box-legend"><span>El producto de matrices no es conmutativo</span></h5>
 <p>Incluso cuando \(AB\) y \(BA\) existen y tienen el mismo tamaño, en general \(AB\ne BA\). Por ejemplo,</p>
-<p>\[ \begin{pmatrix}1&amp;1\\0&amp;1\end{pmatrix}\begin{pmatrix}1&amp;0\\1&amp;1\end{pmatrix}=\begin{pmatrix}2&amp;1\\1&amp;1\end{pmatrix},\qquad \begin{pmatrix}1&amp;0\\1&amp;1\end{pmatrix}\begin{pmatrix}1&amp;1\\0&amp;1\end{pmatrix}=\begin{pmatrix}1&amp;1\\1&amp;2\end{pmatrix}. \]</p>
+<p>\[ \begin{gathered} \begin{pmatrix}1&amp;1\\0&amp;1\end{pmatrix}\begin{pmatrix}1&amp;0\\1&amp;1\end{pmatrix}=\begin{pmatrix}2&amp;1\\1&amp;1\end{pmatrix},\\ \begin{pmatrix}1&amp;0\\1&amp;1\end{pmatrix}\begin{pmatrix}1&amp;1\\0&amp;1\end{pmatrix}=\begin{pmatrix}1&amp;1\\1&amp;2\end{pmatrix}. \end{gathered} \]</p>
 <p>Otras dos diferencias con los números: puede ocurrir que \(AB=O\) con \(A\ne O\) y \(B\ne O\) (por ejemplo, \(\begin{pmatrix}1&amp;0\\0&amp;0\end{pmatrix}\begin{pmatrix}0&amp;0\\0&amp;1\end{pmatrix}=O\)), y por eso de \(AB=AC\) <strong>no</strong> se puede deducir \(B=C\) en general.</p>
 </div>
 
@@ -115,7 +117,7 @@
 </div>
 <dl><dt>Demostración de \((AB)^T=B^TA^T\)</dt><dd>
 <p>Si \(A\in\mathbb R_{m\times p}\) y \(B\in\mathbb R_{p\times n}\), las dos matrices son \(n\times m\). La entrada \((i,j)\) de \((AB)^T\) es la entrada \((j,i)\) de \(AB\):</p>
-<p>\[ \big((AB)^T\big)_{ij}=(AB)_{ji}=\sum_{k=1}^pa_{jk}b_{ki}=\sum_{k=1}^p(B^T)_{ik}(A^T)_{kj}=(B^TA^T)_{ij}. \]</p>
+<p>\[ \begin{aligned} \big((AB)^T\big)_{ij}&amp;=(AB)_{ji}=\sum_{k=1}^pa_{jk}b_{ki}\\ &amp;=\sum_{k=1}^p(B^T)_{ik}(A^T)_{kj}=(B^TA^T)_{ij}. \end{aligned} \]</p>
 <p>Fíjate en que el orden se invierte: \(A^TB^T\) en general ni siquiera se puede calcular. \(\blacksquare\)</p>
 </dd></dl>
 
@@ -146,7 +148,8 @@
 <p>Dadas \(A=\begin{pmatrix}2&amp;-1\\0&amp;3\end{pmatrix}\) y \(B=\begin{pmatrix}1&amp;4\\-2&amp;1\end{pmatrix}\), calcula \(A+B\), \(2A-3B\), \(AB\), \(BA\) y \(A^TB\).</p>
 <dl><dt>Solución</dt><dd>
 <p>\[ A+B=\begin{pmatrix}3&amp;3\\-2&amp;4\end{pmatrix},\qquad 2A-3B=\begin{pmatrix}1&amp;-14\\6&amp;3\end{pmatrix}, \]</p>
-<p>\[ AB=\begin{pmatrix}4&amp;7\\-6&amp;3\end{pmatrix},\qquad BA=\begin{pmatrix}2&amp;11\\-4&amp;5\end{pmatrix},\qquad A^TB=\begin{pmatrix}2&amp;8\\-7&amp;-1\end{pmatrix}. \]</p>
+<p>\[ AB=\begin{pmatrix}4&amp;7\\-6&amp;3\end{pmatrix},\qquad BA=\begin{pmatrix}2&amp;11\\-4&amp;5\end{pmatrix}, \]</p>
+<p>\[ A^TB=\begin{pmatrix}2&amp;8\\-7&amp;-1\end{pmatrix}. \]</p>
 <p>Observa que \(AB\ne BA\).</p>
 </dd></dl>
 </div>

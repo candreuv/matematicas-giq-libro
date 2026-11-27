@@ -64,7 +64,9 @@
 <p>Intercambiamos \(F_1\leftrightarrow F_2\) para tener un 1 como primer pivote y hacemos \(F_2\gets F_2-2F_1\). Después intercambiamos \(F_2\leftrightarrow F_3\) y hacemos \(F_3\gets F_3+3F_2\):</p>
 <p>\[ \left(\begin{array}{ccc|ccc}1&amp;2&amp;1&amp;0&amp;1&amp;0\\0&amp;-3&amp;-2&amp;1&amp;-2&amp;0\\0&amp;1&amp;2&amp;0&amp;0&amp;1\end{array}\right)\to \left(\begin{array}{ccc|ccc}1&amp;2&amp;1&amp;0&amp;1&amp;0\\0&amp;1&amp;2&amp;0&amp;0&amp;1\\0&amp;0&amp;4&amp;1&amp;-2&amp;3\end{array}\right). \]</p>
 <p>Dividimos \(F_3\) entre 4 y hacemos ceros encima de los pivotes: \(F_2\gets F_2-2F_3\), \(F_1\gets F_1-F_3\) y \(F_1\gets F_1-2F_2\):</p>
-<p>\[ \left(\begin{array}{ccc|ccc}1&amp;0&amp;0&amp;\frac34&amp;-\frac12&amp;\frac14\\0&amp;1&amp;0&amp;-\frac12&amp;1&amp;-\frac12\\0&amp;0&amp;1&amp;\frac14&amp;-\frac12&amp;\frac34\end{array}\right),\qquad M^{-1}=\frac14\begin{pmatrix}3&amp;-2&amp;1\\-2&amp;4&amp;-2\\1&amp;-2&amp;3\end{pmatrix}. \]</p>
+<p>\[ \left(\begin{array}{ccc|ccc}1&amp;0&amp;0&amp;\frac34&amp;-\frac12&amp;\frac14\\0&amp;1&amp;0&amp;-\frac12&amp;1&amp;-\frac12\\0&amp;0&amp;1&amp;\frac14&amp;-\frac12&amp;\frac34\end{array}\right). \]</p>
+<p>Por tanto,</p>
+<p>\[ M^{-1}=\frac14\begin{pmatrix}3&amp;-2&amp;1\\-2&amp;4&amp;-2\\1&amp;-2&amp;3\end{pmatrix}. \]</p>
 <p>Comprobación de una entrada: la fila 1 de \(M\) por la columna 1 de \(M^{-1}\) es \(\frac14(2\cdot3+1\cdot(-2)+0)=1\).</p>
 </dd></dl>
 </div>
@@ -103,7 +105,9 @@
 <p>Resuelve por Cramer \(\ x+y+z=6,\ \ 2x-y+z=3,\ \ x+2y-z=2\) (el sistema del Ejemplo 2 de la sección 3.3).</p>
 <dl><dt>Solución</dt><dd>
 <p>\(\det(A)=\begin{vmatrix}1&amp;1&amp;1\\2&amp;-1&amp;1\\1&amp;2&amp;-1\end{vmatrix}=7\). Sustituyendo cada columna por \(\mathbf b=(6,3,2)^T\):</p>
-<p>\[ x=\frac17\begin{vmatrix}6&amp;1&amp;1\\3&amp;-1&amp;1\\2&amp;2&amp;-1\end{vmatrix}=\frac77=1,\quad y=\frac17\begin{vmatrix}1&amp;6&amp;1\\2&amp;3&amp;1\\1&amp;2&amp;-1\end{vmatrix}=\frac{14}7=2,\quad z=\frac{21}7=3. \]</p>
+<p>\[ x=\frac17\begin{vmatrix}6&amp;1&amp;1\\3&amp;-1&amp;1\\2&amp;2&amp;-1\end{vmatrix}=\frac77=1, \]</p>
+<p>\[ y=\frac17\begin{vmatrix}1&amp;6&amp;1\\2&amp;3&amp;1\\1&amp;2&amp;-1\end{vmatrix}=\frac{14}7=2, \]</p>
+<p>\[ z=\frac17\begin{vmatrix}1&amp;1&amp;6\\2&amp;-1&amp;3\\1&amp;2&amp;2\end{vmatrix}=\frac{21}7=3. \]</p>
 <p>Coincide con lo obtenido por Gauss.</p>
 </dd></dl>
 </div>
@@ -124,7 +128,7 @@
 
 <div class="box-exercise"><h5 class="box-legend"><span>Ejercicio \(\PageIndex{1}\) __F1__</span></h5>
 <p>Calcula, si existen, las inversas de</p>
-<p>\[ A=\begin{pmatrix}4&amp;7\\1&amp;2\end{pmatrix},\qquad B=\begin{pmatrix}2&amp;4\\1&amp;2\end{pmatrix},\qquad T=\begin{pmatrix}1&amp;0&amp;2\\2&amp;1&amp;0\\0&amp;1&amp;1\end{pmatrix}. \]</p>
+<p>\[ A=\begin{pmatrix}4&amp;7\\1&amp;2\end{pmatrix},\quad B=\begin{pmatrix}2&amp;4\\1&amp;2\end{pmatrix},\quad T=\begin{pmatrix}1&amp;0&amp;2\\2&amp;1&amp;0\\0&amp;1&amp;1\end{pmatrix}. \]</p>
 <dl><dt>Solución</dt><dd>
 <p>\(\det(A)=8-7=1\), así que \(A^{-1}=\begin{pmatrix}2&amp;-7\\-1&amp;4\end{pmatrix}\). \(\det(B)=4-4=0\): \(B\) es singular (sus filas son proporcionales).</p>
 <p>\(\det(T)=1\cdot(1-0)-0+2\cdot(2-0)=5\). Por Gauss-Jordan sobre \((T\,|\,I)\), o con la matriz adjunta,</p>
