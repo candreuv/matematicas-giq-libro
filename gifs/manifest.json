@@ -248,5 +248,20 @@
   "seccion": "14.7",
   "archivo": "fubini.gif",
   "ruta": "gifs/14.7/fubini.gif"
+ },
+ {
+  "seccion": "3.1",
+  "archivo": "producto_matrices.gif",
+  "ruta": "gifs/3.1/producto_matrices.gif"
+ },
+ {
+  "seccion": "3.2",
+  "archivo": "determinante_area.gif",
+  "ruta": "gifs/3.2/determinante_area.gif"
+ },
+ {
+  "seccion": "3.3",
+  "archivo": "gauss.gif",
+  "ruta": "gifs/3.3/gauss.gif"
  }
 ]
