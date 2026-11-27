@@ -1,0 +1,275 @@
+<div class="box-objectives"><h5 class="box-legend"><span>Objetivos de aprendizaje</span></h5>
+<ul>
+<li>Escribir un sistema de ecuaciones lineales en forma matricial y con su matriz ampliada.</li>
+<li>Usar las operaciones elementales entre filas y las matrices elementales.</li>
+<li>Llevar una matriz a forma escalonada (Gauss) y a forma escalonada reducida (Gauss-Jordan).</li>
+<li>Calcular el rango de una matriz y clasificar un sistema con el teorema de Rouché-Frobenius.</li>
+<li>Expresar las infinitas soluciones de un sistema compatible indeterminado con parámetros.</li>
+</ul>
+</div>
+
+<h2>Motivación: ¿cuánto tomo de cada disolución?</h2>
+
+<p>En la sección 3.1 vimos que, si mezclamos \(\mathbf v=(v_1,v_2,v_3)^T\) litros de tres disoluciones madre, la masa de cada soluto es \(\mathbf m=C\mathbf v\). En el laboratorio, sin embargo, el problema real es el <strong>inverso</strong>: conocemos la composición que queremos, \(\mathbf m\), y buscamos los volúmenes \(\mathbf v\). Es decir, hay que resolver \(C\mathbf v=\mathbf m\), un <strong>sistema de ecuaciones lineales</strong>. En esta sección aprenderemos a resolverlo de forma sistemática y a saber de antemano si tiene una solución, infinitas o ninguna.</p>
+
+<h2>Sistemas lineales y su forma matricial</h2>
+
+<div class="box-definition"><h5 class="box-legend"><span>Definición \(\PageIndex{1}\): sistema de ecuaciones lineales</span></h5>
+<p>Un <strong>sistema de \(m\) ecuaciones lineales con \(n\) incógnitas</strong> \(x_1,\dots,x_n\) es</p>
+<p>\[ \begin{cases} a_{11}x_1+a_{12}x_2+\dots+a_{1n}x_n=b_1,\\ \quad\vdots\\ a_{m1}x_1+a_{m2}x_2+\dots+a_{mn}x_n=b_m. \end{cases} \]</p>
+<p>Con la matriz de coeficientes \(A=(a_{ij})\in\mathbb R_{m\times n}\), el vector de incógnitas \(\mathbf x=(x_1,\dots,x_n)^T\) y el vector de términos independientes \(\mathbf b=(b_1,\dots,b_m)^T\), se escribe en <strong>forma matricial</strong> como</p>
+<p>\[ A\mathbf x=\mathbf b. \]</p>
+<p>La <strong>matriz ampliada</strong> es \(A^*=(A\,|\,\mathbf b)\in\mathbb R_{m\times(n+1)}\). Una <strong>solución</strong> es un vector \(\mathbf x\) que cumple todas las ecuaciones a la vez. Si \(\mathbf b=\mathbf 0\), el sistema se llama <strong>homogéneo</strong>.</p>
+</div>
+
+<p>Un sistema puede tener una única solución, infinitas o ninguna, y no hay más posibilidades. Según esto se clasifica en:</p>
+<ul>
+<li><strong>Sistema compatible determinado (SCD)</strong>: una única solución.</li>
+<li><strong>Sistema compatible indeterminado (SCI)</strong>: infinitas soluciones.</li>
+<li><strong>Sistema incompatible (SI)</strong>: ninguna solución.</li>
+</ul>
+<p>Con dos incógnitas, cada ecuación es una recta del plano y las soluciones son los puntos comunes: las rectas se cortan en un punto (SCD), coinciden (SCI) o son paralelas (SI). Con tres incógnitas, cada ecuación es un plano del espacio.</p>
+
+<p style="text-align:center;"><img alt="Tres casos de un sistema de dos ecuaciones con dos incógnitas: rectas que se cortan en un punto, rectas coincidentes y rectas paralelas" src="__IMG_sistemas_2d.png__" style="max-width:100%;" /></p>
+<p style="text-align:center;"><img alt="Tres planos en el espacio: cortándose en un punto, cortándose en una recta común y sin ningún punto común a los tres" src="__IMG_planos_3d.png__" style="max-width:100%;" /></p>
+
+<h2>Operaciones elementales y matrices elementales</h2>
+
+<p>Para resolver un sistema lo transformamos en otro más sencillo con las mismas soluciones (un sistema <strong>equivalente</strong>). Las transformaciones que se permiten son las <strong>operaciones elementales entre filas</strong> de la matriz ampliada:</p>
+<ol>
+<li><strong>Intercambiar</strong> dos filas: \(F_i\leftrightarrow F_j\).</li>
+<li><strong>Multiplicar</strong> una fila por un número no nulo: \(F_i\gets\lambda F_i\), \(\lambda\ne0\).</li>
+<li><strong>Sumar</strong> a una fila un múltiplo de otra: \(F_i\gets F_i+\lambda F_j\), \(i\ne j\).</li>
+</ol>
+<p>Ninguna cambia las soluciones: reordenar ecuaciones, multiplicar una por un número no nulo o sumarle otra no cambia los valores que las satisfacen todas, y cada operación se puede deshacer con otra del mismo tipo.</p>
+
+<div class="box-definition"><h5 class="box-legend"><span>Definición \(\PageIndex{2}\): matriz elemental</span></h5>
+<p>Una <strong>matriz elemental</strong> es la que se obtiene al aplicar <strong>una</strong> operación elemental a la matriz identidad. Aplicar esa operación a una matriz \(A\) equivale a multiplicarla por la izquierda por la matriz elemental: \(A\mapsto EA\).</p>
+</div>
+
+<div class="box-example"><h5 class="box-legend"><span>Ejemplo \(\PageIndex{1}\): una matriz elemental</span></h5>
+<p>Escribe la matriz elemental \(E\) de la operación \(F_2\gets F_2-2F_1\) en matrices de 3 filas y comprueba su efecto sobre \(A=\begin{pmatrix}1&amp;1&amp;1\\2&amp;-1&amp;1\\1&amp;2&amp;-1\end{pmatrix}\).</p>
+<dl><dt>Solución</dt><dd>
+<p>Aplicamos la operación a \(I_3\):</p>
+<p>\[ E=\begin{pmatrix}1&amp;0&amp;0\\-2&amp;1&amp;0\\0&amp;0&amp;1\end{pmatrix},\qquad EA=\begin{pmatrix}1&amp;1&amp;1\\0&amp;-3&amp;-1\\1&amp;2&amp;-1\end{pmatrix}. \]</p>
+<p>Efectivamente, solo cambia la segunda fila, que pasa a ser \(F_2-2F_1\). La operación inversa, \(F_2\gets F_2+2F_1\), tiene como matriz la misma \(E\) con \(+2\) en lugar de \(-2\), y es \(E^{-1}\).</p>
+</dd></dl>
+</div>
+
+<p>Si para simplificar \(A\) aplicamos \(k\) operaciones elementales, el resultado es \(E_k\cdots E_2E_1A\). La matriz \(E=E_k\cdots E_2E_1\) se llama <strong>matriz de reducción</strong>. La usaremos en la sección 3.4 para calcular inversas.</p>
+
+<h2>Forma escalonada y método de Gauss</h2>
+
+<div class="box-definition"><h5 class="box-legend"><span>Definición \(\PageIndex{3}\): forma escalonada y pivotes</span></h5>
+<p>Una matriz está en <strong>forma escalonada</strong> (por filas) si:</p>
+<ol>
+<li>las filas nulas, si las hay, están al final;</li>
+<li>el primer elemento no nulo de cada fila, llamado <strong>pivote</strong>, está estrictamente a la derecha del pivote de la fila anterior.</li>
+</ol>
+<p>En consecuencia, debajo de cada pivote solo hay ceros. La forma escalonada de \(A\) se denota \(\mathrm{REF}(A)\) (del inglés <em>row echelon form</em>).</p>
+</div>
+
+<p>El <strong>método de Gauss</strong> consiste en llevar la matriz ampliada a forma escalonada, columna a columna y de izquierda a derecha:</p>
+<ol>
+<li>Se elige como pivote un elemento no nulo de la primera columna (si hace falta, se intercambian filas para llevarlo arriba).</li>
+<li>Se hacen ceros debajo del pivote con operaciones \(F_i\gets F_i+\lambda F_1\).</li>
+<li>Se repite con la submatriz que queda debajo y a la derecha del pivote.</li>
+</ol>
+<p>Con el sistema ya escalonado, se despejan las incógnitas de abajo arriba (<strong>sustitución regresiva</strong>).</p>
+
+<div class="box-example"><h5 class="box-legend"><span>Ejemplo \(\PageIndex{2}\): método de Gauss</span></h5>
+<p>Resuelve el sistema \(\ x+y+z=6,\ \ 2x-y+z=3,\ \ x+2y-z=2.\)</p>
+<dl><dt>Solución</dt><dd>
+<p>Con \(F_2\gets F_2-2F_1\) y \(F_3\gets F_3-F_1\), y después \(F_3\gets3F_3+F_2\):</p>
+<p>\[ \left(\begin{array}{ccc|c}1&amp;1&amp;1&amp;6\\2&amp;-1&amp;1&amp;3\\1&amp;2&amp;-1&amp;2\end{array}\right)\to \left(\begin{array}{ccc|c}1&amp;1&amp;1&amp;6\\0&amp;-3&amp;-1&amp;-9\\0&amp;1&amp;-2&amp;-4\end{array}\right)\to \left(\begin{array}{ccc|c}1&amp;1&amp;1&amp;6\\0&amp;-3&amp;-1&amp;-9\\0&amp;0&amp;-7&amp;-21\end{array}\right). \]</p>
+<p>De abajo arriba: \(-7z=-21\Rightarrow z=3\); \(-3y-3=-9\Rightarrow y=2\); \(x+2+3=6\Rightarrow x=1\). La solución única es \((1,2,3)\).</p>
+</dd></dl>
+</div>
+
+<p style="text-align:center;"><img alt="Animación del método de Gauss y de Gauss-Jordan sobre la matriz ampliada del ejemplo: se van haciendo ceros debajo y luego encima de los pivotes hasta obtener la solución" src="__IMG_gauss.gif__" style="max-width:100%;" /></p>
+
+<h2>Forma escalonada reducida y método de Gauss-Jordan</h2>
+
+<div class="box-definition"><h5 class="box-legend"><span>Definición \(\PageIndex{4}\): forma escalonada reducida</span></h5>
+<p>Una matriz está en <strong>forma escalonada reducida</strong>, \(\mathrm{RREF}(A)\) (<em>reduced row echelon form</em>), si está en forma escalonada, todos sus pivotes valen 1 y cada pivote es el único elemento no nulo de su columna.</p>
+</div>
+
+<p>El <strong>método de Gauss-Jordan</strong> continúa el de Gauss: se divide cada fila entre su pivote y se hacen ceros también <strong>encima</strong> de los pivotes, de derecha a izquierda. Se puede demostrar que la forma escalonada reducida de una matriz es <strong>única</strong>: no depende de las operaciones elegidas. (La forma escalonada, en cambio, no es única.) Su ventaja es que la solución se lee directamente, sin sustitución regresiva. En el ejemplo anterior,</p>
+<p>\[ \left(\begin{array}{ccc|c}1&amp;1&amp;1&amp;6\\0&amp;-3&amp;-1&amp;-9\\0&amp;0&amp;-7&amp;-21\end{array}\right)\to\dots\to \left(\begin{array}{ccc|c}1&amp;0&amp;0&amp;1\\0&amp;1&amp;0&amp;2\\0&amp;0&amp;1&amp;3\end{array}\right). \]</p>
+
+<h2>Rango y teorema de Rouché-Frobenius</h2>
+
+<div class="box-definition"><h5 class="box-legend"><span>Definición \(\PageIndex{5}\): rango de una matriz</span></h5>
+<p>El <strong>rango</strong> de una matriz \(A\), \(\rho(A)\), es el número de filas no nulas (es decir, de pivotes) de cualquiera de sus formas escalonadas.</p>
+</div>
+<p>Como las operaciones elementales no cambian el número de pivotes al que se llega, el rango está bien definido. Intuitivamente, cuenta cuántas ecuaciones son «realmente distintas»: las filas que se anulan al escalonar eran combinación de las demás. Una forma equivalente de calcularlo es con determinantes: <strong>el rango es el mayor orden de un menor no nulo</strong> de \(A\), donde un <em>menor de orden \(k\)</em> es el determinante de una submatriz \(k\times k\) formada por \(k\) filas y \(k\) columnas de \(A\). En particular, una matriz cuadrada \(n\times n\) tiene rango \(n\) si y solo si su determinante es distinto de cero.</p>
+
+<div class="box-theorem"><h5 class="box-legend"><span>Teorema \(\PageIndex{1}\): teorema de Rouché-Frobenius</span></h5>
+<p>Sea \(A\mathbf x=\mathbf b\) un sistema de \(m\) ecuaciones con \(n\) incógnitas y \(A^*=(A\,|\,\mathbf b)\) su matriz ampliada.</p>
+<ul>
+<li>El sistema es <strong>compatible</strong> si y solo si \(\rho(A)=\rho(A^*)\).</li>
+<li>Si \(\rho(A)=\rho(A^*)=n\), es <strong>compatible determinado</strong> (solución única).</li>
+<li>Si \(\rho(A)=\rho(A^*)&lt;n\), es <strong>compatible indeterminado</strong>, y sus soluciones dependen de \(n-\rho(A)\) parámetros (los <strong>grados de libertad</strong>).</li>
+<li>Si \(\rho(A)&lt;\rho(A^*)\), es <strong>incompatible</strong>.</li>
+</ul>
+</div>
+<dl><dt>Idea de la demostración</dt><dd>
+<p>Escalonamos la matriz ampliada. Si \(\rho(A)&lt;\rho(A^*)\), aparece una fila de la forma \((0\ \cdots\ 0\,|\,c)\) con \(c\ne0\), es decir, la ecuación \(0=c\), imposible. Si los rangos coinciden, cada fila no nula tiene su pivote en la parte de \(A\), y podemos despejar las incógnitas de los pivotes en función de las demás. Las \(n-\rho(A)\) incógnitas sin pivote (<strong>variables libres</strong>) pueden tomar cualquier valor: si no hay ninguna, la solución es única; si hay alguna, hay infinitas.</p>
+</dd></dl>
+
+<div class="box-example"><h5 class="box-legend"><span>Ejemplo \(\PageIndex{3}\): un sistema compatible indeterminado</span></h5>
+<p>Clasifica y resuelve \(\ x+y+z=2,\ \ x+2y+3z=5,\ \ 2x+3y+4z=7.\)</p>
+<dl><dt>Solución</dt><dd>
+<p>Con \(F_2\gets F_2-F_1\), \(F_3\gets F_3-2F_1\) y después \(F_3\gets F_3-F_2\):</p>
+<p>\[ \left(\begin{array}{ccc|c}1&amp;1&amp;1&amp;2\\1&amp;2&amp;3&amp;5\\2&amp;3&amp;4&amp;7\end{array}\right)\to \left(\begin{array}{ccc|c}1&amp;1&amp;1&amp;2\\0&amp;1&amp;2&amp;3\\0&amp;1&amp;2&amp;3\end{array}\right)\to \left(\begin{array}{ccc|c}1&amp;1&amp;1&amp;2\\0&amp;1&amp;2&amp;3\\0&amp;0&amp;0&amp;0\end{array}\right). \]</p>
+<p>\(\rho(A)=\rho(A^*)=2&lt;3\): es un SCI con \(3-2=1\) grado de libertad. La tercera ecuación era la suma de las dos primeras. Tomamos la variable libre \(z=t\) y despejamos: \(y=3-2t\) y \(x=2-y-z=-1+t\). Las soluciones son</p>
+<p>\[ (x,y,z)=(-1+t,\ 3-2t,\ t),\qquad t\in\mathbb R, \]</p>
+<p>una recta del espacio: los tres planos se cortan a lo largo de ella. Si el último término independiente fuera 8 en lugar de 7, la última fila sería \((0\ 0\ 0\,|\,1)\): \(\rho(A)=2&lt;\rho(A^*)=3\) y el sistema sería incompatible.</p>
+</dd></dl>
+</div>
+
+<div class="box-note"><h5 class="box-legend"><span>Sistemas homogéneos</span></h5>
+<p>Un sistema homogéneo \(A\mathbf x=\mathbf 0\) siempre es compatible, porque \(\mathbf x=\mathbf 0\) es solución (la <strong>solución trivial</strong>). Tiene soluciones no triviales si y solo si \(\rho(A)&lt;n\). En particular, si tiene más incógnitas que ecuaciones, siempre tiene infinitas soluciones.</p>
+</div>
+
+<div class="box-example"><h5 class="box-legend"><span>Ejemplo \(\PageIndex{4}\): ajustar una reacción química</span></h5>
+<p>Ajusta la combustión del propano: \(a\,\mathrm{C_3H_8}+b\,\mathrm{O_2}\to c\,\mathrm{CO_2}+d\,\mathrm{H_2O}\).</p>
+<dl><dt>Solución</dt><dd>
+<p>Igualamos el número de átomos de cada elemento a los dos lados:</p>
+<p>\[ \mathrm C:\ 3a=c,\qquad\mathrm H:\ 8a=2d,\qquad\mathrm O:\ 2b=2c+d. \]</p>
+<p>Es un sistema homogéneo de 3 ecuaciones con 4 incógnitas, así que tiene infinitas soluciones (los coeficientes de una reacción ajustada se pueden multiplicar todos por un mismo número). Tomando \(a=t\): \(c=3t\), \(d=4t\) y \(b=c+\frac d2=5t\). Con \(t=1\) obtenemos los menores coeficientes enteros:</p>
+<p>\[ \mathrm{C_3H_8}+5\,\mathrm{O_2}\to3\,\mathrm{CO_2}+4\,\mathrm{H_2O}. \]</p>
+</dd></dl>
+</div>
+
+<div class="box-example" style="border-left-color:#c0560f;background-color:#fdf3ea;"><h5 class="box-legend"><span style="background-color:#c0560f;color:#ffffff;">Ejemplo \(\PageIndex{5}\) (Laboratorio): infinitas recetas o ninguna</span></h5>
+<p><em>Contexto.</em> En un laboratorio hay tres disoluciones madre con dos solutos, \(A\) y \(B\): \(d_1\) tiene 10 g/L de \(A\); \(d_2\), 10 g/L de \(B\); y \(d_3\), 5 g/L de cada uno. Queremos preparar 10 L de mezcla tomando \(v_1,v_2,v_3\) litros de cada disolución. En la sección 3.2 vimos que la matriz de este problema tiene determinante nulo.</p>
+<ol>
+<li>¿Cómo se preparan 10 L con 40 g de \(A\) y 60 g de \(B\)?</li>
+<li>¿Y con 40 g de \(A\) y 50 g de \(B\)?</li>
+</ol>
+<dl><dt>Solución</dt><dd>
+<ol>
+<li>Las ecuaciones son el volumen total, \(v_1+v_2+v_3=10\), la masa de \(A\), \(10v_1+5v_3=40\), y la de \(B\), \(10v_2+5v_3=60\). Con \(F_2\gets F_2-10F_1\) y después \(F_3\gets F_3+F_2\):</li>
+</ol>
+<p>\[ \left(\begin{array}{ccc|c}1&amp;1&amp;1&amp;10\\10&amp;0&amp;5&amp;40\\0&amp;10&amp;5&amp;60\end{array}\right)\to \left(\begin{array}{ccc|c}1&amp;1&amp;1&amp;10\\0&amp;-10&amp;-5&amp;-60\\0&amp;0&amp;0&amp;0\end{array}\right). \]</p>
+<p>Es un SCI con un grado de libertad. Con \(v_3=t\): \(v_2=6-\frac t2\) y \(v_1=4-\frac t2\). Pero los volúmenes no pueden ser negativos, así que \(0\le t\le8\). Hay infinitas recetas: por ejemplo, 4 L de \(d_1\) y 6 L de \(d_2\) (\(t=0\)), o 2 L de \(d_2\) y 8 L de \(d_3\) (\(t=8\)).</p>
+<ol start="2">
+<li>Con 50 g de \(B\), la última fila queda \((0\ 0\ 0\,|\,-10)\): \(\rho(A)=2&lt;\rho(A^*)=3\) y el sistema es <strong>incompatible</strong>. La razón química: las tres disoluciones tienen 10 g/L de soluto en total, así que 10 L de cualquier mezcla contienen exactamente 100 g de soluto, y \(40+50=90\ne100\).</li>
+</ol>
+<p>Este es el efecto del determinante nulo: como \(d_3\) es una mezcla de \(d_1\) y \(d_2\), el problema nunca tiene solución única. En el tema 4 veremos que \(d_3\) es <strong>linealmente dependiente</strong> de las otras dos.</p>
+</dd></dl>
+</div>
+
+<h2>Ejercicios</h2>
+
+<div class="box-exercise"><h5 class="box-legend"><span>Ejercicio \(\PageIndex{1}\) __F1__</span></h5>
+<p>Resuelve por el método de Gauss:</p>
+<p>\[ \text{(a)}\ \begin{cases}2x+y=5\\x-y=1\end{cases}\qquad\text{(b)}\ \begin{cases}x+2y+3z=3\\2x-y+z=6\\3x+y-2z=3\end{cases} \]</p>
+<dl><dt>Solución</dt><dd>
+<p>(a) Con \(F_2\gets2F_2-F_1\): \(-3y=-3\), así que \(y=1\) y \(x=2\).</p>
+<p>(b) Con \(F_2\gets F_2-2F_1\), \(F_3\gets F_3-3F_1\) y después \(F_3\gets F_3-F_2\):</p>
+<p>\[ \left(\begin{array}{ccc|c}1&amp;2&amp;3&amp;3\\0&amp;-5&amp;-5&amp;0\\0&amp;-5&amp;-11&amp;-6\end{array}\right)\to \left(\begin{array}{ccc|c}1&amp;2&amp;3&amp;3\\0&amp;-5&amp;-5&amp;0\\0&amp;0&amp;-6&amp;-6\end{array}\right). \]</p>
+<p>\(z=1\), \(-5y-5=0\Rightarrow y=-1\), \(x-2+3=3\Rightarrow x=2\). Solución: \((2,-1,1)\).</p>
+</dd></dl>
+</div>
+
+<div class="box-exercise"><h5 class="box-legend"><span>Ejercicio \(\PageIndex{2}\) __F1__</span></h5>
+<p>Sea \(E\) la matriz elemental de la operación \(F_3\gets F_3-7F_1\) sobre matrices de 3 filas.</p>
+<ol>
+<li>Escribe \(E\).</li>
+<li>¿Qué operación deshace la anterior? Escribe \(E^{-1}\) y comprueba que \(EE^{-1}=I_3\).</li>
+</ol>
+<dl><dt>Solución</dt><dd>
+<p>\[ E=\begin{pmatrix}1&amp;0&amp;0\\0&amp;1&amp;0\\-7&amp;0&amp;1\end{pmatrix},\qquad E^{-1}=\begin{pmatrix}1&amp;0&amp;0\\0&amp;1&amp;0\\7&amp;0&amp;1\end{pmatrix}, \]</p>
+<p>que corresponde a la operación contraria, \(F_3\gets F_3+7F_1\). Al multiplicar, la tercera fila de \(EE^{-1}\) es \(-7(1,0,0)+(7,0,1)=(0,0,1)\), y las otras dos son las de \(I_3\).</p>
+</dd></dl>
+</div>
+
+<div class="box-exercise"><h5 class="box-legend"><span>Ejercicio \(\PageIndex{3}\) __F2__</span></h5>
+<p>Dado el sistema \(\ x+2y+3z=9,\ \ 2x-y+4z=8,\ \ x-y+z=3\):</p>
+<ol>
+<li>Escríbelo en forma matricial \(A\mathbf x=\mathbf b\).</li>
+<li>Obtén una forma escalonada de \(A^*\), indicando las operaciones. Calcula \(\rho(A)\) y \(\rho(A^*)\) y clasifica el sistema.</li>
+<li>Obtén la forma escalonada reducida y la solución.</li>
+</ol>
+<dl><dt>Solución</dt><dd>
+<ol>
+<li>\(A=\begin{pmatrix}1&amp;2&amp;3\\2&amp;-1&amp;4\\1&amp;-1&amp;1\end{pmatrix}\), \(\mathbf x=(x,y,z)^T\), \(\mathbf b=(9,8,3)^T\).</li>
+<li>Con \(F_2\gets F_2-2F_1\), \(F_3\gets F_3-F_1\) y después \(F_3\gets5F_3-3F_2\):</li>
+</ol>
+<p>\[ \left(\begin{array}{ccc|c}1&amp;2&amp;3&amp;9\\0&amp;-5&amp;-2&amp;-10\\0&amp;-3&amp;-2&amp;-6\end{array}\right)\to \left(\begin{array}{ccc|c}1&amp;2&amp;3&amp;9\\0&amp;-5&amp;-2&amp;-10\\0&amp;0&amp;-4&amp;0\end{array}\right). \]</p>
+<p>\(\rho(A)=\rho(A^*)=3\), igual al número de incógnitas: es un SCD.</p>
+<ol start="3">
+<li>Dividiendo \(F_2\) entre \(-5\) y \(F_3\) entre \(-4\), y haciendo ceros encima de los pivotes (\(F_1\gets F_1-3F_3\), \(F_2\gets F_2-\frac25F_3\), \(F_1\gets F_1-2F_2\)):</li>
+</ol>
+<p>\[ \mathrm{RREF}(A^*)=\left(\begin{array}{ccc|c}1&amp;0&amp;0&amp;5\\0&amp;1&amp;0&amp;2\\0&amp;0&amp;1&amp;0\end{array}\right). \]</p>
+<p>La solución es \(x=5\), \(y=2\), \(z=0\).</p>
+</dd></dl>
+</div>
+
+<div class="box-exercise"><h5 class="box-legend"><span>Ejercicio \(\PageIndex{4}\) __F2__</span></h5>
+<p>Dado el sistema homogéneo \(\ x+5y+z=0,\ \ 2x-11y+5z=0\):</p>
+<ol>
+<li>Escríbelo en forma matricial.</li>
+<li>Obtén la forma escalonada reducida, calcula los rangos, clasifica el sistema y da su solución general.</li>
+</ol>
+<dl><dt>Solución</dt><dd>
+<p>\(A=\begin{pmatrix}1&amp;5&amp;1\\2&amp;-11&amp;5\end{pmatrix}\) y \(\mathbf b=\mathbf 0\). Con \(F_2\gets F_2-2F_1\), \(F_2\gets-\frac1{21}F_2\) y \(F_1\gets F_1-5F_2\):</p>
+<p>\[ \begin{pmatrix}1&amp;5&amp;1\\0&amp;-21&amp;3\end{pmatrix}\to\begin{pmatrix}1&amp;5&amp;1\\0&amp;1&amp;-\frac17\end{pmatrix}\to\begin{pmatrix}1&amp;0&amp;\frac{12}7\\0&amp;1&amp;-\frac17\end{pmatrix}. \]</p>
+<p>\(\rho(A)=\rho(A^*)=2&lt;3\): SCI con un grado de libertad. Con \(z=t\),</p>
+<p>\[ (x,y,z)=\Big(-\frac{12}7t,\ \frac17t,\ t\Big),\qquad t\in\mathbb R. \]</p>
+<p>Tomando \(t=7s\) se evitan las fracciones: \((x,y,z)=(-12s,\,s,\,7s)\).</p>
+</dd></dl>
+</div>
+
+<div class="box-exercise"><h5 class="box-legend"><span>Ejercicio \(\PageIndex{5}\) __F2__</span></h5>
+<p>Dada \(A=\begin{pmatrix}1&amp;0&amp;a\\-2&amp;a+1&amp;2\\-3&amp;a-1&amp;a\end{pmatrix}\), con \(a\in\mathbb R\):</p>
+<ol>
+<li>Estudia el rango de \(A\) según el valor de \(a\).</li>
+<li>Resuelve \(A\,(x,y,z)^T=(-1,2,0)^T\) para \(a=-1\).</li>
+</ol>
+<dl><dt>Pista</dt><dd><p>En el Ejercicio 2 de la sección 3.2 se obtuvo \(\det(A)=2(a+1)^2\).</p></dd>
+<dt>Solución</dt><dd>
+<ol>
+<li>Si \(a\ne-1\), \(\det(A)\ne0\) y \(\rho(A)=3\). Si \(a=-1\),</li>
+</ol>
+<p>\[ A=\begin{pmatrix}1&amp;0&amp;-1\\-2&amp;0&amp;2\\-3&amp;-2&amp;-1\end{pmatrix}. \]</p>
+<p>La segunda fila es \(-2\) veces la primera, y el menor \(\begin{vmatrix}1&amp;0\\-3&amp;-2\end{vmatrix}=-2\ne0\) (filas 1 y 3, columnas 1 y 2), así que \(\rho(A)=2\).</p>
+<ol start="2">
+<li>Con \(F_2\gets F_2+2F_1\) y \(F_3\gets F_3+3F_1\):</li>
+</ol>
+<p>\[ \left(\begin{array}{ccc|c}1&amp;0&amp;-1&amp;-1\\-2&amp;0&amp;2&amp;2\\-3&amp;-2&amp;-1&amp;0\end{array}\right)\to \left(\begin{array}{ccc|c}1&amp;0&amp;-1&amp;-1\\0&amp;0&amp;0&amp;0\\0&amp;-2&amp;-4&amp;-3\end{array}\right). \]</p>
+<p>\(\rho(A)=\rho(A^*)=2&lt;3\): SCI con un grado de libertad. Con \(z=t\): \(x=t-1\) e \(y=\frac32-2t\), es decir, \((x,y,z)=\big(t-1,\ \frac32-2t,\ t\big)\), \(t\in\mathbb R\).</p>
+</dd></dl>
+</div>
+
+<div class="box-exercise"><h5 class="box-legend"><span>Ejercicio \(\PageIndex{6}\) __F3__</span></h5>
+<p>El permanganato de potasio oxida el ácido clorhídrico y se desprende cloro:</p>
+<p>\[ a\,\mathrm{KMnO_4}+b\,\mathrm{HCl}\to c\,\mathrm{KCl}+d\,\mathrm{MnCl_2}+e\,\mathrm{Cl_2}+f\,\mathrm{H_2O}. \]</p>
+<p>Plantea el sistema homogéneo que da el balance de cada elemento y ajusta la reacción con los menores coeficientes enteros.</p>
+<dl><dt>Pista</dt><dd><p>Hay 5 elementos (K, Mn, O, H, Cl) y 6 incógnitas. Toma \(a\) como parámetro.</p></dd>
+<dt>Solución</dt><dd>
+<p>\[ \begin{aligned} &amp;\mathrm K:\ a=c,\qquad\mathrm{Mn}:\ a=d,\qquad\mathrm O:\ 4a=f,\\ &amp;\mathrm H:\ b=2f,\qquad\mathrm{Cl}:\ b=c+2d+2e. \end{aligned} \]</p>
+<p>Las cinco ecuaciones son independientes, así que el sistema tiene rango 5 y \(6-5=1\) grado de libertad. Con \(a=t\): \(c=d=t\), \(f=4t\), \(b=8t\) y \(2e=b-c-2d=5t\), es decir, \(e=\frac52t\). Para que todos sean enteros, \(t=2\):</p>
+<p>\[ 2\,\mathrm{KMnO_4}+16\,\mathrm{HCl}\to2\,\mathrm{KCl}+2\,\mathrm{MnCl_2}+5\,\mathrm{Cl_2}+8\,\mathrm{H_2O}. \]</p>
+</dd></dl>
+</div>
+
+<div class="box-exercise"><h5 class="box-legend"><span>Ejercicio \(\PageIndex{7}\) __F2__</span></h5>
+<p>Con las disoluciones madre del Ejemplo 5 (\(d_1\): 10 g/L de \(A\); \(d_2\): 10 g/L de \(B\); \(d_3\): 5 g/L de cada uno) queremos preparar 10 L de mezcla con \(m_A\) gramos de \(A\) y \(m_B\) gramos de \(B\).</p>
+<ol>
+<li>Usa el teorema de Rouché-Frobenius para hallar la condición sobre \(m_A\) y \(m_B\) para que haya solución.</li>
+<li>Para \(m_A=70\) y \(m_B=30\), da todas las recetas posibles con volúmenes no negativos.</li>
+</ol>
+<dl><dt>Solución</dt><dd>
+<ol>
+<li>Escalonando como en el Ejemplo 5,</li>
+</ol>
+<p>\[ \left(\begin{array}{ccc|c}1&amp;1&amp;1&amp;10\\10&amp;0&amp;5&amp;m_A\\0&amp;10&amp;5&amp;m_B\end{array}\right)\to \left(\begin{array}{ccc|c}1&amp;1&amp;1&amp;10\\0&amp;-10&amp;-5&amp;m_A-100\\0&amp;0&amp;0&amp;m_A+m_B-100\end{array}\right). \]</p>
+<p>\(\rho(A)=2\) siempre, y \(\rho(A^*)=2\) si y solo si \(m_A+m_B=100\). Esa es la condición de compatibilidad: la masa total de soluto debe ser 100 g.</p>
+<ol start="2">
+<li>\(70+30=100\), así que es compatible (SCI). Con \(v_3=t\): \(-10v_2-5t=-30\Rightarrow v_2=3-\frac t2\), y \(v_1=10-v_2-t=7-\frac t2\). Para que todos sean no negativos, \(0\le t\le6\). Por ejemplo, \((7,3,0)\), \((5,1,4)\) o \((4,0,6)\) litros.</li>
+</ol>
+</dd></dl>
+</div>

@@ -1,0 +1,208 @@
+<div class="box-objectives"><h5 class="box-legend"><span>Objetivos de aprendizaje</span></h5>
+<ul>
+<li>Entender qué es una matriz y reconocer los tipos de matrices más habituales.</li>
+<li>Sumar matrices y multiplicarlas por un escalar, y conocer las propiedades de estas operaciones.</li>
+<li>Multiplicar matrices, saber cuándo se puede y entender por qué el producto no es conmutativo.</li>
+<li>Calcular la traspuesta de una matriz y usar sus propiedades.</li>
+<li>Escribir un problema de mezclas en forma matricial.</li>
+</ul>
+</div>
+
+<div class="box-note" style="border-left-color:#c0560f;background-color:#fdf3ea;"><h5 class="box-legend"><span style="background-color:#c0560f;color:#ffffff;">Caso de estudio del bloque: el laboratorio de mezclas</span></h5>
+<p>En un laboratorio se preparan disoluciones mezclando varias <strong>disoluciones madre</strong> (de referencia), cada una con una composición conocida. Para preparar una mezcla con una composición concreta hay que decidir cuánto volumen tomar de cada disolución madre. En este bloque, los ejemplos marcados <strong>(Laboratorio)</strong> usan la herramienta matemática nueva para resolver una parte de este problema.</p>
+</div>
+
+<h2>Motivación: ordenar datos en tablas</h2>
+
+<p>Supongamos que en el laboratorio hay tres disoluciones madre, \(d_1\), \(d_2\) y \(d_3\), con dos solutos, \(A\) y \(B\):</p>
+
+<table class="mt-responsive-table"><thead><tr><th>Disolución</th><th>Soluto \(A\) (g/L)</th><th>Soluto \(B\) (g/L)</th></tr></thead>
+<tbody><tr><td>\(d_1\)</td><td>10</td><td>0</td></tr><tr><td>\(d_2\)</td><td>0</td><td>10</td></tr><tr><td>\(d_3\)</td><td>5</td><td>5</td></tr></tbody></table>
+
+<p>Si mezclamos \(v_1\), \(v_2\) y \(v_3\) litros de cada una, la masa de cada soluto en la mezcla es</p>
+<p>\[ \begin{aligned} m_A&amp;=10v_1+0v_2+5v_3,\\ m_B&amp;=0v_1+10v_2+5v_3. \end{aligned} \]</p>
+<p>Toda la información está en la tabla de números de la derecha, y el cálculo siempre sigue el mismo patrón: «fila por columna». Las <strong>matrices</strong> son precisamente eso: tablas de números con unas reglas de cálculo que permiten escribir y manipular de golpe muchas ecuaciones como esta. Y la pregunta inversa, <em>¿cuántos litros de cada una necesito para obtener ciertas masas?</em>, es un <strong>sistema de ecuaciones lineales</strong>, que aprenderemos a resolver en este tema.</p>
+
+<h2>Definición y tipos de matrices</h2>
+
+<div class="box-definition"><h5 class="box-legend"><span>Definición \(\PageIndex{1}\): matriz</span></h5>
+<p>Una <strong>matriz</strong> de tamaño (u orden) \(m\times n\) es una tabla de \(m\cdot n\) números reales ordenados en \(m\) filas y \(n\) columnas:</p>
+<p>\[ A=\begin{pmatrix} a_{11}&amp;a_{12}&amp;\cdots&amp;a_{1n}\\ a_{21}&amp;a_{22}&amp;\cdots&amp;a_{2n}\\ \vdots&amp;\vdots&amp;\ddots&amp;\vdots\\ a_{m1}&amp;a_{m2}&amp;\cdots&amp;a_{mn} \end{pmatrix}=(a_{ij}). \]</p>
+<p>El número \(a_{ij}\) es la <strong>entrada</strong> (o elemento) de la fila \(i\) y la columna \(j\). El conjunto de matrices reales \(m\times n\) se denota \(\mathbb R_{m\times n}\). Dos matrices son <strong>iguales</strong> si tienen el mismo tamaño y las mismas entradas en las mismas posiciones.</p>
+</div>
+
+<p>Los tipos de matrices que más usaremos son estos:</p>
+<ul>
+<li><strong>Matriz fila</strong> (\(1\times n\)) y <strong>matriz columna</strong> (\(m\times 1\)). Las matrices columna se identifican con los vectores: \(\mathbf v=(v_1,\dots,v_m)^T\).</li>
+<li><strong>Matriz cuadrada</strong> (\(n\times n\)): tiene tantas filas como columnas. Sus entradas \(a_{11},a_{22},\dots,a_{nn}\) forman la <strong>diagonal principal</strong>.</li>
+<li><strong>Matriz nula</strong> \(O\): todas sus entradas son 0.</li>
+<li><strong>Matriz diagonal</strong>: cuadrada, con ceros fuera de la diagonal principal. Un caso particular es la <strong>matriz identidad</strong> \(I_n\), con unos en la diagonal.</li>
+<li><strong>Matriz triangular superior</strong> (\(a_{ij}=0\) si \(i&gt;j\)) e <strong>inferior</strong> (\(a_{ij}=0\) si \(i&lt;j\)).</li>
+</ul>
+<p>\[ I_3=\begin{pmatrix}1&amp;0&amp;0\\0&amp;1&amp;0\\0&amp;0&amp;1\end{pmatrix},\qquad U=\begin{pmatrix}2&amp;-1&amp;4\\0&amp;3&amp;5\\0&amp;0&amp;-1\end{pmatrix}\ \text{(triangular superior)}. \]</p>
+
+<div class="box-definition"><h5 class="box-legend"><span>Definición \(\PageIndex{2}\): matriz traspuesta</span></h5>
+<p>La <strong>traspuesta</strong> de \(A\in\mathbb R_{m\times n}\) es la matriz \(A^T\in\mathbb R_{n\times m}\) que se obtiene intercambiando filas por columnas: \((A^T)_{ij}=a_{ji}\). Una matriz cuadrada es <strong>simétrica</strong> si \(A^T=A\), es decir, si \(a_{ij}=a_{ji}\) para todo \(i,j\).</p>
+</div>
+<p>Por ejemplo,</p>
+<p>\[ \begin{pmatrix}1&amp;2&amp;0\\-1&amp;3&amp;4\end{pmatrix}^T=\begin{pmatrix}1&amp;-1\\2&amp;3\\0&amp;4\end{pmatrix}. \]</p>
+
+<h2>Suma y producto por un escalar</h2>
+
+<div class="box-definition"><h5 class="box-legend"><span>Definición \(\PageIndex{3}\): suma y producto por un escalar</span></h5>
+<p>Si \(A=(a_{ij})\) y \(B=(b_{ij})\) tienen el <strong>mismo tamaño</strong> y \(\lambda\in\mathbb R\),</p>
+<p>\[ A+B=(a_{ij}+b_{ij}),\qquad\lambda A=(\lambda\,a_{ij}). \]</p>
+<p>Es decir, se opera entrada a entrada. Matrices de tamaños distintos no se pueden sumar.</p>
+</div>
+
+<div class="box-theorem"><h5 class="box-legend"><span>Teorema \(\PageIndex{1}\): propiedades de la suma y del producto por escalares</span></h5>
+<p>Para matrices \(A,B,C\) del mismo tamaño y escalares \(\lambda,\mu\in\mathbb R\):</p>
+<ol>
+<li>\(A+B=B+A\) (conmutativa) y \((A+B)+C=A+(B+C)\) (asociativa).</li>
+<li>\(A+O=A\) (la matriz nula es el elemento neutro) y \(A+(-A)=O\), donde \(-A=(-1)A\).</li>
+<li>\(\lambda(A+B)=\lambda A+\lambda B\) y \((\lambda+\mu)A=\lambda A+\mu A\) (distributivas).</li>
+<li>\(\lambda(\mu A)=(\lambda\mu)A\) y \(1A=A\).</li>
+</ol>
+</div>
+<dl><dt>Demostración</dt><dd>
+<p>Todas se reducen a las propiedades de los números reales, aplicadas entrada a entrada. Por ejemplo, la entrada \((i,j)\) de \(A+B\) es \(a_{ij}+b_{ij}=b_{ij}+a_{ij}\), que es la entrada \((i,j)\) de \(B+A\). Las demás se comprueban igual.</p>
+</dd></dl>
+
+<div class="box-example"><h5 class="box-legend"><span>Ejemplo \(\PageIndex{1}\): combinaciones de matrices</span></h5>
+<p>Con \(A=\begin{pmatrix}1&amp;2&amp;0\\-1&amp;3&amp;4\end{pmatrix}\) y \(B=\begin{pmatrix}2&amp;0&amp;1\\1&amp;-1&amp;2\end{pmatrix}\), calcula \(A+B\) y \(3A-2B\).</p>
+<dl><dt>Solución</dt><dd>
+<p>\[ A+B=\begin{pmatrix}3&amp;2&amp;1\\0&amp;2&amp;6\end{pmatrix},\qquad 3A-2B=\begin{pmatrix}3-4&amp;6-0&amp;0-2\\-3-2&amp;9+2&amp;12-4\end{pmatrix}=\begin{pmatrix}-1&amp;6&amp;-2\\-5&amp;11&amp;8\end{pmatrix}. \]</p>
+</dd></dl>
+</div>
+
+<h2>Producto de matrices</h2>
+
+<p>El producto de matrices generaliza el cálculo de la motivación: cada entrada del resultado es una <strong>fila</strong> de la primera matriz «por» una <strong>columna</strong> de la segunda, multiplicando entrada a entrada y sumando.</p>
+
+<div class="box-definition"><h5 class="box-legend"><span>Definición \(\PageIndex{4}\): producto de matrices</span></h5>
+<p>Si \(A\in\mathbb R_{m\times p}\) y \(B\in\mathbb R_{p\times n}\) (el número de <strong>columnas</strong> de \(A\) coincide con el de <strong>filas</strong> de \(B\)), su producto es la matriz \(AB=C\in\mathbb R_{m\times n}\) con entradas</p>
+<p>\[ c_{ij}=a_{i1}b_{1j}+a_{i2}b_{2j}+\dots+a_{ip}b_{pj}=\sum_{k=1}^{p}a_{ik}b_{kj}. \]</p>
+</div>
+
+<p>Una regla para recordar los tamaños: \((m\times\boxed{p})\cdot(\boxed{p}\times n)=m\times n\). Los números interiores deben coincidir y los exteriores dan el tamaño del resultado.</p>
+
+<p style="text-align:center;"><img alt="Animación: cada entrada del producto AB se obtiene recorriendo una fila de A y una columna de B, multiplicando entrada a entrada y sumando" src="__IMG_producto_matrices.gif__" style="max-width:100%;" /></p>
+
+<div class="box-example"><h5 class="box-legend"><span>Ejemplo \(\PageIndex{2}\): el orden importa</span></h5>
+<p>Sean \(A=\begin{pmatrix}1&amp;2&amp;0\\-1&amp;3&amp;4\end{pmatrix}\) (\(2\times3\)) y \(C=\begin{pmatrix}1&amp;0\\2&amp;-1\\0&amp;3\end{pmatrix}\) (\(3\times2\)). Calcula \(AC\) y \(CA\).</p>
+<dl><dt>Solución</dt><dd>
+<p>\(AC\) es \(2\times2\). Por ejemplo, su entrada \((1,1)\) es la fila 1 de \(A\) por la columna 1 de \(C\): \(1\cdot1+2\cdot2+0\cdot0=5\). Haciendo lo mismo con las demás,</p>
+<p>\[ AC=\begin{pmatrix}5&amp;-2\\5&amp;9\end{pmatrix},\qquad CA=\begin{pmatrix}1&amp;2&amp;0\\3&amp;1&amp;-4\\-3&amp;9&amp;12\end{pmatrix}. \]</p>
+<p>¡Ni siquiera tienen el mismo tamaño! \(CA\) es \(3\times3\).</p>
+</dd></dl>
+</div>
+
+<div class="box-warning"><h5 class="box-legend"><span>El producto de matrices no es conmutativo</span></h5>
+<p>Incluso cuando \(AB\) y \(BA\) existen y tienen el mismo tamaño, en general \(AB\ne BA\). Por ejemplo,</p>
+<p>\[ \begin{pmatrix}1&amp;1\\0&amp;1\end{pmatrix}\begin{pmatrix}1&amp;0\\1&amp;1\end{pmatrix}=\begin{pmatrix}2&amp;1\\1&amp;1\end{pmatrix},\qquad \begin{pmatrix}1&amp;0\\1&amp;1\end{pmatrix}\begin{pmatrix}1&amp;1\\0&amp;1\end{pmatrix}=\begin{pmatrix}1&amp;1\\1&amp;2\end{pmatrix}. \]</p>
+<p>Otras dos diferencias con los números: puede ocurrir que \(AB=O\) con \(A\ne O\) y \(B\ne O\) (por ejemplo, \(\begin{pmatrix}1&amp;0\\0&amp;0\end{pmatrix}\begin{pmatrix}0&amp;0\\0&amp;1\end{pmatrix}=O\)), y por eso de \(AB=AC\) <strong>no</strong> se puede deducir \(B=C\) en general.</p>
+</div>
+
+<div class="box-theorem"><h5 class="box-legend"><span>Teorema \(\PageIndex{2}\): propiedades del producto y de la traspuesta</span></h5>
+<p>Siempre que los tamaños permitan hacer las operaciones:</p>
+<ol>
+<li>\((AB)C=A(BC)\) (asociativa).</li>
+<li>\(A(B+C)=AB+AC\) y \((A+B)C=AC+BC\) (distributivas).</li>
+<li>\(\lambda(AB)=(\lambda A)B=A(\lambda B)\).</li>
+<li>\(I_mA=A\,I_n=A\) si \(A\in\mathbb R_{m\times n}\) (la identidad es el elemento neutro).</li>
+<li>\((A^T)^T=A\), \((A+B)^T=A^T+B^T\), \((\lambda A)^T=\lambda A^T\) y \((AB)^T=B^TA^T\).</li>
+</ol>
+</div>
+<dl><dt>Demostración de \((AB)^T=B^TA^T\)</dt><dd>
+<p>Si \(A\in\mathbb R_{m\times p}\) y \(B\in\mathbb R_{p\times n}\), las dos matrices son \(n\times m\). La entrada \((i,j)\) de \((AB)^T\) es la entrada \((j,i)\) de \(AB\):</p>
+<p>\[ \big((AB)^T\big)_{ij}=(AB)_{ji}=\sum_{k=1}^pa_{jk}b_{ki}=\sum_{k=1}^p(B^T)_{ik}(A^T)_{kj}=(B^TA^T)_{ij}. \]</p>
+<p>Fíjate en que el orden se invierte: \(A^TB^T\) en general ni siquiera se puede calcular. \(\blacksquare\)</p>
+</dd></dl>
+
+<p>Si \(A\) es cuadrada, sus <strong>potencias</strong> se definen como \(A^2=AA\), \(A^3=AAA\), etc., y \(A^0=I\). Por la falta de conmutatividad, las identidades notables cambian: por ejemplo, \((A+B)^2=A^2+AB+BA+B^2\), que solo es \(A^2+2AB+B^2\) si \(AB=BA\).</p>
+
+<div class="box-example" style="border-left-color:#c0560f;background-color:#fdf3ea;"><h5 class="box-legend"><span style="background-color:#c0560f;color:#ffffff;">Ejemplo \(\PageIndex{3}\) (Laboratorio): la mezcla como producto de matrices</span></h5>
+<p><em>Contexto.</em> En un laboratorio hay tres disoluciones madre, \(d_1\), \(d_2\) y \(d_3\), con dos solutos, \(A\) y \(B\). Sus concentraciones (en g/L) son \(d_1\): 10 de \(A\) y 0 de \(B\); \(d_2\): 0 de \(A\) y 10 de \(B\); \(d_3\): 5 de cada uno.</p>
+<ol>
+<li>Organiza las concentraciones en una matriz \(C\) de modo que, si \(\mathbf v=(v_1,v_2,v_3)^T\) son los litros que tomamos de cada disolución, el vector de masas de la mezcla sea \(\mathbf m=C\mathbf v\).</li>
+<li>Calcula la composición de una mezcla con 2 L de \(d_1\), 3 L de \(d_2\) y 4 L de \(d_3\), y su concentración.</li>
+</ol>
+<dl><dt>Solución</dt><dd>
+<ol>
+<li>Cada fila de \(C\) corresponde a un soluto y cada columna, a una disolución madre:</li>
+</ol>
+<p>\[ C=\begin{pmatrix}10&amp;0&amp;5\\0&amp;10&amp;5\end{pmatrix}\ \text{g/L},\qquad \mathbf m=C\mathbf v=\begin{pmatrix}10v_1+5v_3\\10v_2+5v_3\end{pmatrix}. \]</p>
+<ol start="2">
+<li>Con \(\mathbf v=(2,3,4)^T\),</li>
+</ol>
+<p>\[ \mathbf m=\begin{pmatrix}10&amp;0&amp;5\\0&amp;10&amp;5\end{pmatrix}\begin{pmatrix}2\\3\\4\end{pmatrix}=\begin{pmatrix}40\\50\end{pmatrix}\ \text{g}. \]</p>
+<p>La mezcla tiene 9 L, así que sus concentraciones son \(40/9\approx4.44\) g/L de \(A\) y \(50/9\approx5.56\) g/L de \(B\). Fíjate en que las unidades encajan como los tamaños: (g/L)·(L) = g.</p>
+</dd></dl>
+</div>
+
+<h2>Ejercicios</h2>
+
+<div class="box-exercise"><h5 class="box-legend"><span>Ejercicio \(\PageIndex{1}\) __F1__</span></h5>
+<p>Dadas \(A=\begin{pmatrix}2&amp;-1\\0&amp;3\end{pmatrix}\) y \(B=\begin{pmatrix}1&amp;4\\-2&amp;1\end{pmatrix}\), calcula \(A+B\), \(2A-3B\), \(AB\), \(BA\) y \(A^TB\).</p>
+<dl><dt>Solución</dt><dd>
+<p>\[ A+B=\begin{pmatrix}3&amp;3\\-2&amp;4\end{pmatrix},\qquad 2A-3B=\begin{pmatrix}1&amp;-14\\6&amp;3\end{pmatrix}, \]</p>
+<p>\[ AB=\begin{pmatrix}4&amp;7\\-6&amp;3\end{pmatrix},\qquad BA=\begin{pmatrix}2&amp;11\\-4&amp;5\end{pmatrix},\qquad A^TB=\begin{pmatrix}2&amp;8\\-7&amp;-1\end{pmatrix}. \]</p>
+<p>Observa que \(AB\ne BA\).</p>
+</dd></dl>
+</div>
+
+<div class="box-exercise"><h5 class="box-legend"><span>Ejercicio \(\PageIndex{2}\) __F1__</span></h5>
+<p>Sean \(A\in\mathbb R_{2\times3}\), \(B\in\mathbb R_{3\times3}\), \(C\in\mathbb R_{3\times1}\) y \(D\in\mathbb R_{1\times2}\). Indica cuáles de estos productos están definidos y, en ese caso, el tamaño del resultado: \(AB\), \(BA\), \(BC\), \(CD\), \(DA\), \(ABC\), \(C^TB\), \(DAC\).</p>
+<dl><dt>Solución</dt><dd>
+<ul>
+<li>\(AB\): \((2\times3)(3\times3)\), sí, \(2\times3\). \(BA\): \((3\times3)(2\times3)\), no.</li>
+<li>\(BC\): sí, \(3\times1\). \(CD\): \((3\times1)(1\times2)\), sí, \(3\times2\). \(DA\): \((1\times2)(2\times3)\), sí, \(1\times3\).</li>
+<li>\(ABC\): sí, \(2\times1\). \(C^TB\): \((1\times3)(3\times3)\), sí, \(1\times3\). \(DAC\): sí, \(1\times1\), es decir, un número.</li>
+</ul>
+</dd></dl>
+</div>
+
+<div class="box-exercise"><h5 class="box-legend"><span>Ejercicio \(\PageIndex{3}\) __F2__</span></h5>
+<p>Sea \(A\) una matriz cuadrada. Demuestra que \(A+A^T\) es simétrica y que, para cualquier matriz \(M\) (no necesariamente cuadrada), \(MM^T\) es simétrica.</p>
+<dl><dt>Pista</dt><dd><p>Una matriz \(S\) es simétrica si \(S^T=S\). Usa las propiedades de la traspuesta.</p></dd>
+<dt>Solución</dt><dd>
+<p>\((A+A^T)^T=A^T+(A^T)^T=A^T+A=A+A^T\). Y \((MM^T)^T=(M^T)^TM^T=MM^T\), usando \((AB)^T=B^TA^T\). \(\blacksquare\)</p>
+</dd></dl>
+</div>
+
+<div class="box-exercise"><h5 class="box-legend"><span>Ejercicio \(\PageIndex{4}\) __F2__</span></h5>
+<p>Sean \(A\) y \(B\) matrices cuadradas del mismo orden tales que \(AB=A\) y \(BA=B\). Demuestra que \(A^2=A\) y \(B^2=B\).</p>
+<dl><dt>Pista</dt><dd><p>Sustituye la primera \(A\) de \(A^2=AA\) por \(AB\) y usa la propiedad asociativa.</p></dd>
+<dt>Solución</dt><dd>
+<p>Sustituimos la primera \(A\) por \(AB\) y reagrupamos:</p>
+<p>\[ A^2=A\,A=(AB)\,A=A\,(BA)=A\,B=A. \]</p>
+<p>Análogamente, \(B^2=B\,B=(BA)\,B=B\,(AB)=B\,A=B\). \(\blacksquare\)</p>
+</dd></dl>
+</div>
+
+<div class="box-exercise"><h5 class="box-legend"><span>Ejercicio \(\PageIndex{5}\) __F2__</span></h5>
+<p>Demuestra que la igualdad \((A-B)^2=A^2+B^2-2AB\) es falsa en general para matrices cuadradas. ¿En qué caso es correcta?</p>
+<dl><dt>Solución</dt><dd>
+<p>Por la propiedad distributiva, \((A-B)^2=(A-B)(A-B)=A^2-AB-BA+B^2\). Esta expresión coincide con \(A^2+B^2-2AB\) si y solo si \(-AB-BA=-2AB\), es decir, si y solo si \(AB=BA\): las matrices tienen que <strong>conmutar</strong>. Con las matrices del aviso anterior, que no conmutan, la igualdad falla.</p>
+</dd></dl>
+</div>
+
+<div class="box-exercise"><h5 class="box-legend"><span>Ejercicio \(\PageIndex{6}\) __F2__</span></h5>
+<p>Un laboratorio tiene las disoluciones madre \(d_1\) (10 g/L de \(A\), 0 g/L de \(B\)), \(d_2\) (0 y 10 g/L) y \(d_3\) (5 y 5 g/L). Prepara dos productos con estas «recetas»: el producto \(P_1\) lleva 1 L de \(d_1\), 2 L de \(d_2\) y 2 L de \(d_3\), y el \(P_2\), 3 L de \(d_1\), 0 L de \(d_2\) y 1 L de \(d_3\).</p>
+<ol>
+<li>Escribe la matriz de recetas \(V\) (cada columna, un producto) y calcula \(CV\), donde \(C\) es la matriz de concentraciones. ¿Qué significa cada entrada?</li>
+<li>Si el soluto \(A\) cuesta 0.30 €/g y el \(B\), 0.50 €/g, calcula con un producto de matrices el coste en solutos de cada producto.</li>
+</ol>
+<dl><dt>Solución</dt><dd>
+<ol>
+<li>\(V=\begin{pmatrix}1&amp;3\\2&amp;0\\2&amp;1\end{pmatrix}\) y</li>
+</ol>
+<p>\[ CV=\begin{pmatrix}10&amp;0&amp;5\\0&amp;10&amp;5\end{pmatrix}\begin{pmatrix}1&amp;3\\2&amp;0\\2&amp;1\end{pmatrix}=\begin{pmatrix}20&amp;35\\30&amp;5\end{pmatrix}. \]</p>
+<p>La entrada \((i,j)\) es la masa (en g) del soluto \(i\) en el producto \(j\): \(P_1\) lleva 20 g de \(A\) y 30 g de \(B\), y \(P_2\), 35 g de \(A\) y 5 g de \(B\).</p>
+<ol start="2">
+<li>Con el vector fila de precios \(\mathbf p=(0.30\ \ 0.50)\),</li>
+</ol>
+<p>\[ \mathbf p\,(CV)=(0.30\ \ 0.50)\begin{pmatrix}20&amp;35\\30&amp;5\end{pmatrix}=(21\ \ 13)\ \text{€}. \]</p>
+<p>El producto \(P_1\) cuesta 21 € en solutos y el \(P_2\), 13 €. Por la asociatividad, también podríamos haber calculado primero \(\mathbf pC\), el coste de un litro de cada disolución madre.</p>
+</dd></dl>
+</div>

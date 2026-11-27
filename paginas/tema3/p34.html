@@ -1,0 +1,212 @@
+<div class="box-objectives"><h5 class="box-legend"><span>Objetivos de aprendizaje</span></h5>
+<ul>
+<li>Entender qué es la matriz inversa y cuándo existe.</li>
+<li>Calcular la inversa con el método de Gauss-Jordan y con la matriz adjunta.</li>
+<li>Usar las propiedades de la inversa en cálculos con matrices.</li>
+<li>Resolver sistemas con la matriz inversa y con la regla de Cramer.</li>
+</ul>
+</div>
+
+<h2>Motivación: deshacer una mezcla</h2>
+
+<p>Con números, para despejar \(x\) en \(ax=b\) multiplicamos por \(a^{-1}=\frac1a\), siempre que \(a\ne0\). Con matrices, el sistema \(A\mathbf x=\mathbf b\) se podría «despejar» igual, \(\mathbf x=A^{-1}\mathbf b\), si existiera una matriz \(A^{-1}\) que deshiciera el efecto de \(A\). En el laboratorio de mezclas eso es muy útil: si la matriz de composiciones tiene inversa, la calculamos <strong>una sola vez</strong> y después obtenemos la receta de cualquier mezcla con un simple producto, sin volver a resolver el sistema.</p>
+
+<h2>Definición y propiedades</h2>
+
+<div class="box-definition"><h5 class="box-legend"><span>Definición \(\PageIndex{1}\): matriz inversa</span></h5>
+<p>Sea \(A\in\mathbb R_{n\times n}\) una matriz cuadrada. Su <strong>inversa</strong> es una matriz \(A^{-1}\in\mathbb R_{n\times n}\) tal que</p>
+<p>\[ AA^{-1}=A^{-1}A=I_n. \]</p>
+<p>Si existe, decimos que \(A\) es <strong>invertible</strong> (o regular, o no singular). Si no existe, \(A\) es <strong>singular</strong>.</p>
+</div>
+
+<p>La inversa, si existe, es <strong>única</strong>: si \(B\) y \(C\) cumplen las dos la definición, entonces \(B=BI=B(AC)=(BA)C=IC=C\). Además, para matrices cuadradas basta comprobar una de las dos igualdades: si \(AB=I\), entonces también \(BA=I\).</p>
+
+<div class="box-theorem"><h5 class="box-legend"><span>Teorema \(\PageIndex{1}\): propiedades de la inversa</span></h5>
+<p>Si \(A\) y \(B\) son invertibles del mismo orden y \(\lambda\ne0\):</p>
+<ol>
+<li>\((A^{-1})^{-1}=A\).</li>
+<li>\((AB)^{-1}=B^{-1}A^{-1}\) (se invierte el orden).</li>
+<li>\((A^T)^{-1}=(A^{-1})^T\).</li>
+<li>\((\lambda A)^{-1}=\frac1\lambda A^{-1}\).</li>
+<li>\(\det(A^{-1})=\dfrac1{\det(A)}\).</li>
+</ol>
+</div>
+<dl><dt>Demostración</dt><dd>
+<p>Basta comprobar que el candidato multiplicado por la matriz da la identidad. Por ejemplo, para la segunda: \((AB)(B^{-1}A^{-1})=A(BB^{-1})A^{-1}=AIA^{-1}=AA^{-1}=I\). Para la tercera, traspuesta del producto: \(A^T(A^{-1})^T=(A^{-1}A)^T=I^T=I\). Para la quinta, \(\det(A)\det(A^{-1})=\det(AA^{-1})=\det(I)=1\). \(\blacksquare\)</p>
+</dd></dl>
+
+<div class="box-theorem"><h5 class="box-legend"><span>Teorema \(\PageIndex{2}\): caracterización de las matrices invertibles</span></h5>
+<p>Para una matriz \(A\in\mathbb R_{n\times n}\), son equivalentes:</p>
+<ol>
+<li>\(A\) es invertible.</li>
+<li>\(\det(A)\ne0\).</li>
+<li>\(\rho(A)=n\).</li>
+<li>\(\mathrm{RREF}(A)=I_n\).</li>
+<li>El sistema \(A\mathbf x=\mathbf b\) tiene solución única para cada \(\mathbf b\in\mathbb R^n\).</li>
+<li>El sistema homogéneo \(A\mathbf x=\mathbf 0\) solo tiene la solución trivial.</li>
+</ol>
+</div>
+<dl><dt>Idea de la demostración</dt><dd>
+<p>Si \(A\) es invertible, \(\det(A)\det(A^{-1})=1\), así que \(\det(A)\ne0\). Si \(\det(A)\ne0\), como las operaciones elementales solo multiplican el determinante por números no nulos, cualquier forma escalonada de \(A\) tiene determinante no nulo: es triangular con todos los elementos de la diagonal distintos de cero, es decir, con \(n\) pivotes. Por tanto, \(\rho(A)=n\) y, siguiendo con Gauss-Jordan, \(\mathrm{RREF}(A)=I_n\). En ese caso hay matrices elementales con \(E_k\cdots E_1A=I\), y \(A^{-1}=E_k\cdots E_1\), así que \(A\) es invertible. Las condiciones sobre los sistemas son el teorema de Rouché-Frobenius con \(\rho(A)=n\). \(\blacksquare\)</p>
+</dd></dl>
+
+<h2>Cálculo de la inversa</h2>
+
+<h3>Método de Gauss-Jordan</h3>
+
+<p>La demostración anterior da un método de cálculo. Si \(E_k\cdots E_1A=I\), las mismas operaciones aplicadas a la identidad dan \(E_k\cdots E_1I=A^{-1}\). Así que basta escribir la matriz ampliada \((A\,|\,I)\) y aplicar Gauss-Jordan hasta convertir el bloque izquierdo en la identidad:</p>
+<p>\[ (A\,|\,I)\ \xrightarrow{\ \text{operaciones elementales}\ }\ (I\,|\,A^{-1}). \]</p>
+<p>Si en el proceso aparece una fila nula en el bloque izquierdo, \(\rho(A)&lt;n\) y \(A\) no es invertible.</p>
+
+<div class="box-example"><h5 class="box-legend"><span>Ejemplo \(\PageIndex{1}\): inversa por Gauss-Jordan</span></h5>
+<p>Calcula la inversa de \(M=\begin{pmatrix}2&amp;1&amp;0\\1&amp;2&amp;1\\0&amp;1&amp;2\end{pmatrix}\).</p>
+<dl><dt>Solución</dt><dd>
+<p>Intercambiamos \(F_1\leftrightarrow F_2\) para tener un 1 como primer pivote y hacemos \(F_2\gets F_2-2F_1\). Después intercambiamos \(F_2\leftrightarrow F_3\) y hacemos \(F_3\gets F_3+3F_2\):</p>
+<p>\[ \left(\begin{array}{ccc|ccc}1&amp;2&amp;1&amp;0&amp;1&amp;0\\0&amp;-3&amp;-2&amp;1&amp;-2&amp;0\\0&amp;1&amp;2&amp;0&amp;0&amp;1\end{array}\right)\to \left(\begin{array}{ccc|ccc}1&amp;2&amp;1&amp;0&amp;1&amp;0\\0&amp;1&amp;2&amp;0&amp;0&amp;1\\0&amp;0&amp;4&amp;1&amp;-2&amp;3\end{array}\right). \]</p>
+<p>Dividimos \(F_3\) entre 4 y hacemos ceros encima de los pivotes: \(F_2\gets F_2-2F_3\), \(F_1\gets F_1-F_3\) y \(F_1\gets F_1-2F_2\):</p>
+<p>\[ \left(\begin{array}{ccc|ccc}1&amp;0&amp;0&amp;\frac34&amp;-\frac12&amp;\frac14\\0&amp;1&amp;0&amp;-\frac12&amp;1&amp;-\frac12\\0&amp;0&amp;1&amp;\frac14&amp;-\frac12&amp;\frac34\end{array}\right),\qquad M^{-1}=\frac14\begin{pmatrix}3&amp;-2&amp;1\\-2&amp;4&amp;-2\\1&amp;-2&amp;3\end{pmatrix}. \]</p>
+<p>Comprobación de una entrada: la fila 1 de \(M\) por la columna 1 de \(M^{-1}\) es \(\frac14(2\cdot3+1\cdot(-2)+0)=1\).</p>
+</dd></dl>
+</div>
+
+<h3>Método de la matriz adjunta</h3>
+
+<div class="box-theorem"><h5 class="box-legend"><span>Teorema \(\PageIndex{3}\): inversa con la matriz adjunta</span></h5>
+<p>Si \(\det(A)\ne0\),</p>
+<p>\[ A^{-1}=\frac1{\det(A)}\,\operatorname{adj}(A)^T, \]</p>
+<p>donde \(\operatorname{adj}(A)=(A_{ij})\) es la <strong>matriz adjunta</strong>, formada por los adjuntos \(A_{ij}=(-1)^{i+j}M_{ij}\) de la sección 3.2. En particular, para \(n=2\):</p>
+<p>\[ \begin{pmatrix}a&amp;b\\c&amp;d\end{pmatrix}^{-1}=\frac1{ad-bc}\begin{pmatrix}d&amp;-b\\-c&amp;a\end{pmatrix}. \]</p>
+</div>
+<p>Para \(n=2\) se recuerda así: se intercambian los elementos de la diagonal, se cambia el signo de los otros dos y se divide entre el determinante. Para \(n\ge3\), Gauss-Jordan suele ser más rápido.</p>
+
+<div class="box-example"><h5 class="box-legend"><span>Ejemplo \(\PageIndex{2}\): inversa de una matriz \(2\times2\)</span></h5>
+<p>Calcula la inversa de \(\begin{pmatrix}2&amp;5\\1&amp;3\end{pmatrix}\).</p>
+<dl><dt>Solución</dt><dd>
+<p>El determinante es \(6-5=1\), así que</p>
+<p>\[ \begin{pmatrix}2&amp;5\\1&amp;3\end{pmatrix}^{-1}=\begin{pmatrix}3&amp;-5\\-1&amp;2\end{pmatrix}. \]</p>
+</dd></dl>
+</div>
+
+<h2>Resolver sistemas con la inversa y la regla de Cramer</h2>
+
+<p>Si \(A\) es invertible, multiplicando \(A\mathbf x=\mathbf b\) por \(A^{-1}\) por la izquierda,</p>
+<p>\[ \mathbf x=A^{-1}\mathbf b. \]</p>
+<p>Para un único sistema, Gauss es más rápido que calcular la inversa. Pero si hay que resolver muchos sistemas con la <strong>misma</strong> matriz y distintos términos independientes, la inversa se calcula una vez y se reutiliza.</p>
+
+<div class="box-theorem"><h5 class="box-legend"><span>Teorema \(\PageIndex{4}\): regla de Cramer</span></h5>
+<p>Si \(A\in\mathbb R_{n\times n}\) es invertible, la solución única de \(A\mathbf x=\mathbf b\) es</p>
+<p>\[ x_j=\frac{\det(A_j)}{\det(A)},\qquad j=1,\dots,n, \]</p>
+<p>donde \(A_j\) es la matriz \(A\) con su columna \(j\) sustituida por \(\mathbf b\).</p>
+</div>
+
+<div class="box-example"><h5 class="box-legend"><span>Ejemplo \(\PageIndex{3}\): regla de Cramer</span></h5>
+<p>Resuelve por Cramer \(\ x+y+z=6,\ \ 2x-y+z=3,\ \ x+2y-z=2\) (el sistema del Ejemplo 2 de la sección 3.3).</p>
+<dl><dt>Solución</dt><dd>
+<p>\(\det(A)=\begin{vmatrix}1&amp;1&amp;1\\2&amp;-1&amp;1\\1&amp;2&amp;-1\end{vmatrix}=7\). Sustituyendo cada columna por \(\mathbf b=(6,3,2)^T\):</p>
+<p>\[ x=\frac17\begin{vmatrix}6&amp;1&amp;1\\3&amp;-1&amp;1\\2&amp;2&amp;-1\end{vmatrix}=\frac77=1,\quad y=\frac17\begin{vmatrix}1&amp;6&amp;1\\2&amp;3&amp;1\\1&amp;2&amp;-1\end{vmatrix}=\frac{14}7=2,\quad z=\frac{21}7=3. \]</p>
+<p>Coincide con lo obtenido por Gauss.</p>
+</dd></dl>
+</div>
+
+<div class="box-example" style="border-left-color:#c0560f;background-color:#fdf3ea;"><h5 class="box-legend"><span style="background-color:#c0560f;color:#ffffff;">Ejemplo \(\PageIndex{4}\) (Laboratorio): la receta de cualquier mezcla</span></h5>
+<p><em>Contexto.</em> El laboratorio trabaja ahora con tres solutos, \(A\), \(B\) y \(C\), y tres disoluciones madre con estas concentraciones (en g/L):</p>
+<table class="mt-responsive-table"><thead><tr><th>Disolución</th><th>\(A\)</th><th>\(B\)</th><th>\(C\)</th></tr></thead>
+<tbody><tr><td>\(d_1\)</td><td>2</td><td>1</td><td>0</td></tr><tr><td>\(d_2\)</td><td>1</td><td>2</td><td>1</td></tr><tr><td>\(d_3\)</td><td>0</td><td>1</td><td>2</td></tr></tbody></table>
+<p>Si \(\mathbf v=(v_1,v_2,v_3)^T\) son los litros de cada una, las masas de soluto de la mezcla son \(\mathbf m=M\mathbf v\), con \(M\) la matriz del Ejemplo 1 (cada columna, una disolución). Calcula las recetas de tres mezclas con masas \((4,6,4)\), \((5,6,3)\) y \((3,5,5)\) gramos de \((A,B,C)\).</p>
+<dl><dt>Solución</dt><dd>
+<p>Como \(\det(M)=4\ne0\), cada composición tiene una única receta, \(\mathbf v=M^{-1}\mathbf m\). Con la inversa del Ejemplo 1:</p>
+<p>\[ \frac14\begin{pmatrix}3&amp;-2&amp;1\\-2&amp;4&amp;-2\\1&amp;-2&amp;3\end{pmatrix}\begin{pmatrix}4&amp;5&amp;3\\6&amp;6&amp;5\\4&amp;3&amp;5\end{pmatrix}=\begin{pmatrix}1&amp;1.5&amp;1\\2&amp;2&amp;1\\1&amp;0.5&amp;2\end{pmatrix}. \]</p>
+<p>Hemos resuelto los tres sistemas a la vez, poniendo las tres composiciones como columnas. Por ejemplo, la primera mezcla se prepara con 1 L de \(d_1\), 2 L de \(d_2\) y 1 L de \(d_3\). La inversa tiene entradas negativas, así que hay composiciones cuya receta exigiría volúmenes negativos: esas mezclas no se pueden preparar con estas disoluciones (lo verás en el Ejercicio 7).</p>
+</dd></dl>
+</div>
+
+<h2>Ejercicios</h2>
+
+<div class="box-exercise"><h5 class="box-legend"><span>Ejercicio \(\PageIndex{1}\) __F1__</span></h5>
+<p>Calcula, si existen, las inversas de</p>
+<p>\[ A=\begin{pmatrix}4&amp;7\\1&amp;2\end{pmatrix},\qquad B=\begin{pmatrix}2&amp;4\\1&amp;2\end{pmatrix},\qquad T=\begin{pmatrix}1&amp;0&amp;2\\2&amp;1&amp;0\\0&amp;1&amp;1\end{pmatrix}. \]</p>
+<dl><dt>Solución</dt><dd>
+<p>\(\det(A)=8-7=1\), así que \(A^{-1}=\begin{pmatrix}2&amp;-7\\-1&amp;4\end{pmatrix}\). \(\det(B)=4-4=0\): \(B\) es singular (sus filas son proporcionales).</p>
+<p>\(\det(T)=1\cdot(1-0)-0+2\cdot(2-0)=5\). Por Gauss-Jordan sobre \((T\,|\,I)\), o con la matriz adjunta,</p>
+<p>\[ T^{-1}=\frac15\begin{pmatrix}1&amp;2&amp;-2\\-2&amp;1&amp;4\\2&amp;-1&amp;1\end{pmatrix}. \]</p>
+<p>Comprobación: la fila 1 de \(T\) por la columna 1 de \(T^{-1}\) da \(\frac15(1+0+4)=1\), y por la columna 2, \(\frac15(2+0-2)=0\).</p>
+</dd></dl>
+</div>
+
+<div class="box-exercise"><h5 class="box-legend"><span>Ejercicio \(\PageIndex{2}\) __F1__</span></h5>
+<p>Resuelve el sistema \(T\mathbf x=(3,4,2)^T\), con \(T\) la matriz del ejercicio anterior, usando su inversa. Comprueba el resultado con la regla de Cramer para la primera incógnita.</p>
+<dl><dt>Solución</dt><dd>
+<p>\[ \mathbf x=T^{-1}\mathbf b=\frac15\begin{pmatrix}1&amp;2&amp;-2\\-2&amp;1&amp;4\\2&amp;-1&amp;1\end{pmatrix}\begin{pmatrix}3\\4\\2\end{pmatrix}=\frac15\begin{pmatrix}7\\6\\4\end{pmatrix}. \]</p>
+<p>Por Cramer, \(x_1=\frac15\begin{vmatrix}3&amp;0&amp;2\\4&amp;1&amp;0\\2&amp;1&amp;1\end{vmatrix}=\frac15\big(3\cdot1-0+2\cdot(4-2)\big)=\frac75\).</p>
+</dd></dl>
+</div>
+
+<div class="box-exercise"><h5 class="box-legend"><span>Ejercicio \(\PageIndex{3}\) __F2__</span></h5>
+<p>Sea \(A\) la matriz \(4\times4\) con unos en la diagonal principal, las entradas \(-a\), \(-b\) y \(-c\) justo encima de ella y ceros en el resto:</p>
+<p>\[ A=\begin{pmatrix}1&amp;-a&amp;0&amp;0\\0&amp;1&amp;-b&amp;0\\0&amp;0&amp;1&amp;-c\\0&amp;0&amp;0&amp;1\end{pmatrix}. \]</p>
+<ol>
+<li>¿Existe \(A^{-1}\)? Justifícalo.</li>
+<li>Si existe, calcúlala con el método de Gauss-Jordan.</li>
+</ol>
+<dl><dt>Pista</dt><dd><p>Haz los ceros encima de la diagonal empezando por abajo: primero \(F_3\gets F_3+cF_4\).</p></dd>
+<dt>Solución</dt><dd>
+<ol>
+<li>\(A\) es triangular superior, así que \(\det(A)=1\cdot1\cdot1\cdot1=1\ne0\): es invertible para cualesquiera \(a,b,c\).</li>
+<li>Sobre \((A\,|\,I_4)\) aplicamos \(F_3\gets F_3+cF_4\), \(F_2\gets F_2+bF_3\) y \(F_1\gets F_1+aF_2\), en este orden. El bloque izquierdo se convierte en \(I_4\) y el derecho queda</li>
+</ol>
+<p>\[ A^{-1}=\begin{pmatrix}1&amp;a&amp;ab&amp;abc\\0&amp;1&amp;b&amp;bc\\0&amp;0&amp;1&amp;c\\0&amp;0&amp;0&amp;1\end{pmatrix}. \]</p>
+</dd></dl>
+</div>
+
+<div class="box-exercise"><h5 class="box-legend"><span>Ejercicio \(\PageIndex{4}\) __F2__</span></h5>
+<p>Una matriz cuadrada \(B\) cumple \(B^2=\frac13I-2B\). Demuestra que \(B\) es invertible y expresa \(B^{-1}\) en función de \(B\) y de \(I\).</p>
+<dl><dt>Solución</dt><dd>
+<p>Agrupamos: \(B^2+2B=\frac13I\), es decir, \(B(B+2I)=\frac13I\). Multiplicando por 3,</p>
+<p>\[ B\,(3B+6I)=I. \]</p>
+<p>Como \(B\) es cuadrada, esto basta para que sea invertible, con \(B^{-1}=3B+6I\). (También se ve directamente que \((3B+6I)B=I\), porque \(B\) conmuta con \(I\) y consigo misma.)</p>
+</dd></dl>
+</div>
+
+<div class="box-exercise"><h5 class="box-legend"><span>Ejercicio \(\PageIndex{5}\) __F2__</span></h5>
+<p>Sean \(A\) y \(B\) invertibles del mismo orden.</p>
+<ol>
+<li>Demuestra que \((ABA^{-1})^n=AB^nA^{-1}\) para todo \(n\in\mathbb N\).</li>
+<li>Despeja \(X\) en la ecuación matricial \(AX+B=I\).</li>
+</ol>
+<dl><dt>Solución</dt><dd>
+<ol>
+<li>Para \(n=2\): \((ABA^{-1})(ABA^{-1})=AB(A^{-1}A)BA^{-1}=AB^2A^{-1}\). En general, en el producto de \(n\) factores cada \(A^{-1}A\) intermedio se simplifica (formalmente, por inducción sobre \(n\)). Esta fórmula permite calcular potencias muy rápido y la usaremos en el tema de diagonalización.</li>
+<li>\(AX=I-B\) y, multiplicando por \(A^{-1}\) <strong>por la izquierda</strong>, \(X=A^{-1}(I-B)\). Hay que respetar el lado: \((I-B)A^{-1}\) es, en general, otra matriz.</li>
+</ol>
+</dd></dl>
+</div>
+
+<div class="box-exercise"><h5 class="box-legend"><span>Ejercicio \(\PageIndex{6}\) __F3__</span></h5>
+<p>Demuestra, usando las propiedades del determinante:</p>
+<ol>
+<li>Toda matriz elemental \(E\in\mathbb R_{n\times n}\) tiene determinante no nulo.</li>
+<li>Una matriz \(A\in\mathbb R_{n\times n}\) es invertible si y solo si \(\det(A)\ne0\).</li>
+<li>Para cualquier \(A\in\mathbb R_{n\times n}\), \(\det(\mathrm{REF}(A))\) es un múltiplo no nulo de \(\det(A)\).</li>
+</ol>
+<dl><dt>Solución</dt><dd>
+<ol>
+<li>\(E\) se obtiene aplicando una operación elemental a \(I_n\), con \(\det(I_n)=1\). Un intercambio da \(\det(E)=-1\); multiplicar una fila por \(\lambda\ne0\) da \(\det(E)=\lambda\); sumar a una fila un múltiplo de otra da \(\det(E)=1\). En los tres casos, \(\det(E)\ne0\).</li>
+<li>(\(\Rightarrow\)) Si \(A\) es invertible, \(\det(A)\det(A^{-1})=\det(I)=1\), luego \(\det(A)\ne0\). (\(\Leftarrow\)) Sea \(R=\mathrm{REF}(A)=E_k\cdots E_1A\). Por el apartado 3, \(\det(R)\ne0\). Como \(R\) es triangular, su determinante es el producto de su diagonal, así que todos los elementos de la diagonal son pivotes no nulos. Con Gauss-Jordan llegamos a \(I_n\), y la matriz de reducción es \(A^{-1}\).</li>
+<li>\(\det(\mathrm{REF}(A))=\det(E_k)\cdots\det(E_1)\det(A)\), y el factor \(\det(E_k)\cdots\det(E_1)\) es no nulo por el apartado 1.</li>
+</ol>
+</dd></dl>
+</div>
+
+<div class="box-exercise"><h5 class="box-legend"><span>Ejercicio \(\PageIndex{7}\) __F2__</span></h5>
+<p>Con las disoluciones madre del Ejemplo 4 (\(d_1=(2,1,0)\), \(d_2=(1,2,1)\) y \(d_3=(0,1,2)\) g/L de \(A\), \(B\) y \(C\)):</p>
+<ol>
+<li>Calcula la receta de una mezcla con 2 g de \(A\), 4 g de \(B\) y 4 g de \(C\).</li>
+<li>¿Se puede preparar una mezcla con 6 g de \(A\), 2 g de \(B\) y 6 g de \(C\)? Interpreta el resultado.</li>
+</ol>
+<dl><dt>Solución</dt><dd>
+<ol>
+<li>\(\mathbf v=M^{-1}(2,4,4)^T=\frac14(6-8+4,\ -4+16-8,\ 2-8+12)^T=(0.5,\ 1,\ 1.5)^T\) litros.</li>
+<li>\(\mathbf v=M^{-1}(6,2,6)^T=\frac14(18-4+6,\ -12+8-12,\ 6-4+18)^T=(5,\ -4,\ 5)^T\). El sistema tiene solución única, pero pide \(-4\) L de \(d_2\), que no tiene sentido físico. Esa mezcla no se puede preparar. La razón: en las tres disoluciones madre la concentración de \(B\) es al menos la media de las de \(A\) y \(C\) (\(1\ge1\), \(2\ge1\), \(1\ge1\)), así que en cualquier mezcla \(m_B\ge\frac{m_A+m_C}2\), y aquí \(2&lt;6\). Matemáticamente el sistema es compatible determinado; químicamente, además, necesitamos \(\mathbf v\ge\mathbf 0\).</li>
+</ol>
+</dd></dl>
+</div>

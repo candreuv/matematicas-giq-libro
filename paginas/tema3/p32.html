@@ -1,0 +1,190 @@
+<div class="box-objectives"><h5 class="box-legend"><span>Objetivos de aprendizaje</span></h5>
+<ul>
+<li>Calcular determinantes de orden 2 y 3 y aplicar el desarrollo de Laplace a matrices mayores.</li>
+<li>Interpretar el determinante como un área o un volumen con signo.</li>
+<li>Conocer las propiedades del determinante, en especial cómo le afectan las operaciones con filas.</li>
+<li>Calcular determinantes reduciendo la matriz a forma triangular.</li>
+</ul>
+</div>
+
+<h2>Motivación: un número que lo dice casi todo</h2>
+
+<p>En el laboratorio de mezclas queremos saber si, con nuestras disoluciones madre, cada composición deseada se puede preparar <strong>de una única manera</strong>. Veremos en las próximas secciones que la respuesta depende de un solo número calculado a partir de la matriz del problema: su <strong>determinante</strong>. Si es distinto de cero, el sistema tiene solución única y la matriz tiene inversa; si es cero, algo «degenera». Además, el determinante tiene un significado geométrico muy claro: mide cómo cambia el área (o el volumen) cuando aplicamos la matriz.</p>
+
+<h2>Determinantes de orden 2 y 3</h2>
+
+<div class="box-definition"><h5 class="box-legend"><span>Definición \(\PageIndex{1}\): determinante de orden 2 y 3</span></h5>
+<p>El <strong>determinante</strong> es un número que se asigna a cada matriz <strong>cuadrada</strong> \(A\), y se escribe \(\det(A)\) o \(|A|\). Para \(n=2\),</p>
+<p>\[ \begin{vmatrix}a&amp;b\\c&amp;d\end{vmatrix}=ad-bc. \]</p>
+<p>Para \(n=3\) se usa la <strong>regla de Sarrus</strong>:</p>
+<p>\[ \begin{vmatrix}a&amp;b&amp;c\\d&amp;e&amp;f\\g&amp;h&amp;i\end{vmatrix}=\underbrace{aei+bfg+cdh}_{\text{diagonal y paralelas}}-\underbrace{(ceg+bdi+afh)}_{\text{antidiagonal y paralelas}}. \]</p>
+</div>
+
+<p>Para recordar Sarrus: los tres productos con signo \(+\) son la diagonal principal y los dos «triángulos» paralelos a ella (\(b\,f\,g\) y \(c\,d\,h\)); los tres con signo \(-\) son la otra diagonal (\(c\,e\,g\)) y sus dos triángulos paralelos (\(b\,d\,i\) y \(a\,f\,h\)).</p>
+
+<div class="box-example"><h5 class="box-legend"><span>Ejemplo \(\PageIndex{1}\): regla de Sarrus</span></h5>
+<p>Calcula \(\begin{vmatrix}2&amp;1&amp;3\\0&amp;-1&amp;4\\1&amp;2&amp;0\end{vmatrix}\).</p>
+<dl><dt>Solución</dt><dd>
+<p>\[ \begin{aligned} &amp;2\cdot(-1)\cdot0+1\cdot4\cdot1+3\cdot0\cdot2\\ &amp;\quad-\big(3\cdot(-1)\cdot1+1\cdot0\cdot0+2\cdot4\cdot2\big)=4-(-3+16)=-9. \end{aligned} \]</p>
+</dd></dl>
+</div>
+
+<h2>Desarrollo de Laplace</h2>
+
+<p>Para matrices de orden mayor que 3 no hay una regla tipo Sarrus. El determinante se reduce a determinantes de orden menor.</p>
+
+<div class="box-definition"><h5 class="box-legend"><span>Definición \(\PageIndex{2}\): menor complementario y adjunto</span></h5>
+<p>Sea \(A=(a_{ij})\) una matriz \(n\times n\). El <strong>menor complementario</strong> \(M_{ij}\) es el determinante de la submatriz que resulta de eliminar la fila \(i\) y la columna \(j\) de \(A\). El <strong>adjunto</strong> (o cofactor) de \(a_{ij}\) es</p>
+<p>\[ A_{ij}=(-1)^{i+j}M_{ij}. \]</p>
+<p>El signo \((-1)^{i+j}\) es \(+\) cuando \(i+j\) es par y \(-\) cuando es impar, y sigue un patrón de tablero de ajedrez: \(\begin{pmatrix}+&amp;-&amp;+\\-&amp;+&amp;-\\+&amp;-&amp;+\end{pmatrix}\).</p>
+</div>
+
+<div class="box-theorem"><h5 class="box-legend"><span>Teorema \(\PageIndex{1}\): desarrollo de Laplace</span></h5>
+<p>El determinante de \(A\) se puede calcular desarrollando por <strong>cualquier</strong> fila \(i\) o columna \(j\):</p>
+<p>\[ \det(A)=\sum_{k=1}^na_{ik}A_{ik}=\sum_{k=1}^na_{kj}A_{kj}. \]</p>
+</div>
+<p>En la práctica se elige la fila o columna con más ceros, porque los términos con \(a_{ik}=0\) no hace falta calcularlos. (Para \(n=3\), el desarrollo de Laplace da el mismo resultado que Sarrus.)</p>
+
+<div class="box-example"><h5 class="box-legend"><span>Ejemplo \(\PageIndex{2}\): un determinante de orden 4</span></h5>
+<p>Calcula \(\det(A)\) para \(A=\begin{pmatrix}1&amp;0&amp;2&amp;0\\3&amp;1&amp;0&amp;1\\0&amp;2&amp;1&amp;0\\1&amp;0&amp;0&amp;2\end{pmatrix}\).</p>
+<dl><dt>Solución</dt><dd>
+<p>La segunda columna tiene dos ceros. Desarrollando por ella, solo quedan los términos de \(a_{22}=1\) (signo \(+\)) y \(a_{32}=2\) (signo \(-\)):</p>
+<p>\[ \det(A)=1\cdot\begin{vmatrix}1&amp;2&amp;0\\0&amp;1&amp;0\\1&amp;0&amp;2\end{vmatrix}-2\cdot\begin{vmatrix}1&amp;2&amp;0\\3&amp;0&amp;1\\1&amp;0&amp;2\end{vmatrix}=1\cdot2-2\cdot(-10)=22. \]</p>
+</dd></dl>
+</div>
+
+<h2>Interpretación geométrica</h2>
+
+<p>Las dos columnas de una matriz \(2\times2\) son dos vectores del plano, y forman un paralelogramo. Su <strong>área</strong> es exactamente \(|\det(A)|\). El signo indica la <strong>orientación</strong>: positivo si para ir de la primera columna a la segunda se gira en sentido antihorario, negativo si es en sentido horario. En dimensión 3, \(|\det(A)|\) es el <strong>volumen</strong> del paralelepípedo formado por las tres columnas. Por eso un determinante nulo indica que los vectores son «planos» (están alineados o en un mismo plano) y no encierran área o volumen.</p>
+
+<p style="text-align:center;"><img alt="Animación: el paralelogramo formado por las columnas de una matriz 2x2; al sumar a una columna un múltiplo de la otra el área no cambia, al multiplicar una columna por un número el área se multiplica, y al intercambiarlas cambia el signo" src="__IMG_determinante_area.gif__" style="max-width:100%;" /></p>
+
+<h2>Propiedades del determinante</h2>
+
+<div class="box-theorem"><h5 class="box-legend"><span>Teorema \(\PageIndex{2}\): propiedades del determinante</span></h5>
+<p>Sean \(A,B\in\mathbb R_{n\times n}\) y \(\lambda\in\mathbb R\).</p>
+<ol>
+<li>\(\det(A^T)=\det(A)\). Por tanto, todo lo que se diga de las filas vale también para las columnas.</li>
+<li>Si se <strong>intercambian</strong> dos filas, el determinante cambia de signo.</li>
+<li>Si se <strong>multiplica</strong> una fila por \(\lambda\), el determinante queda multiplicado por \(\lambda\). En consecuencia, \(\det(\lambda A)=\lambda^n\det(A)\).</li>
+<li>Si a una fila se le <strong>suma un múltiplo</strong> de otra, el determinante no cambia.</li>
+<li>Si una fila es nula, si dos filas son iguales o proporcionales, o, en general, si una fila es combinación lineal de las demás, \(\det(A)=0\).</li>
+<li>El determinante es lineal en cada fila: si una fila es suma de dos, \(\det\) se descompone en la suma de los dos determinantes correspondientes, con el resto de filas iguales.</li>
+<li>El determinante de una matriz triangular (o diagonal) es el producto de los elementos de su diagonal. En particular, \(\det(I_n)=1\).</li>
+<li>\(\det(AB)=\det(A)\det(B)\).</li>
+</ol>
+</div>
+
+<div class="box-warning"><h5 class="box-legend"><span>Cuidado con \(\det(A+B)\) y \(\det(\lambda A)\)</span></h5>
+<p>En general, \(\det(A+B)\ne\det(A)+\det(B)\). Y al multiplicar una matriz \(n\times n\) por \(\lambda\) se multiplican sus \(n\) filas, así que \(\det(\lambda A)=\lambda^n\det(A)\), no \(\lambda\det(A)\). Geométricamente: si se duplican los lados de un cuadrado, su área se multiplica por \(2^2=4\).</p>
+</div>
+
+<h3>Cálculo de determinantes por eliminación</h3>
+
+<p>Las propiedades 2, 3 y 4 dicen cómo cambia el determinante con cada operación entre filas. Así que podemos llevar la matriz a forma triangular con operaciones entre filas (como haremos con los sistemas en la sección siguiente) y multiplicar la diagonal. Para matrices grandes, este método es mucho más rápido que Laplace.</p>
+
+<div class="box-example"><h5 class="box-legend"><span>Ejemplo \(\PageIndex{3}\): determinante por eliminación</span></h5>
+<p>Calcula \(\begin{vmatrix}2&amp;4&amp;-2\\1&amp;3&amp;1\\3&amp;7&amp;2\end{vmatrix}\).</p>
+<dl><dt>Solución</dt><dd>
+<p>Sacamos el factor 2 de la primera fila y hacemos \(F_2\gets F_2-F_1\), \(F_3\gets F_3-3F_1\) y, después, \(F_3\gets F_3-F_2\), que no cambian el determinante:</p>
+<p>\[ \begin{aligned} 2\begin{vmatrix}1&amp;2&amp;-1\\1&amp;3&amp;1\\3&amp;7&amp;2\end{vmatrix}&amp;=2\begin{vmatrix}1&amp;2&amp;-1\\0&amp;1&amp;2\\0&amp;1&amp;5\end{vmatrix}\\ &amp;=2\begin{vmatrix}1&amp;2&amp;-1\\0&amp;1&amp;2\\0&amp;0&amp;3\end{vmatrix}=2\cdot(1\cdot1\cdot3)=6. \end{aligned} \]</p>
+</dd></dl>
+</div>
+
+<div class="box-example" style="border-left-color:#c0560f;background-color:#fdf3ea;"><h5 class="box-legend"><span style="background-color:#c0560f;color:#ffffff;">Ejemplo \(\PageIndex{4}\) (Laboratorio): una disolución madre que sobra</span></h5>
+<p><em>Contexto.</em> En un laboratorio hay tres disoluciones madre, \(d_1\), \(d_2\) y \(d_3\), con dos solutos, \(A\) y \(B\): \(d_1\) tiene 10 g/L de \(A\) y nada de \(B\); \(d_2\), 10 g/L de \(B\) y nada de \(A\); \(d_3\), 5 g/L de cada uno. Queremos preparar 10 L de mezcla con unas masas dadas de \(A\) y de \(B\). Si \(v_1,v_2,v_3\) son los litros de cada disolución, las condiciones de volumen total, masa de \(A\) y masa de \(B\) tienen como matriz de coeficientes</p>
+<p>\[ D=\begin{pmatrix}1&amp;1&amp;1\\10&amp;0&amp;5\\0&amp;10&amp;5\end{pmatrix}. \]</p>
+<ol>
+<li>Calcula \(\det(D)\) e interpreta el resultado.</li>
+<li>¿Qué pasa si sustituimos \(d_3\) por otra disolución con 5 g/L de \(A\) y 2 g/L de \(B\)?</li>
+</ol>
+<dl><dt>Solución</dt><dd>
+<ol>
+<li>Por Sarrus, \(\det(D)=0+0+100-(0+50+50)=0\). El determinante es nulo porque las filas son dependientes: la suma de las filas 2 y 3, \((10,10,10)\), es 10 veces la fila 1. Químicamente, las tres disoluciones tienen la <strong>misma concentración total</strong>, 10 g/L, y además \(d_3\) es justo la mezcla a partes iguales de \(d_1\) y \(d_2\). La tercera disolución no aporta nada que no se pueda conseguir con las otras dos. Veremos en la sección 3.3 que, en este caso, o hay infinitas formas de preparar la mezcla o no hay ninguna.</li>
+<li>Con la nueva tercera columna \((1,5,2)^T\), \(\det=0+0+100-(0+50+20)=30\ne0\). Ahora las tres disoluciones son «independientes» y, como veremos, cada composición tendrá una única receta.</li>
+</ol>
+</dd></dl>
+</div>
+
+<h2>Ejercicios</h2>
+
+<div class="box-exercise"><h5 class="box-legend"><span>Ejercicio \(\PageIndex{1}\) __F1__</span></h5>
+<p>Calcula los siguientes determinantes:</p>
+<p>\[ \text{(a)}\ \begin{vmatrix}3&amp;-2\\5&amp;4\end{vmatrix},\qquad\text{(b)}\ \begin{vmatrix}1&amp;2&amp;3\\4&amp;5&amp;6\\7&amp;8&amp;10\end{vmatrix},\qquad\text{(c)}\ \begin{vmatrix}2&amp;0&amp;0&amp;1\\0&amp;1&amp;3&amp;0\\1&amp;0&amp;2&amp;0\\0&amp;0&amp;1&amp;4\end{vmatrix}. \]</p>
+<dl><dt>Pista</dt><dd><p>En (c), desarrolla por la primera fila, que solo tiene dos entradas no nulas.</p></dd>
+<dt>Solución</dt><dd>
+<p>(a) \(3\cdot4-(-2)\cdot5=22\).</p>
+<p>(b) Por Sarrus: \(50+84+96-(105+48+80)=230-233=-3\).</p>
+<p>(c) Por la primera fila, con \(a_{11}=2\) (signo \(+\)) y \(a_{14}=1\) (signo \((-1)^{1+4}=-1\)):</p>
+<p>\[ 2\begin{vmatrix}1&amp;3&amp;0\\0&amp;2&amp;0\\0&amp;1&amp;4\end{vmatrix}-1\cdot\begin{vmatrix}0&amp;1&amp;3\\1&amp;0&amp;2\\0&amp;0&amp;1\end{vmatrix}=2\cdot8-(-1)=17. \]</p>
+</dd></dl>
+</div>
+
+<div class="box-exercise"><h5 class="box-legend"><span>Ejercicio \(\PageIndex{2}\) __F1__</span></h5>
+<p>¿Para qué valores de \(a\in\mathbb R\) la matriz \(A=\begin{pmatrix}1&amp;0&amp;a\\-2&amp;a+1&amp;2\\-3&amp;a-1&amp;a\end{pmatrix}\) es singular (es decir, tiene determinante nulo)?</p>
+<dl><dt>Solución</dt><dd>
+<p>Desarrollando por la primera fila (el segundo término es nulo):</p>
+<p>\[ \begin{aligned} \det(A)&amp;=1\cdot\begin{vmatrix}a+1&amp;2\\a-1&amp;a\end{vmatrix}+a\cdot\begin{vmatrix}-2&amp;a+1\\-3&amp;a-1\end{vmatrix}\\ &amp;=(a^2-a+2)+a(a+5)=2a^2+4a+2=2(a+1)^2. \end{aligned} \]</p>
+<p>Se anula si y solo si \(a=-1\).</p>
+</dd></dl>
+</div>
+
+<div class="box-exercise"><h5 class="box-legend"><span>Ejercicio \(\PageIndex{3}\) __F1__</span></h5>
+<p>Sabiendo que \(\begin{vmatrix}a&amp;b&amp;c\\d&amp;e&amp;f\\g&amp;h&amp;i\end{vmatrix}=4\), calcula</p>
+<p>\[ \text{(a)}\ \begin{vmatrix}2a+b&amp;c&amp;b\\2d+e&amp;f&amp;e\\2g+h&amp;i&amp;h\end{vmatrix},\qquad\text{(b)}\ \begin{vmatrix}6a&amp;2d&amp;2g\\3b&amp;e&amp;h\\3c&amp;f&amp;i\end{vmatrix}. \]</p>
+<dl><dt>Pista</dt><dd><p>Llama \(C_1,C_2,C_3\) a las columnas de la matriz original y escribe las nuevas columnas en función de ellas.</p></dd>
+<dt>Solución</dt><dd>
+<p>(a) Las columnas son \((2C_1+C_2,\ C_3,\ C_2)\). Por la linealidad en la primera columna,</p>
+<p>\[ \det(2C_1+C_2,C_3,C_2)=2\det(C_1,C_3,C_2)+\det(C_2,C_3,C_2). \]</p>
+<p>El segundo tiene dos columnas iguales, así que vale 0. En el primero, intercambiar \(C_2\) y \(C_3\) cambia el signo: el resultado es \(2\cdot(-4)=-8\).</p>
+<p>(b) La matriz es la traspuesta de la original (que tiene el mismo determinante) con la primera fila multiplicada por 2 y la primera columna multiplicada por 3. El resultado es \(2\cdot3\cdot4=24\).</p>
+</dd></dl>
+</div>
+
+<div class="box-exercise"><h5 class="box-legend"><span>Ejercicio \(\PageIndex{4}\) __F1__</span></h5>
+<p>Sabiendo que \(\det(A)=-2\) y \(\det(B)=3\), con \(A,B\in\mathbb R_{n\times n}\), calcula \(\det(A^T)\), \(\det(3A)\), \(\det(A^{-1})\), \(\det(AB)\) y \(\det(A^{-1}B^3)\).</p>
+<dl><dt>Pista</dt><dd><p>Como \(AA^{-1}=I\), la propiedad multiplicativa da \(\det(A)\det(A^{-1})=1\).</p></dd>
+<dt>Solución</dt><dd>
+<ul>
+<li>\(\det(A^T)=\det(A)=-2\).</li>
+<li>\(\det(3A)=3^n\det(A)=-2\cdot3^n\).</li>
+<li>\(\det(A^{-1})=1/\det(A)=-\frac12\).</li>
+<li>\(\det(AB)=(-2)\cdot3=-6\).</li>
+<li>\(\det(A^{-1}B^3)=\det(A^{-1})\det(B)^3=-\frac12\cdot27=-\frac{27}2\).</li>
+</ul>
+</dd></dl>
+</div>
+
+<div class="box-exercise"><h5 class="box-legend"><span>Ejercicio \(\PageIndex{5}\) __F2__</span></h5>
+<p>Demuestra que el determinante de una matriz diagonal, triangular superior o triangular inferior de orden \(n\) es el producto de los elementos de su diagonal principal.</p>
+<dl><dt>Pista</dt><dd><p>Usa el desarrollo de Laplace por la columna (o fila) que solo tiene un elemento no nulo, y repite. Formalmente, es una inducción sobre \(n\).</p></dd>
+<dt>Solución</dt><dd>
+<p>Lo probamos por inducción para una triangular superior \(A\). Para \(n=1\) es evidente. Si es cierto para orden \(n-1\), desarrollamos \(\det(A)\) por la primera columna, cuyo único elemento no nulo es \(a_{11}\):</p>
+<p>\[ \det(A)=a_{11}\,M_{11}. \]</p>
+<p>\(M_{11}\) es el determinante de la submatriz obtenida al eliminar la fila 1 y la columna 1, que es triangular superior de orden \(n-1\) con diagonal \(a_{22},\dots,a_{nn}\). Por la hipótesis de inducción, \(M_{11}=a_{22}\cdots a_{nn}\), y por tanto \(\det(A)=a_{11}a_{22}\cdots a_{nn}\). Para una triangular inferior se razona igual desarrollando por la primera fila (o se aplica lo anterior a \(A^T\), que es triangular superior y tiene el mismo determinante). Una matriz diagonal es a la vez triangular superior e inferior. \(\blacksquare\)</p>
+</dd></dl>
+</div>
+
+<div class="box-exercise"><h5 class="box-legend"><span>Ejercicio \(\PageIndex{6}\) __F3__</span></h5>
+<p>Usando operaciones entre filas y las propiedades del determinante (sin la regla de Sarrus), calcula el <strong>determinante de Vandermonde</strong></p>
+<p>\[ D=\begin{vmatrix}1&amp;a&amp;a^2\\1&amp;b&amp;b^2\\1&amp;c&amp;c^2\end{vmatrix}. \]</p>
+<dl><dt>Pista</dt><dd><p>Resta la primera fila a las otras dos y usa que \(b^2-a^2=(b-a)(b+a)\).</p></dd>
+<dt>Solución</dt><dd>
+<p>Con \(F_2\gets F_2-F_1\) y \(F_3\gets F_3-F_1\), que no cambian el determinante, y sacando los factores \((b-a)\) y \((c-a)\) de las filas 2 y 3:</p>
+<p>\[ D=\begin{vmatrix}1&amp;a&amp;a^2\\0&amp;b-a&amp;b^2-a^2\\0&amp;c-a&amp;c^2-a^2\end{vmatrix}=(b-a)(c-a)\begin{vmatrix}1&amp;a&amp;a^2\\0&amp;1&amp;b+a\\0&amp;1&amp;c+a\end{vmatrix}. \]</p>
+<p>Con \(F_3\gets F_3-F_2\) queda una matriz triangular de diagonal \(1,1,c-b\):</p>
+<p>\[ D=(b-a)(c-a)(c-b). \]</p>
+<p>En particular, \(D\ne0\) si y solo si \(a\), \(b\) y \(c\) son distintos. Este determinante aparece al ajustar una parábola que pase por tres puntos.</p>
+</dd></dl>
+</div>
+
+<div class="box-exercise"><h5 class="box-legend"><span>Ejercicio \(\PageIndex{7}\) __F2__</span></h5>
+<p>En el laboratorio de mezclas tenemos \(d_1\) (10 g/L de \(A\), 0 de \(B\)), \(d_2\) (0 de \(A\), 10 g/L de \(B\)) y una tercera disolución madre \(d_3\) con 5 g/L de \(A\) y \(c\) g/L de \(B\). La matriz del problema de preparar una mezcla (volumen total, masa de \(A\), masa de \(B\)) es</p>
+<p>\[ D_c=\begin{pmatrix}1&amp;1&amp;1\\10&amp;0&amp;5\\0&amp;10&amp;c\end{pmatrix}. \]</p>
+<p>¿Para qué valores de \(c\) es \(\det(D_c)=0\)? Interpreta químicamente el resultado.</p>
+<dl><dt>Solución</dt><dd>
+<p>Desarrollando por la primera fila,</p>
+<p>\[ \det(D_c)=1\cdot(0-50)-1\cdot(10c-0)+1\cdot(100-0)=50-10c, \]</p>
+<p>que se anula solo para \(c=5\). Ese es el único caso en que \(d_3\) tiene la misma concentración total que las otras dos (10 g/L) y es la mezcla a partes iguales de \(d_1\) y \(d_2\). Para cualquier otro valor de \(c\), la tercera disolución aporta algo nuevo.</p>
+</dd></dl>
+</div>
