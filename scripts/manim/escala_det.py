@@ -1,0 +1,35 @@
+from manim import *
+import numpy as np
+config.background_color = WHITE
+AZ="#1f5fa8"; NA="#d35400"; VE="#1e8449"; GR="#555555"
+class EscalaDet(Scene):
+    def construct(self):
+        MathTex.set_default(color=BLACK); Tex.set_default(color=BLACK)
+        pl=NumberPlane(x_range=[-0.5,4,1],y_range=[-0.5,3.5,1],x_length=4.95,y_length=4.4,background_line_style={"stroke_color":GR,"stroke_opacity":0.2},axis_config={"color":GR}).to_edge(LEFT,buff=0.6).shift(DOWN*0.3)
+        self.add(pl)
+        c=lambda x,y: pl.c2p(x,y)
+        rect=lambda w,h,col: Polygon(c(0,0),c(w,0),c(w,h),c(0,h),color=col,fill_opacity=0.35,stroke_width=3)
+        t1=Tex(r"\textbf{1.} Multiplicar por $\lambda$ toda la matriz",font_size=32).to_corner(UR).shift(LEFT*0.2)
+        self.play(FadeIn(t1))
+        sq=rect(1,1,AZ); l1=MathTex(r"\det(I)=1",font_size=36,color=AZ).next_to(t1,DOWN,buff=0.4).align_to(t1,LEFT)
+        self.play(Create(sq),FadeIn(l1))
+        sq2=rect(2,2,AZ); self.play(Transform(sq,sq2),run_time=1.5)
+        grid=VGroup(*[Line(c(1,0),c(1,2),color=AZ,stroke_width=2),Line(c(0,1),c(2,1),color=AZ,stroke_width=2)])
+        self.play(Create(grid))
+        l2=MathTex(r"\det(2I)=2^2\cdot1=4",font_size=36,color=AZ).next_to(l1,DOWN,buff=0.3).align_to(t1,LEFT)
+        l3=Tex(r"no $2\cdot1=2$: se multiplican las $n=2$ filas",font_size=30,color=NA).next_to(l2,DOWN,buff=0.3).align_to(t1,LEFT)
+        self.play(FadeIn(l2)); self.play(FadeIn(l3)); self.wait(2)
+        l4=Tex(r"En 3D, un cubo de lado doble: volumen $\times 2^3=8$",font_size=30).next_to(l3,DOWN,buff=0.3).align_to(t1,LEFT)
+        self.play(FadeIn(l4)); self.wait(2)
+        self.play(*[FadeOut(m) for m in (sq,grid,l1,l2,l3,l4,t1)])
+        t2=Tex(r"\textbf{2.} $\det(A+B)\neq\det(A)+\det(B)$",font_size=32).to_corner(UR).shift(LEFT*0.2)
+        self.play(FadeIn(t2))
+        rA=rect(2,1,AZ); rB=rect(1,2,NA)
+        lA=MathTex(r"A=\begin{pmatrix}2&0\\0&1\end{pmatrix},\ \det A=2",font_size=32,color=AZ).next_to(t2,DOWN,buff=0.4).align_to(t2,LEFT)
+        lB=MathTex(r"B=\begin{pmatrix}1&0\\0&2\end{pmatrix},\ \det B=2",font_size=32,color=NA).next_to(lA,DOWN,buff=0.25).align_to(t2,LEFT)
+        self.play(Create(rA),FadeIn(lA)); self.play(Create(rB),FadeIn(lB)); self.wait(1)
+        rS=rect(3,3,VE)
+        lS=MathTex(r"A+B=\begin{pmatrix}3&0\\0&3\end{pmatrix},\ \det(A+B)=9",font_size=32,color=VE).next_to(lB,DOWN,buff=0.25).align_to(t2,LEFT)
+        self.play(Create(rS),FadeIn(lS),run_time=1.5)
+        lF=MathTex(r"9\neq2+2",font_size=40,color=BLACK).next_to(lS,DOWN,buff=0.4).align_to(t2,LEFT)
+        self.play(FadeIn(lF)); self.wait(3)

@@ -263,5 +263,10 @@
   "seccion": "3.3",
   "archivo": "gauss.gif",
   "ruta": "gifs/3.3/gauss.gif"
+ },
+ {
+  "seccion": "3.2",
+  "archivo": "escala_det.gif",
+  "ruta": "gifs/3.2/escala_det.gif"
  }
 ]
