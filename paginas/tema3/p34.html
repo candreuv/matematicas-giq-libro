@@ -62,7 +62,7 @@
 <p>Calcula la inversa de \(M=\begin{pmatrix}2&amp;1&amp;0\\1&amp;2&amp;1\\0&amp;1&amp;2\end{pmatrix}\).</p>
 <dl><dt>Solución</dt><dd>
 <p>Intercambiamos \(F_1\leftrightarrow F_2\) para tener un 1 como primer pivote y hacemos \(F_2\gets F_2-2F_1\). Después intercambiamos \(F_2\leftrightarrow F_3\) y hacemos \(F_3\gets F_3+3F_2\):</p>
-<p>\[ \left(\begin{array}{ccc|ccc}1&amp;2&amp;1&amp;0&amp;1&amp;0\\0&amp;-3&amp;-2&amp;1&amp;-2&amp;0\\0&amp;1&amp;2&amp;0&amp;0&amp;1\end{array}\right)\to \left(\begin{array}{ccc|ccc}1&amp;2&amp;1&amp;0&amp;1&amp;0\\0&amp;1&amp;2&amp;0&amp;0&amp;1\\0&amp;0&amp;4&amp;1&amp;-2&amp;3\end{array}\right). \]</p>
+<p>\[ \begin{gathered} \left(\begin{array}{ccc|ccc}1&amp;2&amp;1&amp;0&amp;1&amp;0\\0&amp;-3&amp;-2&amp;1&amp;-2&amp;0\\0&amp;1&amp;2&amp;0&amp;0&amp;1\end{array}\right)\\ \downarrow\\ \left(\begin{array}{ccc|ccc}1&amp;2&amp;1&amp;0&amp;1&amp;0\\0&amp;1&amp;2&amp;0&amp;0&amp;1\\0&amp;0&amp;4&amp;1&amp;-2&amp;3\end{array}\right). \end{gathered} \]</p>
 <p>Dividimos \(F_3\) entre 4 y hacemos ceros encima de los pivotes: \(F_2\gets F_2-2F_3\), \(F_1\gets F_1-F_3\) y \(F_1\gets F_1-2F_2\):</p>
 <p>\[ \left(\begin{array}{ccc|ccc}1&amp;0&amp;0&amp;\frac34&amp;-\frac12&amp;\frac14\\0&amp;1&amp;0&amp;-\frac12&amp;1&amp;-\frac12\\0&amp;0&amp;1&amp;\frac14&amp;-\frac12&amp;\frac34\end{array}\right). \]</p>
 <p>Por tanto,</p>
