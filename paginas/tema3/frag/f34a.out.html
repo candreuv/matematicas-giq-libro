@@ -1,0 +1,27 @@
+<h3>Ecuaciones matriciales: despejar sin dividir</h3>
+
+<div class="box-warning"><h5 class="box-legend"><span>No se pueden dividir matrices</span></h5>
+<p>Con matrices <strong>no existe la división</strong>: expresiones como \(\dfrac{B}{A}\) o \(B/A\) no tienen sentido, y nunca hay que escribirlas. Hay dos razones:</p>
+<ul>
+<li>Como el producto no es conmutativo, «\(B\) entre \(A\)» podría significar \(A^{-1}B\) o \(BA^{-1}\), que en general son <strong>distintas</strong> (lo verás en el ejemplo siguiente).</li>
+<li>Muchas matrices no nulas no tienen inversa, así que tampoco se puede «simplificar»: de \(AB=AC\) no se deduce \(B=C\) si \(A\) es singular.</li>
+</ul>
+<p>Lo que sí se puede hacer es <strong>multiplicar los dos miembros por \(A^{-1}\) por el mismo lado</strong>: por la izquierda si \(A\) está a la izquierda de la incógnita, y por la derecha si está a la derecha.</p>
+</div>
+
+<div class="box-example"><h5 class="box-legend"><span>Ejemplo \(\PageIndex{3}\): despejar una matriz</span></h5>
+<p>Sean \(A=\begin{pmatrix}2&amp;5\\1&amp;3\end{pmatrix}\), cuya inversa calculamos en el Ejemplo 2, y \(B=\begin{pmatrix}1&amp;0\\4&amp;1\end{pmatrix}\). Halla la matriz \(X\) en cada caso:</p>
+<ol>
+<li>\(AX=B\).</li>
+<li>\(XA=B\).</li>
+</ol>
+<dl><dt>Solución</dt><dd>
+<ol>
+<li>\(A\) está a la <strong>izquierda</strong> de \(X\). Multiplicamos los dos miembros por \(A^{-1}\) por la izquierda: \(A^{-1}AX=A^{-1}B\), es decir, \(IX=A^{-1}B\), luego
+<p>\[ X=A^{-1}B=\begin{pmatrix}3&amp;-5\\-1&amp;2\end{pmatrix}\begin{pmatrix}1&amp;0\\4&amp;1\end{pmatrix}=\begin{pmatrix}-17&amp;-5\\7&amp;2\end{pmatrix}. \nonumber \]</p></li>
+<li>Ahora \(A\) está a la <strong>derecha</strong> de \(X\). Multiplicamos por \(A^{-1}\) por la derecha: \(XAA^{-1}=BA^{-1}\), luego
+<p>\[ X=BA^{-1}=\begin{pmatrix}1&amp;0\\4&amp;1\end{pmatrix}\begin{pmatrix}3&amp;-5\\-1&amp;2\end{pmatrix}=\begin{pmatrix}3&amp;-5\\11&amp;-18\end{pmatrix}. \nonumber \]</p></li>
+</ol>
+<p>Comprobación del primer caso: \(\begin{pmatrix}2&amp;5\\1&amp;3\end{pmatrix}\begin{pmatrix}-17&amp;-5\\7&amp;2\end{pmatrix}=\begin{pmatrix}1&amp;0\\4&amp;1\end{pmatrix}\). Los dos resultados son distintos. Si hubiéramos escrito \(X=B/A\), no sabríamos cuál de los dos es: por eso la división no está definida.</p>
+</dd></dl>
+</div>

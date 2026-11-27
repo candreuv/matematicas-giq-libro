@@ -46,10 +46,27 @@
 <p>El signo \((-1)^{i+j}\) es \(+\) cuando \(i+j\) es par y \(-\) cuando es impar, y sigue un patrón de tablero de ajedrez: \(\begin{pmatrix}+&amp;-&amp;+\\-&amp;+&amp;-\\+&amp;-&amp;+\end{pmatrix}\).</p>
 </div>
 
+<p>¿El desarrollo de Laplace es una definición o un teorema? Las dos cosas. Para matrices de orden \(n\ge4\) no teníamos todavía ninguna definición del determinante, así que la <strong>definimos</strong> desarrollando por la primera fila, de forma recurrente: un determinante de orden \(n\) se define a partir de determinantes de orden \(n-1\), estos a partir de los de orden \(n-2\), y así hasta llegar a números.</p>
+
+<div class="box-definition"><h5 class="box-legend"><span>Definición \(\PageIndex{3}\): determinante de orden \(n\)</span></h5>
+<p>Para \(n=1\), \(\det(a)=a\). Para \(n\ge2\) y \(A=(a_{ij})\in\mathbb R_{n\times n}\),</p>
+<p>\[ \det(A)=\sum_{k=1}^n(-1)^{1+k}a_{1k}M_{1k}=\sum_{k=1}^na_{1k}A_{1k}. \]</p>
+</div>
+
+<p>Esta definición coincide con la que ya teníamos para \(n=2\) y \(n=3\). Para \(n=2\) da \(a_{11}a_{22}-a_{12}a_{21}\). Para \(n=3\) da</p>
+<p>\[ \begin{aligned} &a\,(ei-fh)-b\,(di-fg)+c\,(dh-eg)\\ &=aei+bfg+cdh-ceg-bdi-afh, \end{aligned} \]</p>
+<p>que es la regla de Sarrus. Lo que es un <strong>teorema</strong>, y no evidente, es que da igual la fila o la columna por la que se desarrolle.</p>
+
 <div class="box-theorem"><h5 class="box-legend"><span>Teorema \(\PageIndex{1}\): desarrollo de Laplace</span></h5>
-<p>El determinante de \(A\) se puede calcular desarrollando por <strong>cualquier</strong> fila \(i\) o columna \(j\):</p>
+<p>El determinante de \(A\) se puede calcular desarrollando por <strong>cualquier</strong> fila \(i\) o columna \(j\), y siempre se obtiene el mismo resultado:</p>
 <p>\[ \det(A)=\sum_{k=1}^na_{ik}A_{ik}=\sum_{k=1}^na_{kj}A_{kj}. \]</p>
 </div>
+<dl><dt>Demostración</dt><dd>
+<p>Usamos las propiedades 1 y 2 del Teorema 3.2.2, que se demuestran más abajo a partir de la Definición 3.2.3, sin usar este teorema.</p>
+<p><strong>Por la fila \(i\).</strong> Subimos la fila \(i\) a la primera posición intercambiándola sucesivamente con las filas \(i-1,i-2,\dots,1\). Son \(i-1\) intercambios y las demás filas conservan su orden. Llamamos \(A'\) a la matriz resultante. Por la propiedad 2, \(\det(A')=(-1)^{i-1}\det(A)\). Además, quitar a \(A'\) su fila 1 y su columna \(k\) da la misma submatriz que quitar a \(A\) su fila \(i\) y su columna \(k\), así que el menor \((1,k)\) de \(A'\) es \(M_{ik}\). Desarrollando \(A'\) por la primera fila (Definición 3.2.3),</p>
+<p>\[ \begin{aligned} \det(A)&=(-1)^{i-1}\det(A')=(-1)^{i-1}\sum_{k=1}^n(-1)^{1+k}a_{ik}M_{ik}\\ &=\sum_{k=1}^n(-1)^{i+k}a_{ik}M_{ik}=\sum_{k=1}^na_{ik}A_{ik}. \end{aligned} \]</p>
+<p><strong>Por la columna \(j\).</strong> La columna \(j\) de \(A\) es la fila \(j\) de \(A^T\). Cada menor de \(A^T\) es el determinante de la traspuesta de un menor de \(A\), y por la propiedad 1 vale lo mismo. Desarrollando \(A^T\) por su fila \(j\) y usando \(\det(A^T)=\det(A)\) se obtiene la segunda fórmula. \(\blacksquare\)</p>
+</dd></dl>
 <p>En la práctica se elige la fila o columna con más ceros, porque los términos con \(a_{ik}=0\) no hace falta calcularlos. (Para \(n=3\), el desarrollo de Laplace da el mismo resultado que Sarrus.)</p>
 
 <div class="box-example"><h5 class="box-legend"><span>Ejemplo \(\PageIndex{2}\): un determinante de orden 4</span></h5>
@@ -81,6 +98,65 @@
 <li>\(\det(AB)=\det(A)\det(B)\).</li>
 </ol>
 </div>
+<dl><dt>Demostración</dt><dd>
+<p>Partimos solo de la Definición 3.2.3, el desarrollo por la primera fila. Demostramos las propiedades en el orden en que se apoyan unas en otras: 6 y 3, 2, 5, 4, 7, 8 y, por último, 1. Escribimos \(F_1,\dots,F_n\) para las filas de \(A\).</p>
+
+<p><strong>Propiedades 6 y 3 (el determinante es lineal en cada fila).</strong> Lo probamos por inducción sobre \(n\). Para \(n=1\), \(\det(a)=a\) es lineal. Sea \(n\ge2\) y supongamos que es cierto para el orden \(n-1\).</p>
+<ul>
+<li>Si la fila que cambia es la primera, los menores \(M_{1k}\) no la contienen. Entonces \(\det(A)=\sum_k(-1)^{1+k}a_{1k}M_{1k}\) es una suma de las entradas \(a_{1k}\) multiplicadas por números fijos. Si \(F_1\) es suma de dos filas, el determinante se separa en dos sumas; si \(F_1\) se multiplica por \(\lambda\), el determinante también.</li>
+<li>Si la fila que cambia es la \(i\ge2\), cada menor \(M_{1k}\) contiene un trozo de ella y, por hipótesis de inducción, es lineal en esa fila. Los coeficientes \(a_{1k}\) no cambian, así que la suma también es lineal.</li>
+</ul>
+<p>Multiplicar \(A\) por \(\lambda\) es multiplicar sus \(n\) filas por \(\lambda\). Aplicando \(n\) veces la propiedad 3, \(\det(\lambda A)=\lambda^n\det(A)\).</p>
+
+<p><strong>Propiedad 2 (un intercambio de filas cambia el signo).</strong> De nuevo por inducción. Para \(n=2\),</p>
+<p>\[ \begin{vmatrix}c&d\\a&b\end{vmatrix}=cb-da=-\begin{vmatrix}a&b\\c&d\end{vmatrix}. \]</p>
+<p>Sea \(n\ge3\) y supongamos la propiedad cierta para el orden \(n-1\).</p>
+<ul>
+<li><em>Intercambio de dos filas \(i,k\ge2\).</em> En cada menor \(M_{1k'}\) quedan intercambiadas dos filas, así que cada uno cambia de signo por hipótesis de inducción, y \(\det(A)\) también.</li>
+<li><em>Intercambio de las filas 1 y 2.</em> Desarrollamos también cada menor \(M_{1j}\) por su primera fila, que es la fila 2 de \(A\) sin la columna \(j\). Llamamos \(D_{jl}\) (con \(j\ne l\)) al determinante de la submatriz que queda al quitar a \(A\) las filas 1 y 2 y las columnas \(j\) y \(l\); en particular, \(D_{jl}=D_{lj}\). Dentro de \(M_{1j}\), la entrada \(a_{2l}\) está en la columna \(l\) si \(l&lt;j\), y en la \(l-1\) si \(l&gt;j\). Por tanto,
+<p>\[ M_{1j}=\sum_{l&lt;j}(-1)^{1+l}a_{2l}D_{jl}+\sum_{l&gt;j}(-1)^{l}a_{2l}D_{jl}. \]</p>
+Sustituyendo en la definición,
+<p>\[ \det(A)=\sum_{j\ne l}s_{jl}\,(-1)^{j+l}\,a_{1j}\,a_{2l}\,D_{jl}, \]</p>
+donde \(s_{jl}=+1\) si \(l&lt;j\) y \(s_{jl}=-1\) si \(l&gt;j\). Si intercambiamos las filas 1 y 2, los \(D_{jl}\) no cambian y los papeles de \(a_{1\cdot}\) y \(a_{2\cdot}\) se intercambian. Renombrando \(j\leftrightarrow l\) y usando \(s_{lj}=-s_{jl}\), el nuevo determinante es
+<p>\[ \begin{aligned} \sum_{j\ne l}s_{jl}(-1)^{j+l}a_{2j}a_{1l}D_{jl}&=\sum_{j\ne l}s_{lj}(-1)^{j+l}a_{1j}a_{2l}D_{jl}\\ &=-\det(A). \end{aligned} \]</p></li>
+<li><em>Intercambio de las filas 1 y \(k\ge3\).</em> Equivale a tres intercambios seguidos: \(1\leftrightarrow2\), \(2\leftrightarrow k\) y \(1\leftrightarrow2\). Las filas \((F_1,F_2,F_k)\) pasan a \((F_2,F_1,F_k)\), luego a \((F_2,F_k,F_1)\) y por último a \((F_k,F_2,F_1)\). Cada intercambio cambia el signo, así que en total el signo cambia: \((-1)^3=-1\).</li>
+</ul>
+
+<p><strong>Propiedad 5 (determinantes nulos).</strong></p>
+<ul>
+<li><em>Dos filas iguales.</em> Si las intercambiamos, la matriz no cambia, pero el determinante cambia de signo. Por tanto, \(\det(A)=-\det(A)\), luego \(\det(A)=0\).</li>
+<li><em>Una fila nula.</em> Se sigue de la propiedad 3 con \(\lambda=0\).</li>
+<li><em>Dos filas proporcionales.</em> Si \(F_k=\lambda F_i\), sacamos \(\lambda\) de la fila \(k\) (propiedad 3) y quedan dos filas iguales.</li>
+<li><em>Una fila combinación lineal de las demás.</em> Si \(F_k=\sum_{i\ne k}\lambda_iF_i\), por las propiedades 6 y 3 el determinante es \(\sum_{i\ne k}\lambda_i\det(A_i)\), donde \(A_i\) es \(A\) con \(F_i\) en el lugar de \(F_k\). Cada \(A_i\) tiene dos filas iguales, así que el determinante es 0.</li>
+</ul>
+
+<p><strong>Propiedad 4 (sumar un múltiplo de otra fila).</strong> Si cambiamos \(F_i\) por \(F_i+\lambda F_k\), por las propiedades 6 y 3 el nuevo determinante es \(\det(A)+\lambda\det(A')\), donde \(A'\) es \(A\) con \(F_k\) también en el lugar \(i\). \(A'\) tiene dos filas iguales, así que \(\det(A')=0\).</p>
+
+<p><strong>Propiedad 7 (matrices triangulares).</strong></p>
+<ul>
+<li><em>Triangular inferior</em> (ceros encima de la diagonal). La primera fila es \((a_{11},0,\dots,0)\), así que \(\det(A)=a_{11}M_{11}\), y \(M_{11}\) es triangular inferior de orden \(n-1\). Por inducción, \(\det(A)=a_{11}a_{22}\cdots a_{nn}\).</li>
+<li><em>Triangular superior con toda la diagonal no nula.</em> Restando a las filas de arriba múltiplos de \(F_n\), que solo tiene no nula la última entrada, anulamos la columna \(n\) por encima de \(a_{nn}\). Después hacemos lo mismo con \(F_{n-1}\) y la columna \(n-1\), y así sucesivamente. Son operaciones del tipo 4, que no cambian el determinante, y llegamos a la matriz diagonal \(\mathrm{diag}(a_{11},\dots,a_{nn})\), que es triangular inferior.</li>
+<li><em>Triangular superior con algún \(a_{ii}=0\).</em> Tomamos el mayor \(i\) con \(a_{ii}=0\). Las filas \(i+1,\dots,n\) tienen la diagonal no nula, y con ellas anulamos, de izquierda a derecha, las entradas de \(F_i\) en las columnas \(i+1,\dots,n\). Como las de las columnas \(1,\dots,i\) ya eran nulas, \(F_i\) queda nula y el determinante es \(0=a_{11}\cdots a_{nn}\).</li>
+</ul>
+<p>En particular, \(\det(I_n)=1\).</p>
+
+<p><strong>Propiedad 8 (\(\det(AB)=\det(A)\det(B)\)).</strong> Llamamos <em>matriz elemental</em> \(E\) a la que resulta de aplicar una operación elemental entre filas a \(I_n\). La fila \(i\) de \(EA\) es la fila \(i\) de \(E\) por \(A\), es decir, una combinación de las filas de \(A\) con los coeficientes de la fila \(i\) de \(E\). Por eso \(EA\) es \(A\) con esa misma operación aplicada. Por las propiedades 2, 3 y 4 y \(\det(I_n)=1\), \(\det(E)\) vale \(-1\), \(\lambda\) o \(1\) según el tipo de operación, y</p>
+<p>\[ \det(EA)=\det(E)\det(A)\quad\text{para toda }A.\qquad(*) \]</p>
+<p>Toda operación elemental se deshace con otra operación elemental. Por el método de Gauss (sección 3.3), \(A\) se lleva con operaciones elementales a una forma escalonada \(U\), que, al ser cuadrada, es triangular superior. Deshaciendo esas operaciones, \(A=F_1\cdots F_kU\) con \(F_1,\dots,F_k\) elementales.</p>
+<ul>
+<li><em>Si \(U\) tiene algún cero en la diagonal</em>, tiene menos de \(n\) pivotes y su última fila es nula. Entonces la última fila de \(UB\) también es nula. Aplicando \((*)\) varias veces,
+<p>\[ \begin{aligned} \det(A)&=\det(F_1)\cdots\det(F_k)\det(U)=0,\\ \det(AB)&=\det(F_1)\cdots\det(F_k)\det(UB)=0. \end{aligned} \]</p>
+Por tanto, \(\det(AB)=0=\det(A)\det(B)\).</li>
+<li><em>Si la diagonal de \(U\) no tiene ceros</em>, continuamos con Gauss-Jordan hasta \(I_n\), y \(A=G_1\cdots G_m\) con \(G_1,\dots,G_m\) elementales. Por \((*)\), \(\det(A)=\det(G_1)\cdots\det(G_m)\) y
+<p>\[ \det(AB)=\det(G_1)\cdots\det(G_m)\det(B)=\det(A)\det(B). \]</p></li>
+</ul>
+
+<p><strong>Propiedad 1 (\(\det(A^T)=\det(A)\)).</strong> Si \(E\) es elemental, \(E^T\) también lo es y tiene el mismo determinante. Las matrices de intercambio y de multiplicar una fila son simétricas, y la traspuesta de «sumar a \(F_i\) la fila \(\lambda F_k\)» es «sumar a \(F_k\) la fila \(\lambda F_i\)», de determinante 1. Distinguimos los mismos dos casos:</p>
+<ul>
+<li><em>Si \(A=G_1\cdots G_m\)</em>, entonces \(A^T=G_m^T\cdots G_1^T\) y, por la propiedad 8, \(\det(A^T)=\det(G_m)\cdots\det(G_1)=\det(A)\).</li>
+<li><em>Si \(A=F_1\cdots F_kU\) con \(u_{nn}=0\)</em>, entonces \(A^T=U^TF_k^T\cdots F_1^T\). Aquí \(U^T\) es triangular inferior con un cero en la diagonal, así que \(\det(U^T)=0\) por la propiedad 7, y \(\det(A^T)=0=\det(A)\). \(\blacksquare\)</li>
+</ul>
+</dd></dl>
 
 <div class="box-warning"><h5 class="box-legend"><span>Cuidado con \(\det(A+B)\) y \(\det(\lambda A)\)</span></h5>
 <p>En general, \(\det(A+B)\ne\det(A)+\det(B)\). Y al multiplicar una matriz \(n\times n\) por \(\lambda\) se multiplican sus \(n\) filas, así que \(\det(\lambda A)=\lambda^n\det(A)\), no \(\lambda\det(A)\). Geométricamente: si se duplican los lados de un cuadrado, su área se multiplica por \(2^2=4\).</p>

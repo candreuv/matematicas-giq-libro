@@ -1,0 +1,26 @@
+<div class="box-exercise"><h5 class="box-legend"><span>Ejercicio \(\PageIndex{8}\) <span class="dificultad" style="white-space:nowrap;"><span class="mt-icon-fire" style="color:#ff6a00;" title="dificultad">&nbsp;</span><span class="mt-icon-fire" style="color:#ff6a00;" title="dificultad">&nbsp;</span></span>: despejar sin dividir</span></h5>
+<p>Sea \(A=\begin{pmatrix}2&amp;5\\1&amp;3\end{pmatrix}\).</p>
+<ol>
+<li>Resuelve el sistema \(2x+5y=4,\ \ x+3y=1\) escribiéndolo como una ecuación matricial \(A\mathbf x=\mathbf b\) y despejando \(\mathbf x\).</li>
+<li>Despeja \(X\) en la ecuación \(AX+X=B\) y calcúlala para \(B=\begin{pmatrix}8&amp;5\\5&amp;4\end{pmatrix}\).</li>
+</ol>
+<p>En cada paso, indica qué operación haces con los dos miembros. ¿Cuál de las operaciones que usarías con números <strong>no</strong> está permitida?</p>
+<dl><dt>Pista</dt><dd><p>En el apartado 2, saca \(X\) factor común por la derecha. Cuidado: \(A+1\) no tiene sentido, porque no se puede sumar una matriz y un número.</p></dd></dl>
+<dl><dt>Solución</dt><dd>
+<ol>
+<li>Con \(\mathbf x=(x,y)^T\) y \(\mathbf b=(4,1)^T\), el sistema es \(A\mathbf x=\mathbf b\). Como \(\det(A)=1\ne0\), \(A\) es invertible (Ejemplo 2). Multiplicamos los dos miembros por \(A^{-1}\) <strong>por la izquierda</strong>: \(A^{-1}A\mathbf x=A^{-1}\mathbf b\), luego \(\mathbf x=A^{-1}\mathbf b\) y
+<p>\[ \mathbf x=\begin{pmatrix}3&amp;-5\\-1&amp;2\end{pmatrix}\begin{pmatrix}4\\1\end{pmatrix}=\begin{pmatrix}7\\-2\end{pmatrix}. \nonumber \]</p>
+Comprobación: \(2\cdot7+5\cdot(-2)=4\) y \(7+3\cdot(-2)=1\).</li>
+<li>Escribimos \(X=IX\) para poder sacar factor común: \(AX+IX=(A+I)X=B\). Ahora \(A+I=\begin{pmatrix}3&amp;5\\1&amp;4\end{pmatrix}\) tiene determinante \(7\ne0\). Multiplicando por \((A+I)^{-1}\) por la izquierda,
+<p>\[ \begin{aligned} X&amp;=(A+I)^{-1}B=\frac17\begin{pmatrix}4&amp;-5\\-1&amp;3\end{pmatrix}\begin{pmatrix}8&amp;5\\5&amp;4\end{pmatrix}\\ &amp;=\frac17\begin{pmatrix}7&amp;0\\7&amp;7\end{pmatrix}=\begin{pmatrix}1&amp;0\\1&amp;1\end{pmatrix}. \end{aligned} \nonumber \]</p></li>
+</ol>
+<p>Todas las operaciones que hemos usado son válidas con matrices:</p>
+<ul>
+<li>sumar o restar la misma matriz a los dos miembros;</li>
+<li>multiplicar los dos miembros por la misma matriz, por el mismo lado;</li>
+<li>sacar factor común respetando el lado y escribiendo \(I\) donde hace falta;</li>
+<li>usar \(A^{-1}A=I\) e \(I\mathbf x=\mathbf x\).</li>
+</ul>
+<p>La única que <strong>no</strong> es válida es la división: escribir \(\mathbf x=\dfrac{\mathbf b}{A}\) o \(X=\dfrac{B}{A+I}\) no tiene sentido. En su lugar se multiplica por la inversa, y por el lado correcto.</p>
+</dd></dl>
+</div>

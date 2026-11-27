@@ -90,6 +90,25 @@
 
 <p style="text-align:center;"><img alt="Animación: cada entrada del producto AB se obtiene recorriendo una fila de A y una columna de B, multiplicando entrada a entrada y sumando" src="__IMG_producto_matrices.gif__" style="max-width:100%;" /></p>
 
+<h3>¿Por qué se multiplica así?</h3>
+
+<p>La regla «fila por columna» puede parecer caprichosa: sería más sencillo multiplicar entrada a entrada. Pero el producto está definido así por los <strong>sistemas de ecuaciones lineales</strong>. Un sistema como</p>
+<p>\[ \begin{aligned} a_{11}x_1+a_{12}x_2&=b_1,\\ a_{21}x_1+a_{22}x_2&=b_2 \end{aligned} \]</p>
+<p>se escribe de golpe como \(A\mathbf x=\mathbf b\), con \(A=(a_{ij})\), \(\mathbf x=(x_1,x_2)^T\) y \(\mathbf b=(b_1,b_2)^T\), justamente porque «fila de \(A\) por la columna \(\mathbf x\)» reproduce el primer miembro de cada ecuación. Es lo mismo que hicimos en la motivación con las masas de la mezcla.</p>
+
+<p>El producto de dos matrices es lo que sale al <strong>encadenar</strong> dos cambios de variables lineales. Supongamos que</p>
+<p>\[ \begin{aligned} z_1&=y_1+2y_2,\\ z_2&=3y_1+4y_2, \end{aligned}\qquad \begin{aligned} y_1&=x_1-x_2,\\ y_2&=2x_1+x_2, \end{aligned} \]</p>
+<p>es decir, \(\mathbf z=A\mathbf y\) e \(\mathbf y=B\mathbf x\) con \(A=\begin{pmatrix}1&2\\3&4\end{pmatrix}\) y \(B=\begin{pmatrix}1&-1\\2&1\end{pmatrix}\). Si sustituimos las \(y\) en las \(z\),</p>
+<p>\[ \begin{aligned} z_1&=(x_1-x_2)+2(2x_1+x_2)=5x_1+x_2,\\ z_2&=3(x_1-x_2)+4(2x_1+x_2)=11x_1+x_2. \end{aligned} \]</p>
+<p>Y, efectivamente, con la regla fila por columna,</p>
+<p>\[ AB=\begin{pmatrix}1&2\\3&4\end{pmatrix}\begin{pmatrix}1&-1\\2&1\end{pmatrix}=\begin{pmatrix}5&1\\11&1\end{pmatrix}, \]</p>
+<p>así que \(\mathbf z=A(B\mathbf x)=(AB)\mathbf x\). Cada coeficiente de la sustitución, como el 5 de \(z_1\), es \(1\cdot1+2\cdot2\): la fila 1 de \(A\) por la columna 1 de \(B\). La definición explica también las demás reglas del producto:</p>
+<ul>
+<li><strong>Los tamaños tienen que encajar</strong>: el número de columnas de \(A\) (cuántas variables \(y\) usa) tiene que coincidir con el número de filas de \(B\) (cuántas variables \(y\) produce).</li>
+<li><strong>El orden importa</strong>: sustituir primero una cosa y luego la otra no es lo mismo que al revés, y por eso \(AB\ne BA\) en general.</li>
+</ul>
+<p>Fue Arthur Cayley quien, en 1858, definió así el producto, precisamente a partir de la composición de estas sustituciones lineales.</p>
+
 <div class="box-example"><h5 class="box-legend"><span>Ejemplo \(\PageIndex{2}\): el orden importa</span></h5>
 <p>Sean \(A=\begin{pmatrix}1&amp;2&amp;0\\-1&amp;3&amp;4\end{pmatrix}\) (\(2\times3\)) y \(C=\begin{pmatrix}1&amp;0\\2&amp;-1\\0&amp;3\end{pmatrix}\) (\(3\times2\)). Calcula \(AC\) y \(CA\).</p>
 <dl><dt>Solución</dt><dd>
