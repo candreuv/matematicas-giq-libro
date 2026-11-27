@@ -69,13 +69,15 @@
 <p>En consecuencia, debajo de cada pivote solo hay ceros. La forma escalonada de \(A\) se denota \(\mathrm{REF}(A)\) (del inglés <em>row echelon form</em>).</p>
 </div>
 
+<div class="box-theorem"><h5 class="box-legend"><span>Método \(\PageIndex{1}\): método de Gauss</span></h5>
 <p>El <strong>método de Gauss</strong> consiste en llevar la matriz ampliada a forma escalonada, columna a columna y de izquierda a derecha:</p>
 <ol>
 <li>Se elige como pivote un elemento no nulo de la primera columna (si hace falta, se intercambian filas para llevarlo arriba).</li>
-<li>Se hacen ceros debajo del pivote con operaciones \(F_i\gets F_i+\lambda F_1\).</li>
+<li>Se hacen ceros debajo del pivote con operaciones <span style="white-space:nowrap;">\(F_i\gets F_i+\lambda F_1\)</span>.</li>
 <li>Se repite con la submatriz que queda debajo y a la derecha del pivote.</li>
 </ol>
 <p>Con el sistema ya escalonado, se despejan las incógnitas de abajo arriba (<strong>sustitución regresiva</strong>).</p>
+</div>
 
 <div class="box-example"><h5 class="box-legend"><span>Ejemplo \(\PageIndex{2}\): método de Gauss</span></h5>
 <p>Resuelve el sistema \(\ x+y+z=6,\ \ 2x-y+z=3,\ \ x+2y-z=2.\)</p>
@@ -93,6 +95,8 @@
 <div class="box-definition"><h5 class="box-legend"><span>Definición \(\PageIndex{4}\): forma escalonada reducida</span></h5>
 <p>Una matriz está en <strong>forma escalonada reducida</strong>, \(\mathrm{RREF}(A)\) (<em>reduced row echelon form</em>), si está en forma escalonada, todos sus pivotes valen 1 y cada pivote es el único elemento no nulo de su columna.</p>
 </div>
+<p style="text-align:center;"><img alt="Comparación de patrones: a la izquierda, forma escalonada con pivotes no nulos (cuadrados) y asteriscos arbitrarios; a la derecha, forma escalonada reducida con pivotes iguales a 1 y ceros encima y debajo de cada pivote" src="__IMG_ref_rref.png__" style="max-width:100%;" /></p>
+<p>La figura compara las dos formas. En la escalonada, los pivotes (\(\blacksquare\)) solo tienen que ser no nulos, y encima de ellos puede haber cualquier número (\(*\)); en la reducida, cada pivote vale 1 y es lo único que hay en su columna. Las columnas sin pivote corresponden a las variables libres.</p>
 
 <p>El <strong>método de Gauss-Jordan</strong> continúa el de Gauss: se divide cada fila entre su pivote y se hacen ceros también <strong>encima</strong> de los pivotes, de derecha a izquierda. Se puede demostrar que la forma escalonada reducida de una matriz es <strong>única</strong>: no depende de las operaciones elegidas. (La forma escalonada, en cambio, no es única.) Su ventaja es que la solución se lee directamente, sin sustitución regresiva. En el ejemplo anterior,</p>
 <p>\[ \begin{gathered} \left(\begin{array}{ccc|c}1&amp;1&amp;1&amp;6\\0&amp;-3&amp;-1&amp;-9\\0&amp;0&amp;-7&amp;-21\end{array}\right)\\ \downarrow\ \cdots\\ \left(\begin{array}{ccc|c}1&amp;0&amp;0&amp;1\\0&amp;1&amp;0&amp;2\\0&amp;0&amp;1&amp;3\end{array}\right). \end{gathered} \]</p>
@@ -160,6 +164,8 @@
 <p>Este es el efecto del determinante nulo: como \(d_3\) es una mezcla de \(d_1\) y \(d_2\), el problema nunca tiene solución única. En el tema 4 veremos que \(d_3\) es <strong>linealmente dependiente</strong> de las otras dos.</p>
 </dd></dl>
 </div>
+
+<div class="box-note"><h5 class="box-legend"><span>Para saber más</span></h5><p>Puedes repasar estos contenidos con más ejemplos resueltos en otros textos de LibreTexts: <a href="https://espanol.libretexts.org/Bookshelves/Matematicas/Algebra_lineal/Fundamentos_del_%C3%81lgebra_Matricial_(Hartman)/01%3A_Sistemas_de_Ecuaciones_Lineales/1.03%3A_Operaciones_elementales_de_fila_y_eliminaci%C3%B3n_gaussiana" target="_blank" rel="noopener">operaciones elementales de fila y eliminación gaussiana</a> (Hartman), <a href="https://espanol.libretexts.org/Bookshelves/Matematicas/Algebra_lineal/Un_Primer_Curso_de_%C3%81lgebra_Lineal_(Kuttler)/01%3A_Sistemas_de_Ecuaciones/1.05%3A_Rango_y_Sistemas_Homog%C3%A9neos" target="_blank" rel="noopener">rango y sistemas homogéneos</a> y <a href="https://espanol.libretexts.org/Bookshelves/Matematicas/Algebra_lineal/Un_Primer_Curso_de_%C3%81lgebra_Lineal_(Kuttler)/01%3A_Sistemas_de_Ecuaciones/1.06%3A_Equilibrar_las_reacciones_qu%C3%ADmicas" target="_blank" rel="noopener">ajuste de reacciones químicas</a> (Kuttler), y, en inglés, <a href="https://math.libretexts.org/Courses/Irvine_Valley_College/Math_26%3A_Introduction_to_Linear_Algebra/01%3A_Systems_of_Linear_Equations/1.02%3A_Row_Reduction/1.2.02%3A_Echelon_Forms" target="_blank" rel="noopener">formas escalonadas</a> (Irvine Valley College). También es muy completo el capítulo de <a href="https://openstax.org/books/prec%C3%A1lculo-2ed/pages/9-6-resolver-sistemas-con-eliminacion-de-gauss-jordan" target="_blank" rel="noopener">eliminación de Gauss-Jordan</a> de <em>Precálculo</em> (OpenStax).</p></div>
 
 <h2>Ejercicios</h2>
 
