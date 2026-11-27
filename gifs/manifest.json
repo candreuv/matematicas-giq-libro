@@ -1,272 +1,276 @@
 [
- {
-  "seccion": "11",
-  "archivo": "cicloide.gif",
-  "ruta": "gifs/11/cicloide.gif"
- },
- {
-  "seccion": "1.1",
-  "archivo": "venn_ops.gif",
-  "ruta": "gifs/1.1/venn_ops.gif"
- },
- {
-  "seccion": "1.2",
-  "archivo": "induccion.gif",
-  "ruta": "gifs/1.2/induccion.gif"
- },
- {
-  "seccion": "2.1",
-  "archivo": "argumentos.gif",
-  "ruta": "gifs/2.1/argumentos.gif"
- },
- {
-  "seccion": "2.1",
-  "archivo": "radianes.gif",
-  "ruta": "gifs/2.1/radianes.gif"
- },
- {
-  "seccion": "2.2",
-  "archivo": "helice.gif",
-  "ruta": "gifs/2.2/helice.gif"
- },
- {
-  "seccion": "2.2",
-  "archivo": "euler.gif",
-  "ruta": "gifs/2.2/euler.gif"
- },
- {
-  "seccion": "2.2",
-  "archivo": "producto.gif",
-  "ruta": "gifs/2.2/producto.gif"
- },
- {
-  "seccion": "2.3",
-  "archivo": "raices.gif",
-  "ruta": "gifs/2.3/raices.gif"
- },
- {
-  "seccion": "9.1",
-  "archivo": "aritmetica_geometrica.gif",
-  "ruta": "gifs/9.1/aritmetica_geometrica.gif"
- },
- {
-  "seccion": "9.2",
-  "archivo": "fallos_cadena.gif",
-  "ruta": "gifs/9.2/fallos_cadena.gif"
- },
- {
-  "seccion": "9.2",
-  "archivo": "razon_aurea.gif",
-  "ruta": "gifs/9.2/razon_aurea.gif"
- },
- {
-  "seccion": "9.3",
-  "archivo": "banda_epsilon.gif",
-  "ruta": "gifs/9.3/banda_epsilon.gif"
- },
- {
-  "seccion": "9.4",
-  "archivo": "monotona.gif",
-  "ruta": "gifs/9.4/monotona.gif"
- },
- {
-  "seccion": "9.4",
-  "archivo": "jerarquia.gif",
-  "ruta": "gifs/9.4/jerarquia.gif"
- },
- {
-  "seccion": "9.4",
-  "archivo": "sandwich.gif",
-  "ruta": "gifs/9.4/sandwich.gif"
- },
- {
-  "seccion": "9.5",
-  "archivo": "plan_ahorro.gif",
-  "ruta": "gifs/9.5/plan_ahorro.gif"
- },
- {
-  "seccion": "9.5",
-  "archivo": "numero_e.gif",
-  "ruta": "gifs/9.5/numero_e.gif"
- },
- {
-  "seccion": "9.6",
-  "archivo": "dca.gif",
-  "ruta": "gifs/9.6/dca.gif"
- },
- {
-  "seccion": "9.6",
-  "archivo": "ponzi.gif",
-  "ruta": "gifs/9.6/ponzi.gif"
- },
- {
-  "seccion": "9.6",
-  "archivo": "zenon.gif",
-  "ruta": "gifs/9.6/zenon.gif"
- },
- {
-  "seccion": "9.7",
-  "archivo": "armonica.gif",
-  "ruta": "gifs/9.7/armonica.gif"
- },
- {
-  "seccion": "9.8",
-  "archivo": "cond_conv.gif",
-  "ruta": "gifs/9.8/cond_conv.gif"
- },
- {
-  "seccion": "9.8",
-  "archivo": "abs_conv.gif",
-  "ruta": "gifs/9.8/abs_conv.gif"
- },
- {
-  "seccion": "9.8",
-  "archivo": "alternada.gif",
-  "ruta": "gifs/9.8/alternada.gif"
- },
- {
-  "seccion": "10.1",
-  "archivo": "inversa.gif",
-  "ruta": "gifs/10.1/inversa.gif"
- },
- {
-  "seccion": "10.2",
-  "archivo": "transformaciones.gif",
-  "ruta": "gifs/10.2/transformaciones.gif"
- },
- {
-  "seccion": "10.3",
-  "archivo": "epsilon_delta.gif",
-  "ruta": "gifs/10.3/epsilon_delta.gif"
- },
- {
-  "seccion": "10.3",
-  "archivo": "senx_x.gif",
-  "ruta": "gifs/10.3/senx_x.gif"
- },
- {
-  "seccion": "10.4",
-  "archivo": "discontinuidades.gif",
-  "ruta": "gifs/10.4/discontinuidades.gif"
- },
- {
-  "seccion": "10.5",
-  "archivo": "biseccion.gif",
-  "ruta": "gifs/10.5/biseccion.gif"
- },
- {
-  "seccion": "11.1",
-  "archivo": "curvas_nivel.gif",
-  "ruta": "gifs/11.1/curvas_nivel.gif"
- },
- {
-  "seccion": "11.2",
-  "archivo": "flujo.gif",
-  "ruta": "gifs/11.2/flujo.gif"
- },
- {
-  "seccion": "11.3",
-  "archivo": "cicloide.gif",
-  "ruta": "gifs/11.3/cicloide.gif"
- },
- {
-  "seccion": "11.4",
-  "archivo": "cardioide.gif",
-  "ruta": "gifs/11.4/cardioide.gif"
- },
- {
-  "seccion": "11.5",
-  "archivo": "caminos.gif",
-  "ruta": "gifs/11.5/caminos.gif"
- },
- {
-  "seccion": "12.1",
-  "archivo": "secante_tangente.gif",
-  "ruta": "gifs/12.1/secante_tangente.gif"
- },
- {
-  "seccion": "12.2",
-  "archivo": "linealidad_local.gif",
-  "ruta": "gifs/12.2/linealidad_local.gif"
- },
- {
-  "seccion": "12.3",
-  "archivo": "valor_medio.gif",
-  "ruta": "gifs/12.3/valor_medio.gif"
- },
- {
-  "seccion": "12.4",
-  "archivo": "f_derivadas.gif",
-  "ruta": "gifs/12.4/f_derivadas.gif"
- },
- {
-  "seccion": "12.5",
-  "archivo": "taylor_seno.gif",
-  "ruta": "gifs/12.5/taylor_seno.gif"
- },
- {
-  "seccion": "12.6",
-  "archivo": "serie_ln.gif",
-  "ruta": "gifs/12.6/serie_ln.gif"
- },
- {
-  "seccion": "13.1",
-  "archivo": "parcial3d.gif",
-  "ruta": "gifs/13.1/parcial3d.gif"
- },
- {
-  "seccion": "13.3",
-  "archivo": "plano_tangente.gif",
-  "ruta": "gifs/13.3/plano_tangente.gif"
- },
- {
-  "seccion": "13.3",
-  "archivo": "gradiente.gif",
-  "ruta": "gifs/13.3/gradiente.gif"
- },
- {
-  "seccion": "14.1",
-  "archivo": "riemann.gif",
-  "ruta": "gifs/14.1/riemann.gif"
- },
- {
-  "seccion": "14.2",
-  "archivo": "tfc_demo.gif",
-  "ruta": "gifs/14.2/tfc_demo.gif"
- },
- {
-  "seccion": "14.2",
-  "archivo": "tfc.gif",
-  "ruta": "gifs/14.2/tfc.gif"
- },
- {
-  "seccion": "14.6",
-  "archivo": "revolucion.gif",
-  "ruta": "gifs/14.6/revolucion.gif"
- },
- {
-  "seccion": "14.7",
-  "archivo": "fubini.gif",
-  "ruta": "gifs/14.7/fubini.gif"
- },
- {
-  "seccion": "3.1",
-  "archivo": "producto_matrices.gif",
-  "ruta": "gifs/3.1/producto_matrices.gif"
- },
- {
-  "seccion": "3.2",
-  "archivo": "determinante_area.gif",
-  "ruta": "gifs/3.2/determinante_area.gif"
- },
- {
-  "seccion": "3.3",
-  "archivo": "gauss.gif",
-  "ruta": "gifs/3.3/gauss.gif"
- },
- {
-  "seccion": "3.2",
-  "archivo": "escala_det.gif",
-  "ruta": "gifs/3.2/escala_det.gif"
- }
+  {
+    "seccion": "11",
+    "archivo": "cicloide.gif",
+    "ruta": "gifs/11/cicloide.gif"
+  },
+  {
+    "seccion": "1.1",
+    "archivo": "venn_ops.gif",
+    "ruta": "gifs/1.1/venn_ops.gif"
+  },
+  {
+    "seccion": "1.2",
+    "archivo": "induccion.gif",
+    "ruta": "gifs/1.2/induccion.gif"
+  },
+  {
+    "seccion": "2.1",
+    "archivo": "argumentos.gif",
+    "ruta": "gifs/2.1/argumentos.gif"
+  },
+  {
+    "seccion": "2.1",
+    "archivo": "radianes.gif",
+    "ruta": "gifs/2.1/radianes.gif"
+  },
+  {
+    "seccion": "2.2",
+    "archivo": "helice.gif",
+    "ruta": "gifs/2.2/helice.gif"
+  },
+  {
+    "seccion": "2.2",
+    "archivo": "euler.gif",
+    "ruta": "gifs/2.2/euler.gif"
+  },
+  {
+    "seccion": "2.2",
+    "archivo": "producto.gif",
+    "ruta": "gifs/2.2/producto.gif"
+  },
+  {
+    "seccion": "2.3",
+    "archivo": "raices.gif",
+    "ruta": "gifs/2.3/raices.gif"
+  },
+  {
+    "seccion": "9.1",
+    "archivo": "aritmetica_geometrica.gif",
+    "ruta": "gifs/9.1/aritmetica_geometrica.gif"
+  },
+  {
+    "seccion": "9.2",
+    "archivo": "fallos_cadena.gif",
+    "ruta": "gifs/9.2/fallos_cadena.gif"
+  },
+  {
+    "seccion": "9.2",
+    "archivo": "razon_aurea.gif",
+    "ruta": "gifs/9.2/razon_aurea.gif"
+  },
+  {
+    "seccion": "9.3",
+    "archivo": "banda_epsilon.gif",
+    "ruta": "gifs/9.3/banda_epsilon.gif"
+  },
+  {
+    "seccion": "9.4",
+    "archivo": "monotona.gif",
+    "ruta": "gifs/9.4/monotona.gif"
+  },
+  {
+    "seccion": "9.4",
+    "archivo": "jerarquia.gif",
+    "ruta": "gifs/9.4/jerarquia.gif"
+  },
+  {
+    "seccion": "9.4",
+    "archivo": "sandwich.gif",
+    "ruta": "gifs/9.4/sandwich.gif"
+  },
+  {
+    "seccion": "9.5",
+    "archivo": "plan_ahorro.gif",
+    "ruta": "gifs/9.5/plan_ahorro.gif"
+  },
+  {
+    "seccion": "9.5",
+    "archivo": "numero_e.gif",
+    "ruta": "gifs/9.5/numero_e.gif"
+  },
+  {
+    "seccion": "9.6",
+    "archivo": "dca.gif",
+    "ruta": "gifs/9.6/dca.gif"
+  },
+  {
+    "seccion": "9.6",
+    "archivo": "ponzi.gif",
+    "ruta": "gifs/9.6/ponzi.gif"
+  },
+  {
+    "seccion": "9.6",
+    "archivo": "zenon.gif",
+    "ruta": "gifs/9.6/zenon.gif"
+  },
+  {
+    "seccion": "9.7",
+    "archivo": "armonica.gif",
+    "ruta": "gifs/9.7/armonica.gif"
+  },
+  {
+    "seccion": "9.8",
+    "archivo": "cond_conv.gif",
+    "ruta": "gifs/9.8/cond_conv.gif"
+  },
+  {
+    "seccion": "9.8",
+    "archivo": "abs_conv.gif",
+    "ruta": "gifs/9.8/abs_conv.gif"
+  },
+  {
+    "seccion": "9.8",
+    "archivo": "alternada.gif",
+    "ruta": "gifs/9.8/alternada.gif"
+  },
+  {
+    "seccion": "10.1",
+    "archivo": "inversa.gif",
+    "ruta": "gifs/10.1/inversa.gif"
+  },
+  {
+    "seccion": "10.2",
+    "archivo": "transformaciones.gif",
+    "ruta": "gifs/10.2/transformaciones.gif"
+  },
+  {
+    "seccion": "10.3",
+    "archivo": "epsilon_delta.gif",
+    "ruta": "gifs/10.3/epsilon_delta.gif"
+  },
+  {
+    "seccion": "10.3",
+    "archivo": "senx_x.gif",
+    "ruta": "gifs/10.3/senx_x.gif"
+  },
+  {
+    "seccion": "10.4",
+    "archivo": "discontinuidades.gif",
+    "ruta": "gifs/10.4/discontinuidades.gif"
+  },
+  {
+    "seccion": "10.5",
+    "archivo": "biseccion.gif",
+    "ruta": "gifs/10.5/biseccion.gif"
+  },
+  {
+    "seccion": "11.1",
+    "archivo": "curvas_nivel.gif",
+    "ruta": "gifs/11.1/curvas_nivel.gif"
+  },
+  {
+    "seccion": "11.2",
+    "archivo": "flujo.gif",
+    "ruta": "gifs/11.2/flujo.gif"
+  },
+  {
+    "seccion": "11.3",
+    "archivo": "cicloide.gif",
+    "ruta": "gifs/11.3/cicloide.gif"
+  },
+  {
+    "seccion": "11.4",
+    "archivo": "cardioide.gif",
+    "ruta": "gifs/11.4/cardioide.gif"
+  },
+  {
+    "seccion": "11.5",
+    "archivo": "caminos.gif",
+    "ruta": "gifs/11.5/caminos.gif"
+  },
+  {
+    "seccion": "12.1",
+    "archivo": "secante_tangente.gif",
+    "ruta": "gifs/12.1/secante_tangente.gif"
+  },
+  {
+    "seccion": "12.2",
+    "archivo": "linealidad_local.gif",
+    "ruta": "gifs/12.2/linealidad_local.gif"
+  },
+  {
+    "seccion": "12.3",
+    "archivo": "valor_medio.gif",
+    "ruta": "gifs/12.3/valor_medio.gif"
+  },
+  {
+    "seccion": "12.4",
+    "archivo": "f_derivadas.gif",
+    "ruta": "gifs/12.4/f_derivadas.gif"
+  },
+  {
+    "seccion": "12.5",
+    "archivo": "taylor_seno.gif",
+    "ruta": "gifs/12.5/taylor_seno.gif"
+  },
+  {
+    "seccion": "12.6",
+    "archivo": "serie_ln.gif",
+    "ruta": "gifs/12.6/serie_ln.gif"
+  },
+  {
+    "seccion": "13.1",
+    "archivo": "parcial3d.gif",
+    "ruta": "gifs/13.1/parcial3d.gif"
+  },
+  {
+    "seccion": "13.3",
+    "archivo": "plano_tangente.gif",
+    "ruta": "gifs/13.3/plano_tangente.gif"
+  },
+  {
+    "seccion": "13.3",
+    "archivo": "gradiente.gif",
+    "ruta": "gifs/13.3/gradiente.gif"
+  },
+  {
+    "seccion": "14.1",
+    "archivo": "riemann.gif",
+    "ruta": "gifs/14.1/riemann.gif"
+  },
+  {
+    "seccion": "14.2",
+    "archivo": "tfc_demo.gif",
+    "ruta": "gifs/14.2/tfc_demo.gif"
+  },
+  {
+    "seccion": "14.2",
+    "archivo": "tfc.gif",
+    "ruta": "gifs/14.2/tfc.gif"
+  },
+  {
+    "seccion": "14.6",
+    "archivo": "revolucion.gif",
+    "ruta": "gifs/14.6/revolucion.gif"
+  },
+  {
+    "seccion": "14.7",
+    "archivo": "fubini.gif",
+    "ruta": "gifs/14.7/fubini.gif"
+  },
+  {
+    "seccion": "3.1",
+    "archivo": "producto_matrices.gif",
+    "ruta": "gifs/3.1/producto_matrices.gif"
+  },
+  {
+    "seccion": "3.2",
+    "archivo": "determinante_area.gif",
+    "ruta": "gifs/3.2/determinante_area.gif"
+  },
+  {
+    "seccion": "3.3",
+    "archivo": "gauss.gif",
+    "ruta": "gifs/3.3/gauss.gif"
+  },
+  {
+    "seccion": "3.2",
+    "archivo": "escala_det.gif",
+    "ruta": "gifs/3.2/escala_det.gif"
+  },
+  {
+    "archivo": "trayectoria.gif",
+    "ruta": "gifs/13.2/trayectoria.gif"
+  }
 ]
