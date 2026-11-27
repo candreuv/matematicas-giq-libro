@@ -22,6 +22,8 @@
 
 <p>Para recordar Sarrus: los tres productos con signo \(+\) son la diagonal principal y los dos «triángulos» paralelos a ella (\(b\,f\,g\) y \(c\,d\,h\)); los tres con signo \(-\) son la otra diagonal (\(c\,e\,g\)) y sus dos triángulos paralelos (\(b\,d\,i\) y \(a\,f\,h\)).</p>
 
+<p style="text-align:center;"><img alt="Regla de Sarrus: seis matrices 3x3; en azul, la diagonal principal y los dos triángulos de los productos con signo más; en naranja, la otra diagonal y sus dos triángulos, con signo menos" src="__IMG_sarrus.png__" style="max-width:100%;" /></p>
+
 <div class="box-example"><h5 class="box-legend"><span>Ejemplo \(\PageIndex{1}\): regla de Sarrus</span></h5>
 <p>Calcula \(\begin{vmatrix}2&amp;1&amp;3\\0&amp;-1&amp;4\\1&amp;2&amp;0\end{vmatrix}\).</p>
 <dl><dt>Solución</dt><dd>
@@ -77,6 +79,7 @@
 
 <div class="box-warning"><h5 class="box-legend"><span>Cuidado con \(\det(A+B)\) y \(\det(\lambda A)\)</span></h5>
 <p>En general, \(\det(A+B)\ne\det(A)+\det(B)\). Y al multiplicar una matriz \(n\times n\) por \(\lambda\) se multiplican sus \(n\) filas, así que \(\det(\lambda A)=\lambda^n\det(A)\), no \(\lambda\det(A)\). Geométricamente: si se duplican los lados de un cuadrado, su área se multiplica por \(2^2=4\).</p>
+<p style="text-align:center;"><img alt="Animación: al multiplicar la identidad 2x2 por 2 el cuadrado unidad pasa a tener área 4; después, dos rectángulos de área 2 cuya suma de matrices da un cuadrado de área 9, no 4" src="__IMG_escala_det.gif__" style="max-width:100%;" /></p>
 </div>
 
 <h3>Cálculo de determinantes por eliminación</h3>
